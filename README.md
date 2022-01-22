@@ -10,6 +10,8 @@ The website also features a blogging section where users can post blogs.
 **BackEnd :** 
 * Go
 * Gin Framework
+* Gorm
+* SQLite
 
 # Members
 1) Aakash Naik
