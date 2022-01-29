@@ -6,6 +6,7 @@ The website also features a blogging section where users can post blogs.
 # Tech Stack
 **FrontEnd:**
 * React
+* Cypress
 
 **BackEnd :** 
 * Go
