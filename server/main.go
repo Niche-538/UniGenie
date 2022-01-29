@@ -35,8 +35,8 @@ func setupRouter() *gin.Engine {
 	// Same than:
 	// authorized := r.Group("/")
 	// authorized.Use(gin.BasicAuth(gin.Credentials{
-	//	  "foo":  "bar",
-	//	  "manu": "123",
+	//    "foo":  "bar",
+	//    "manu": "123",
 	//}))
 	authorized := r.Group("/", gin.BasicAuth(gin.Accounts{
 		"foo":  "bar", // user:foo password:bar
@@ -46,11 +46,11 @@ func setupRouter() *gin.Engine {
 	/* example curl for /admin with basicauth header
 	   Zm9vOmJhcg== is base64("foo:bar")
 
-		curl -X POST \
-	  	http://localhost:8080/admin \
-	  	-H 'authorization: Basic Zm9vOmJhcg==' \
-	  	-H 'content-type: application/json' \
-	  	-d '{"value":"bar"}'
+	    curl -X POST \
+	    http://localhost:8080/admin \
+	    -H 'authorization: Basic Zm9vOmJhcg==' \
+	    -H 'content-type: application/json' \
+	    -d '{"value":"bar"}'
 	*/
 	authorized.POST("admin", func(c *gin.Context) {
 		user := c.MustGet(gin.AuthUserKey).(string)
@@ -69,40 +69,41 @@ func setupRouter() *gin.Engine {
 	return r
 }
 
-type Product struct {
+type University struct {
 	gorm.Model
-	Code  string
-	Price uint
+	Name    string
+	Ranking uint
+	Country string
 }
 
 func main() {
 
-	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("unigenie_db.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
 
 	// Migrate the schema
-	db.AutoMigrate(&Product{})
+	db.AutoMigrate(&University{})
 
 	// Create
-	db.Create(&Product{Code: "D42", Price: 100})
+	db.Create(&University{Name: "University of Florida", Ranking: 5, Country: "USA"})
 
 	// Read
-	var product Product
-	db.First(&product, 1)                 // find product with integer primary key
-	db.First(&product, "code = ?", "D42") // find product with code D42
+	var university University
+	db.First(&university, 1)                  // find product with integer primary key
+	db.First(&university, "ranking = ?", "5") // find product with code D42
 
 	// Update - update product's price to 200
-	db.Model(&product).Update("Price", 200)
+	db.Model(&university).Update("Ranking", 1)
 	// Update - update multiple fields
-	db.Model(&product).Updates(Product{Price: 200, Code: "F42"}) // non-zero fields
-	db.Model(&product).Updates(map[string]interface{}{"Price": 200, "Code": "F42"})
+	db.Model(&university).Updates(University{Ranking: 6, Country: "United States of America"}) // non- fields
+	db.Model(&university).Updates(map[string]interface{}{"Ranking": 6, "Country": "United States of America"})
 
 	// Delete - delete product
-	db.Delete(&product, 1)
+	db.Delete(&university, 1)
 
 	r := setupRouter()
 	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8080")
+	r.Run(":8081")
 }
