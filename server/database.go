@@ -12,6 +12,13 @@ type University struct {
 	Country string
 }
 
+type User struct {
+	gorm.Model
+	Name     string
+	Username string
+	Password string
+}
+
 func setDatabase() {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
@@ -20,11 +27,12 @@ func setDatabase() {
 
 	// Migrate the schema
 	db.AutoMigrate(&University{})
+	db.AutoMigrate(&User{})
 
-	// Create
-	db.Create(&University{Name: "University of Florida", Ranking: 1, Country: "USA"})
-	db.Create(&University{Name: "University of Texas, Dallas", Ranking: 2, Country: "USA"})
-	db.Create(&University{Name: "Stony Brook", Ranking: 3, Country: "USA"})
+	// // Create
+	// db.Create(&University{Name: "University of Florida", Ranking: 1, Country: "USA"})
+	// db.Create(&University{Name: "University of Texas, Dallas", Ranking: 2, Country: "USA"})
+	// db.Create(&University{Name: "Stony Brook", Ranking: 3, Country: "USA"})
 
 	// // Read
 	// var university University

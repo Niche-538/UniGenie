@@ -22,5 +22,5 @@ func main() {
 	setDatabase()
 	r := setupRouter()
 	// Listen and Server in 0.0.0.0:8080
-	r.Run(":9000")
+	r.Run(":9001")
 }
