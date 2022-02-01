@@ -1,19 +1,54 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from "react";
 
-function StudentLogin() {
-  return (
-    <div className="StudentLogin">
-       
-       <p>React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library[3] 
-           for building user interfaces based on UI components. It is maintained by Meta (formerly Facebook) 
-           and a community of individual developers and companies.[4][5][6] React can be used as a base in the
-           development of single-page or mobile applications. However, React is only concerned with state 
-           management and rendering that state to the DOM, so creating React applications 
-           usually requires the use of additional libraries for routing, as well as certain client-side 
-           functionality.[7]</p>
-    </div>
-  );
+class StudentLogin extends Component {
+  state = {};
+
+  render() {
+    return (
+      <form>
+        <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label">
+            Email address
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" className="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <div className="mb-3 form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="exampleCheck1"
+          />
+          <label className="form-check-label" for="exampleCheck1">
+            Check me out
+          </label>
+        </div>
+        <button type="button" className="btn btn-primary m-2">
+          Login
+        </button>
+        <button type="button" className="btn btn-primary m-2">
+          Signup
+        </button>
+      </form>
+    );
+  }
 }
 
 export default StudentLogin;
