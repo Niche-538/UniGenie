@@ -7,6 +7,7 @@ import (
 
 type University struct {
 	gorm.Model
+<<<<<<< HEAD
 	UniID       uint   `gorm:"primary_key" json:"id"`
 	Name        string `json:"name"`
 	Ranking     uint   `json:"ranking"`
@@ -14,16 +15,35 @@ type University struct {
 	Description string `json:"description"`
 	CreatedAt   string `json:"createdAt"`
 	UpdatedAt   string `json:"updatedAt"`
+=======
+	ID      string `json:"id"`
+	Name    string `json:"name"`
+	Ranking uint   `json:"ranking"`
+	Country string `json:"country"`
+>>>>>>> af46b3971285d8a66445c10b7bd0329f09104deb
+}
+
+var universities = []University{
+	{ID: "1", Name: "University of Florida", Ranking: 1, Country: "USA"},
+	{ID: "2", Name: "University of Texas, Dallas", Ranking: 2, Country: "USA"},
+	{ID: "3", Name: "Stony Brook", Ranking: 3, Country: "USA"},
 }
 
 type User struct {
 	gorm.Model
+<<<<<<< HEAD
 	UserID    uint   `gorm:"primary_key" json:"id"`
 	Name      string `json:"name"`
 	Username  string `json:"username"`
 	Password  string `json:"password"`
 	CreatedAt string `json:"createdAt"`
 	UpdatedAt string `json:"updatedAt"`
+=======
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+>>>>>>> af46b3971285d8a66445c10b7bd0329f09104deb
 }
 
 // type CoursesOffered struct {
@@ -41,6 +61,7 @@ func setDatabase() {
 	// Migrate the schema
 	db.AutoMigrate(&University{})
 	db.AutoMigrate(&User{})
+<<<<<<< HEAD
 	// db.AutoMigrate(&CoursesOffered{})
 
 	// Create
@@ -62,4 +83,6 @@ func setDatabase() {
 	// // Delete - delete product
 	// db.Delete(&university, 1)
 
+=======
+>>>>>>> af46b3971285d8a66445c10b7bd0329f09104deb
 }
