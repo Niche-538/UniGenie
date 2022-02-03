@@ -1,17 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import React, { Component } from 'react';
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
+import Navigation from "./components/Navigation";
+import AdminLogin from "./components/AdminLogin";
+import StudentLogin from "./components/StudentLogin";
+import AdminSignup from "./components/AdminSignup";
+import StudentSignup from "./components/StudentSignup";
+import AdminFunc from "./components/AdminFunc";
+import AddUniversity from "./components/AddUniversity";
+import DeleteUniversity from "./components/DeleteUniversity";
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <Router>
+      <Navigation />
+      <Routes>
+        {/* <Route path="/" element={< />} /> */}
+        <Route path="/AdminLogin" element={<AdminLogin />} />
+        <Route path="/StudentLogin" element={<StudentLogin />} />
+        <Route path="/AdminSignup" element={<AdminSignup />} />
+        <Route path="/StudentSignup" element={<StudentSignup />} />
+        <Route path="/AdminFunc" element={<AdminFunc />} />
+        <Route path="/AddUniversity" element={<AddUniversity />} />
+        <Route path="/DeleteUniversity" element={<DeleteUniversity />} />
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+        {/* <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />}>
+          <Route path="" element=   {<Posts />} />
+          <Route path=":postSlug" element={<Post />} />
+        </Route> */}
+      </Routes>
+      {/* <Footer /> */}
+    </Router>,
+  
+    document.getElementById("root")
+  );
