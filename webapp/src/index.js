@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
-//import Hello from "./components/Navigation";   
-import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from "./components/Navigation";
 import AdminLogin from "./components/AdminLogin";
 import StudentLogin from "./components/StudentLogin";
+import AdminSignup from "./components/AdminSignup";
+import StudentSignup from "./components/StudentSignup";
 
 ReactDOM.render(
     <Router>
@@ -14,6 +15,8 @@ ReactDOM.render(
         {/* <Route path="/" element={< />} /> */}
         <Route path="/AdminLogin" element={<AdminLogin />} />
         <Route path="/StudentLogin" element={<StudentLogin />} />
+        <Route path="/AdminSignup" element={<AdminSignup />} />
+        <Route path="/StudentSignup" element={<StudentSignup />} />
         {/* <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />}>
           <Route path="" element=   {<Posts />} />
@@ -25,4 +28,3 @@ ReactDOM.render(
   
     document.getElementById("root")
   );
-
