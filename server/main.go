@@ -6,9 +6,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func getUniversities(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, universities)
-}
+// func getUniversities(c *gin.Context) {
+// 	c.IndentedJSON(http.StatusOK, universities)
+// }
 
 func setupRouter() *gin.Engine {
 	// Disable Console Color
@@ -25,7 +25,7 @@ func setupRouter() *gin.Engine {
 func main() {
 	r := setupRouter()
 	setDatabase()
-	r.GET("/universities", getUniversities)
+	// r.GET("/universities", getUniversities)
 	// Listen and Server in 0.0.0.0:8080
 	r.Run(":8080")
 }
