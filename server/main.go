@@ -16,18 +16,9 @@ type University struct {
 	Country string `json:"country"`
 }
 
-type User struct {
-	gorm.Model
-	ID       uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
-	Name     string `json:"name"`
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
 type OfferedCourse struct {
 	gorm.Model
-	ID         uint   `gorm:"primaryKey;autoIncrement" json:"Course ID"`
-	CourseName string `json:"course_name"`
+	ID uint `gorm:"primaryKey;autoIncrement" json:"Course ID"`
 }
 
 func getUniversities(c *gin.Context) {
@@ -57,7 +48,7 @@ func setupRouter() *gin.Engine {
 
 func main() {
 	r := setupRouter()
-
+	setDatabase()
 	r.GET("/universities", getUniversities)
 
 	// Listen and Server in 0.0.0.0:8080
