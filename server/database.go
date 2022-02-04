@@ -11,10 +11,6 @@ type University struct {
 	Name    string `json:"name"`
 	Ranking uint   `json:"ranking"`
 	Country string `json:"country"`
-	// CreatedAt    time.Time `json:"createdAt"`
-	// UpdatedAt    time.Time `json:"updatedAt"`
-	// UniversityID uint   `gorm:"primaryKey;autoIncrement" json:"university ID"`
-
 }
 
 // var universities = []University{
@@ -25,17 +21,16 @@ type University struct {
 
 type User struct {
 	gorm.Model
-	ID       uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
-	Name     string `json:"name"`
-	Username string `json:"username"`
-	Password string `json:"password"`
-	// UserID   uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
+	ID        uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
+	FirstName string `json:"First Name"`
+	LastName  string `json:"Last Name"`
+	Email     string `json:"username"`
+	Password  string `json:"password"`
 }
 
 type OfferedCourse struct {
 	gorm.Model
 	ID uint `gorm:"primaryKey;autoIncrement" json:"Course ID"`
-	// UniversityID uint `json:"University ID Foreign Key"`
 }
 
 func setDatabase() {
@@ -65,6 +60,12 @@ func setDatabase() {
 	// db.Migrator().DropColumn(&User{}, "id")
 	// db.Migrator().DropColumn(&University{}, "id")
 	// db.Migrator().DropColumn(&CoursesOffered{}, "id")
+
+	var users = []User{{FirstName: "John", LastName: "Doe", Email: "jd@floridaman.com", Password: "John@123"},
+		{FirstName: "Jenny", LastName: "Doe", Email: "jend@floridaman.com", Password: "Jen@123"},
+		{FirstName: "Don", LastName: "Joe", Email: "dj@floridaman.com", Password: "Don@123"}}
+
+	db.Create(&users)
 
 }
 
