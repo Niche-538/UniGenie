@@ -71,7 +71,7 @@ class StudentSignup extends Component {
           <button
             type="button"
             className="btn btn-primary m-2"
-            // onClick={() => (window.location.href = "/AdminSignup")}
+            onClick={() => (window.location.href = "/StudentDetails")}
           >
             Signup
           </button>
