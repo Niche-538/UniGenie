@@ -15,13 +15,15 @@ Pratik Kamble (BackEnd)
 #Project Scrum Board
 https://github.com/Niche-538/UniGenie/projects/1#column-17534454
 
-#BackEnd
-* Set up Go, Gin, Gorm and Sqlite
-* Created unigenie.db database
-* Added User and University tables with demo values.
-* Added GET api to get all Users and Universities
-* Added POST api to add a new User and University.
-video link - https://drive.google.com/file/d/1AL6Pw6EiLCKUUW7XbdKDtojEIs1qTXH_/view?usp=sharing
+## BackEnd
+<ul>
+  <li>Set up Go, Gin, Gorm and Sqlite</li>
+  <li>Created unigenie.db database</li>
+  <li>Added User and University tables with demo values.</li>
+  <li>Added GET api to get all Users and Universities</li>
+  <li>Added POST api to add a new User and University.</li>
+</ul>
+<b>Video Link</b>: https://drive.google.com/file/d/1AL6Pw6EiLCKUUW7XbdKDtojEIs1qTXH_/view?usp=sharing
 
 
 ![Get Universities](https://user-images.githubusercontent.com/41022671/152628376-8eb8b076-adcb-41e1-96fe-3a85354f227f.png)
@@ -31,13 +33,15 @@ video link - https://drive.google.com/file/d/1AL6Pw6EiLCKUUW7XbdKDtojEIs1qTXH_/v
 
 
 
-#FrontEnd
-* React set up
-* Created main page with navbar on top 
-* Created pages for admin and student login and signup
-* Created page to add university details
-* Created page to add student personal and education details
-video link - https://drive.google.com/file/d/1qDTV2cq3uyHbeTmDGT2oZkGB2QYvk-3g/view
+## FrontEnd
+<ul>
+  <li>React set up</li>
+  <li>Created main page with navbar on top </li>
+  <li>Created pages for admin and student login and signup</li>
+  <li>Created page to add university details</li>
+  <li>Created page to add student personal and education details</li>
+</ul>
+<b>Video Link</b>: https://drive.google.com/file/d/1qDTV2cq3uyHbeTmDGT2oZkGB2QYvk-3g/view
 
 <img width="1440" alt="Screen Shot 2022-02-04 at 11 09 42 PM" src="https://user-images.githubusercontent.com/63544356/152628174-3ca11380-1845-4664-bec5-ef6548e85809.png">
 <img width="1440" alt="Screen Shot 2022-02-04 at 11 09 49 PM" src="https://user-images.githubusercontent.com/63544356/152628179-02ffd19f-f0d2-4e92-8df5-e6480b6abad6.png">
