@@ -8,6 +8,8 @@ import (
 	"gorm.io/gorm"
 )
 
+// var db *gorm.DB
+
 type University struct {
 	gorm.Model
 	ID      uint   `gorm:"primaryKey;autoIncrement" json:"university ID"`
@@ -39,7 +41,7 @@ func getUniversities(c *gin.Context) {
 	universities := []University{}
 
 	db.Find(&universities)
-	c.JSON(200, &universities)
+	c.JSON(http.StatusOK, &universities)
 
 }
 
@@ -52,27 +54,59 @@ func getUsers(c *gin.Context) {
 	users := []User{}
 
 	db.Find(&users)
-	c.JSON(200, &users)
+	c.JSON(http.StatusOK, &users)
 
-}
-
-func setupRouter() *gin.Engine {
-	// Disable Console Color
-	// gin.DisableConsoleColor()
-	r := gin.Default()
-
-	// Ping test
-	r.GET("/ping", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
-	return r
 }
 
 func main() {
-	r := setupRouter()
-	setDatabase()
-	r.GET("/getUniversities", getUniversities)
-	r.GET("/getUsers", getUsers)
+	// setting up the router
+	router := gin.Default()
+
+	// setDatabase()
+
+	router.GET("/getUniversities", getUniversities)
+	router.GET("/getUsers", getUsers)
+	router.POST("/signup", postUsers)
+	router.POST("/addUniversity", postUniversities)
 	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8080")
+	router.Run(":8080")
+}
+
+// POST Functions
+
+func postUsers(c *gin.Context) {
+	var newUser User
+	if err := c.ShouldBindJSON(&newUser); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	user := User{FirstName: newUser.FirstName, LastName: newUser.LastName, Email: newUser.Email, Password: newUser.Password}
+	db.Create(&user)
+
+	c.JSON(http.StatusOK, gin.H{"data": user})
+
+}
+
+func postUniversities(c *gin.Context) {
+	var newUniv University
+	if err := c.ShouldBindJSON(&newUniv); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	univ := University{Name: newUniv.Name, Ranking: newUniv.Ranking, Country: newUniv.Country}
+	db.Create(&univ)
+
+	c.JSON(http.StatusOK, gin.H{"data": univ})
 }
