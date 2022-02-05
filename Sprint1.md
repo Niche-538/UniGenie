@@ -21,7 +21,13 @@ https://github.com/Niche-538/UniGenie/projects/1#column-17534454
 * Added User and University tables with demo values.
 * Added GET api to get all Users and Universities
 * Added POST api to add a new User and University.
-video link - 
+video link - https://drive.google.com/file/d/1AL6Pw6EiLCKUUW7XbdKDtojEIs1qTXH_/view?usp=sharing
+
+
+![Get Universities](https://user-images.githubusercontent.com/41022671/152628376-8eb8b076-adcb-41e1-96fe-3a85354f227f.png)
+![Get Users](https://user-images.githubusercontent.com/41022671/152628385-f5608123-f00c-4e44-b47a-2d6b4921af30.png)
+![POST - Add Users](https://user-images.githubusercontent.com/41022671/152628387-22983c1f-50ff-4d06-a3b7-330f7c65a9c2.png)
+![POST - Add Universities](https://user-images.githubusercontent.com/41022671/152628388-930bfe2f-83d1-4ac7-b33c-9853a29c748e.png)
 
 
 
