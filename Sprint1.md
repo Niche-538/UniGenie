@@ -8,11 +8,12 @@ Kunal Dudhe (FrontEnd)
 Pratik Kamble (BackEnd)
 
 # Sprint Target
-* To setup systems for UniGenie Project.
-* Add admin capabilities to add and view university.
-* Have a search facility on client to filter and view universities by Name
-
-#Project Scrum Board
+<ul>
+  <li>To setup systems for UniGenie Project.</li>
+  <li>Add admin capabilities to add and view university.</li>
+  <li>Have a search facility on client to filter and view universities by Name</li>
+</ul>
+# Project Scrum Board
 https://github.com/Niche-538/UniGenie/projects/1#column-17534454
 
 ## BackEnd
