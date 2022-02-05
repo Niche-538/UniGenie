@@ -1,5 +1,5 @@
 # UniGenie
-Course project for graduate level course CEN5035 - Software Engineering
+Course project for graduate level course CEN5035 - Software Engineering.<br>
 A website that acts as a guide about the universities to potential students whole throughout the globe assisting them in their study abroad journey.<br>
 It also allows aspirants to interact with each other using one-to-one messaging.<br>
 The website also features a blogging section where users can post blogs.
@@ -12,13 +12,16 @@ The website also features a blogging section where users can post blogs.
 
 # Tech Stack
 **FrontEnd:**
+* HTML
+* CSS
+* JavaScript
 * React
+* Bootstrap
+* Material UI
 * Cypress
 
-**BackEnd :** 
+**BackEnd:** 
 * Go
 * Gin Framework
 * Gorm
 * SQLite
-
-
