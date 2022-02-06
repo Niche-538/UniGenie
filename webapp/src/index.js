@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, StrictMode } from 'react';
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation";
@@ -11,10 +11,18 @@ import AddUniversity from "./components/AddUniversity";
 import DeleteUniversity from "./components/DeleteUniversity";
 import StudentDetails from "./components/StudentDetails";
 import 'bootstrap/dist/css/bootstrap.css';
+import App from './App.tsx'
+import Icon from './components/Icon';
 
+const rootElement=document.getElementById("root")
+const image=document.getElementById("image")
+const text=document.getElementById("text")
 ReactDOM.render(
-    <Router>
-    	<Navigation />
+        
+	<StrictMode>
+		<Navigation/>
+	    <Router>
+    	
       	<Routes>
         	<Route path="/AdminLogin" element={<AdminLogin />} />
         	<Route path="/StudentLogin" element={<StudentLogin />} />
@@ -26,6 +34,22 @@ ReactDOM.render(
         	<Route path="/StudentDetails" element={<StudentDetails />} />
       	</Routes>
     </Router>,
+
+		
+	</StrictMode>,
   
-	document.getElementById("root")
+  rootElement	
 	);
+
+ReactDOM.render(
+   <StrictMode>
+	   <Icon/>
+   </StrictMode>,
+   image
+); 
+ReactDOM.render(
+   <StrictMode>
+	   <App/>
+   </StrictMode>,
+   text
+);
