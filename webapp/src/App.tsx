@@ -31,7 +31,7 @@ export default function App() {
     set([])
     ref.current.push(setTimeout(() => set(['Find', 'Your', 'Dream','University']), 2000))
     ref.current.push(setTimeout(() => set(['Dream', 'University']), 5000))
-    ref.current.push(setTimeout(() => set(['Your',,'University']), 8000))
+    ref.current.push(setTimeout(() => set(['Your', 'University']), 8000))
     ref.current.push(setTimeout(() => set(['Find', 'Your', 'Dream','University']), 10000))
   }, [])
 
