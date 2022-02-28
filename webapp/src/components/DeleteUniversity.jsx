@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
 class DeleteUniversity extends Component {
-  state = {};
+    state = {};
 
-  render() {
-    return (
-      <div id="DeleteUniversity">
-            <h1> Deleting University</h1>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div id="DeleteUniversity">
+                <h1> Deleting University</h1>
+            </div>
+        );
+    }
 }
 
 export default DeleteUniversity;
