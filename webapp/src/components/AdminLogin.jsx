@@ -38,17 +38,7 @@ class AdminLogin extends Component {
             />
           </div>
         </div>
-        {/* <div className="mb-3 form-check text-center">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="flexCheckDefault"
-          />
-          <label className="form-check-label" for="flexCheckDefault">
-            Remember Me
-          </label>
-        </div> */}
-        <div className="mb-3 form-group text-center">
+       <div className="mb-3 form-group text-center">
           <div className="custom-control custom-checkbox">
             <input
               type="checkbox"
@@ -61,11 +51,13 @@ class AdminLogin extends Component {
           </div>
         </div>
         <div className="text-center">
-        <button type="button" className="btn btn-primary m-2"
-        onClick={() => (window.location.href = "/adminFunc")}
-        >
-          Login
-        </button>
+          <button
+            type="button"
+            className="btn btn-primary m-2"
+            onClick={() => (window.location.href = "/AdminFunc")}
+          >
+            Login
+          </button>
           <button
             type="button"
             className="btn btn-primary m-2"
