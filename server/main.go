@@ -1,7 +1,10 @@
 package main
 
 import (
+	// models "UniGenie/server/models"
+	// "models"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/sqlite"
@@ -25,11 +28,6 @@ type User struct {
 	LastName  string `json:"Last Name"`
 	Email     string `json:"username"`
 	Password  string `json:"password"`
-}
-
-type OfferedCourse struct {
-	gorm.Model
-	ID uint `gorm:"primaryKey;autoIncrement" json:"Course ID"`
 }
 
 func getUniversities(c *gin.Context) {
@@ -59,9 +57,16 @@ func getUsers(c *gin.Context) {
 }
 
 func main() {
+
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
 	// setting up the router
 	router := gin.Default()
-
+	router.Use(gin.Logger())
 	// setDatabase()
 
 	router.GET("/getUniversities", getUniversities)
