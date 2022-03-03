@@ -13,63 +13,86 @@ import StudentDetails from "./components/StudentDetails";
 import AddPrograms from "./components/AddPrograms";
 // import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import App from "./components/Anim.tsx";
+import Anim from "./components/Anim.tsx";
 import Icon from "./components/Icon";
 
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
-const needImage=true;
-const needAnim=true;
-
+var needImage=true;
+//const needAnim=true;
+var wind=window.location.href;
+//console.log(wind)
+if (wind=="http://localhost:3000/"){
+    
 ReactDOM.render(
     <StrictMode>
         <Navigation/>
         <Router>
             <Routes>
-                <Route path="/AdminLogin" element={<AdminLogin />} />
+                <Route path="/AdminLogin"  element={<AdminLogin />} />
                 <Route path="/StudentLogin" element={<StudentLogin />} />
                 <Route path="/AdminSignup" element={<AdminSignup />} />
                 <Route path="/StudentSignup" element={<StudentSignup />} />
                 <Route path="/AdminFunc" element={<AdminFunc />} />
                 <Route path="/AddUniversity" element={<AddUniversity />} />
-                <Route
-                    path="/DeleteUniversity"
-                    element={<DeleteUniversity />}
-                />
+                <Route path="/DeleteUniversity" element={<DeleteUniversity />}/>
                 <Route path="/StudentDetails" element={<StudentDetails />} />
                 <Route path="/AddPrograms" element={<AddPrograms />} />
             </Routes>
-        </Router>
-        
+        </Router>    
     </StrictMode>,
     rootElement
 );
 
-function Image(props){
-    //const needImage=props.needImage;
-    if(needImage){
-        return <Icon/>
-    }  
-}
-
-function Anim(props){
-    //const needAnim=props.needAnim;
-    if(needAnim){
-        return <App/>
-    }  
-}
-
 ReactDOM.render(
     <StrictMode>
-        <Image needImage/>
+        <Icon/>
     </StrictMode>,
     image
 );
 
 ReactDOM.render(
     <StrictMode>
-        <Anim needAnim/>
+        <Anim/>
     </StrictMode>,
     text
 );
+needImage=false;
+}
+else{
+    ReactDOM.render(
+        <StrictMode>
+            <Navigation/>
+            <Router>
+                <Routes>
+                    <Route path="/AdminLogin" element={<AdminLogin />} />
+                    <Route path="/StudentLogin" element={<StudentLogin />} />
+                    <Route path="/AdminSignup" element={<AdminSignup />} />
+                    <Route path="/StudentSignup" element={<StudentSignup />} />
+                    <Route path="/AdminFunc" element={<AdminFunc />} />
+                    <Route path="/AddUniversity" element={<AddUniversity />} />
+                    <Route path="/DeleteUniversity" element={<DeleteUniversity />}/>
+                    <Route path="/StudentDetails" element={<StudentDetails />} />
+                    <Route path="/AddPrograms" element={<AddPrograms />} />
+                </Routes>
+            </Router>    
+        </StrictMode>,
+        rootElement
+    ); 
+}
+
+
+// function Image(props){
+//     //const needImage=props.needImage;
+//     if(needImage){
+//         return <Icon/>
+//     }  
+// }
+
+// function Animation(props){
+//     //const needAnim=props.needAnim;
+//     if(needAnim){
+//         return <Anim/>
+//     }  
+// }
