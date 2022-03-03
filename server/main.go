@@ -3,6 +3,7 @@ package main
 import (
 	// models "UniGenie/server/models"
 	// "models"
+	"fmt"
 	"net/http"
 	"os"
 
@@ -10,6 +11,12 @@ import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
+
+func Hello(name string) string {
+	// Return a greeting that embeds the name in a message.
+	message := fmt.Sprintf("Hi, %v. Welcome!", name)
+	return message
+}
 
 // var db *gorm.DB
 
