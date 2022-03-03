@@ -78,8 +78,8 @@ import { Button, Form } from "react-bootstrap";
 
 class AdminLogin extends Component {
     state = {};
-
-    render() {
+   
+    render() { 
         return (
             <Form>
                 <Form.Group

@@ -13,16 +13,18 @@ import StudentDetails from "./components/StudentDetails";
 import AddPrograms from "./components/AddPrograms";
 // import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import App from "./App.tsx";
+import App from "./components/Anim.tsx";
 import Icon from "./components/Icon";
 
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
+const needImage=true;
+const needAnim=true;
 
 ReactDOM.render(
     <StrictMode>
-        <Navigation />
+        <Navigation/>
         <Router>
             <Routes>
                 <Route path="/AdminLogin" element={<AdminLogin />} />
@@ -39,21 +41,35 @@ ReactDOM.render(
                 <Route path="/AddPrograms" element={<AddPrograms />} />
             </Routes>
         </Router>
-        ,
+        
     </StrictMode>,
     rootElement
 );
 
+function Image(props){
+    //const needImage=props.needImage;
+    if(needImage){
+        return <Icon/>
+    }  
+}
+
+function Anim(props){
+    //const needAnim=props.needAnim;
+    if(needAnim){
+        return <App/>
+    }  
+}
+
 ReactDOM.render(
     <StrictMode>
-        <Icon />
+        <Image needImage/>
     </StrictMode>,
     image
 );
 
 ReactDOM.render(
     <StrictMode>
-        <App />
+        <Anim needAnim/>
     </StrictMode>,
     text
 );
