@@ -15,12 +15,3 @@ func TestHelloName(t *testing.T) {
 		t.Fatalf(`Hello("Gladys") = %q, want match for %#q, nil`, msg, want)
 	}
 }
-
-// TestHelloEmpty calls greetings.Hello with an empty string,
-// checking for an error.
-func TestHelloEmpty(t *testing.T) {
-	msg := Hello("")
-	if msg == "" {
-		t.Fatalf(`Failed`)
-	}
-}
