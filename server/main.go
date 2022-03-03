@@ -1,8 +1,8 @@
 package main
 
 import (
-	// models "UniGenie/server/models"
-	// "models"
+	models "unigenie/api/models"
+	routes "unigenie/api/routes"
 	"fmt"
 	"net/http"
 	"os"
@@ -41,18 +41,18 @@ type User struct {
 	Password  string `json:"password"`
 }
 
-// func getUniversities(c *gin.Context) {
-// 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-// 	if err != nil {
-// 		panic("failed to connect database")
-// 	}
+func getUniversities(c *gin.Context) {
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
 
-// 	universities := []University{}
+	universities := []University{}
 
-// 	db.Find(&universities)
-// 	c.JSON(http.StatusOK, &universities)
+	db.Find(&universities)
+	c.JSON(http.StatusOK, &universities)
 
-// }
+}
 
 func getUsers(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
@@ -67,38 +67,29 @@ func getUsers(c *gin.Context) {
 
 }
 
-func main() {
+// func main() {
 
-	port := os.Getenv("PORT")
+// 	port := os.Getenv("PORT")
 
-	if port == "" {
-		port = "8080"
-	}
+// 	if port == "" {
+// 		port = "8080"
+// 	}
 
-	models.PrintingTp()
+// 	models.PrintingTp()
 
-	// setting up the router
-	router := gin.Default()
-	router.Use(gin.Logger())
-	// setDatabase()
+// 	// setting up the router
+// 	router := gin.Default()
+// 	router.Use(gin.Logger())
+// 	// setDatabase()
 
-
-
-
-
-
-
-
-
-
-	// router.GET("/getUniversities", getUniversities)
-	router.GET("/getUsers", getUsers)
-	router.GET("/getUni", models.GetUniversities)
-	router.POST("/signup", postUsers)
-	router.POST("/addUniversity", postUniversities)
-	// Listen and Server in 0.0.0.0:8080
-	router.Run(":8080")
-}
+// 	// router.GET("/getUniversities", getUniversities)
+// 	router.GET("/getUsers", getUsers)
+// 	router.GET("/getUni", models.GetUniversities)
+// 	router.POST("/signup", postUsers)
+// 	router.POST("/addUniversity", postUniversities)
+// 	// Listen and Server in 0.0.0.0:8080
+// 	router.Run(":8080")
+// }
 
 // POST Functions
 
@@ -144,3 +135,31 @@ func postUniversities(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"data": univ})
 }
+
+func main() {
+
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
+	// setting up the router
+	router := gin.New()
+	router.Use(gin.Logger())
+
+	// Routes
+	routes.AuthRoutes(router)
+	routes.UserRoutes(router)
+
+	// API Calls
+
+	// router.GET("/getUniversities", getUniversities)
+	// router.GET("/getUsers", getUsers)
+	router.GET("/getUsersMod", models.GetUsers)
+	router.GET("/getUniMod", models.GetUniversities)
+	
+	// Listen and Server in 0.0.0.0:8080
+	router.Run(":"+port)
+}
+
