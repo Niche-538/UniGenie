@@ -1,17 +1,34 @@
 package main
 
 import (
-	"regexp"
+	"fmt"
+	"net/http"
+	"net/http/httptest"
 	"testing"
+
+	"github.com/gin-gonic/gin"
 )
 
-// TestHelloName calls greetings.Hello with a name, checking
-// for a valid return value.
-func TestHelloName(t *testing.T) {
-	name := "Gladys"
-	want := regexp.MustCompile(`\b` + name + `\b`)
-	msg := Hello("Gladys")
-	if !want.MatchString(msg) {
-		t.Fatalf(`Hello("Gladys") = %q, want match for %#q, nil`, msg, want)
+func TestGetUniversities(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	r := gin.Default()
+	r.GET("/getUniversities", getUniversities)
+
+	req, err := http.NewRequest(http.MethodGet, "/getUniversities", nil)
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+	fmt.Println(w.Body)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
 }
