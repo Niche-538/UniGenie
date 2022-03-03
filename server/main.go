@@ -1,7 +1,9 @@
 package main
 
 import (
-	models "unigenie/api/models"
+	// models "UniGenie/server/models"
+	// "models"
+	"fmt"
 	"net/http"
 	"os"
 
@@ -10,19 +12,29 @@ import (
 	"gorm.io/gorm"
 )
 
+func Hello(name string) string {
+	// Return a greeting that embeds the name in a message.
+	message := fmt.Sprintf("Hi, %v. Welcome!", name)
+	return message
+}
+
 // var db *gorm.DB
 
 type University struct {
 	gorm.Model
-	ID      uint   `gorm:"primaryKey;autoIncrement" json:"university ID"`
+	ID      uint   `gorm:"primaryKey;autoIncrement" json:"university_id"`
 	Name    string `json:"name"`
-	Ranking uint   `json:"ranking"`
+	Website string `json:"website"`
+	Address string `json:"address"`
+	City    string `json:"city"`
+	State   string `json:"state"`
+	Zip     uint   `json:"zip"`
 	Country string `json:"country"`
 }
 
 type User struct {
 	gorm.Model
-	ID        uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
+	ID        uint   `gorm:"primaryKey;autoIncrement" json:"user_id"`
 	FirstName string `json:"First Name"`
 	LastName  string `json:"Last Name"`
 	Email     string `json:"username"`
@@ -121,7 +133,13 @@ func postUniversities(c *gin.Context) {
 		panic("failed to connect database")
 	}
 
-	univ := University{Name: newUniv.Name, Ranking: newUniv.Ranking, Country: newUniv.Country}
+	univ := University{Name: newUniv.Name,
+		Website: newUniv.Website,
+		Address: newUniv.Address,
+		City:    newUniv.City,
+		State:   newUniv.State,
+		Zip:     newUniv.Zip,
+		Country: newUniv.Country}
 	db.Create(&univ)
 
 	c.JSON(http.StatusOK, gin.H{"data": univ})
