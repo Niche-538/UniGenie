@@ -55,7 +55,7 @@ func PostUsers(c *gin.Context) {
 
 }
 
-func postUniversities(c *gin.Context) {
+func PostUniversities(c *gin.Context) {
 	var newUniv University
 	if err := c.ShouldBindJSON(&newUniv); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

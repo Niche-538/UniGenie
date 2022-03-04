@@ -2,7 +2,6 @@
 
 /* Add University Table - Added by Pratik on March 2 2022*/ 
 
--- drop table universities;
 -- create table universities (
 --     university_id int PRIMARY_KEY AUTO_INCREMENT,
 --     name varchar(255),
@@ -24,7 +23,6 @@
 
 /* Add User Table - Added by Pratik on March 3 2022*/ 
 
--- drop table users;
 -- create table users (
 --     user_id int PRIMARY_KEY AUTO_INCREMENT,
 --     first_name varchar(255),
@@ -57,5 +55,20 @@
 
 -- INSERT INTO program (program_id, institute_name, program_name, offered_by, fall_intake,spring_intake)
 -- VALUES (1, 'University of Florida', 'CISE', 'HWCOE', 100, 50);
+
+-- ---------------------------------------------------------------------------------------------------------
+
+/* Add Offered Courses Table - Added by Pratik on March 3 2022*/ 
+
+-- create table offered_courses (
+--     course_id int PRIMARY_KEY AUTO_INCREMENT,
+--     course_name varchar(255),
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL 
+-- );
+
+-- INSERT INTO offered_courses (course_id, course_name)
+-- VALUES (1, 'Bioinformatics');
 
 -- ---------------------------------------------------------------------------------------------------------

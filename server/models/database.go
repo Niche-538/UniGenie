@@ -27,18 +27,18 @@ type User struct {
 
 type Program struct {
 	gorm.Model
-	ID            uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
-	InstituteName string `json:"Institute Name"`
-	ProgramName   string `json:"Program Name"`
-	OfferedBy     string `json:"Offered By"`
-	FallIntake    string `json:"Fall Intake"`
-	SpringIntake  string `json:"Spring Intake"`
+	ID            uint   `gorm:"primaryKey;autoIncrement" json:"program_id"`
+	InstituteName string `json:"institute_name"`
+	ProgramName   string `json:"program_name"`
+	OfferedBy     string `json:"offered_by"`
+	FallIntake    string `json:"fall_intake"`
+	SpringIntake  string `json:"spring_intake"`
 }
 
 type OfferedCourse struct {
 	gorm.Model
-	ID         uint   `gorm:"primaryKey;autoIncrement" json:"Course ID"`
-	CourseName string `json:"Course Name"`
+	ID         uint   `gorm:"primaryKey;autoIncrement" json:"course_id"`
+	CourseName string `json:"course_name"`
 }
 
 func SetDatabase() {
