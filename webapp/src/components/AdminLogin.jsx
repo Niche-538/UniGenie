@@ -115,8 +115,9 @@ class AdminLogin extends Component {
                 <Form.Group
                     className="row mb-3 align-items-center justify-content-center"
                     controlId="formBasicCheckbox"
+                    //style={{length:100}}
                 >
-                    <Form.Group className="col-xl-1">
+                    <Form.Group className="col-xl-2">
                         <Form.Check type="checkbox" label="Remember me" />
                     </Form.Group>
                 </Form.Group>

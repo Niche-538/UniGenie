@@ -2,6 +2,7 @@ import React, { Component, StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation";
+import Navigation_nonMain from "./components/Navigation_nonMain";
 import AdminLogin from "./components/AdminLogin";
 import StudentLogin from "./components/StudentLogin";
 import AdminSignup from "./components/AdminSignup";
@@ -19,7 +20,7 @@ import Icon from "./components/Icon";
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
-var needImage=true;
+
 //const needAnim=true;
 var wind=window.location.href;
 //console.log(wind)
@@ -58,12 +59,12 @@ ReactDOM.render(
     </StrictMode>,
     text
 );
-needImage=false;
+
 }
 else{
     ReactDOM.render(
         <StrictMode>
-            <Navigation/>
+            <Navigation_nonMain/>
             <Router>
                 <Routes>
                     <Route path="/AdminLogin" element={<AdminLogin />} />

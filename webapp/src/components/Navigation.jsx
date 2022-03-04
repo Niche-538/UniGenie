@@ -34,10 +34,10 @@ class Navigation extends Component {
     render() {
         return (
             <div className="navigation">
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg ">
                     <div className="container-fluid">
                         <a
-                            style={{ fontSize: 40, color: "#4a54f1" }}
+                            style={{ fontSize: 40, color: "#4a54f1", fontFamily:"cursive" }}
                             className="navbar-brand"
                             href="/"
                         >
@@ -63,7 +63,7 @@ class Navigation extends Component {
                                 <li className="nav-item">
                                     <button
                                         type="button"
-                                        className="btn btn-primary m-2"
+                                        className="btn btn-primary-outline m-2"
                                         onClick={() =>
                                             (window.location.href =
                                                 "/AdminLogin")
@@ -75,7 +75,7 @@ class Navigation extends Component {
                                 <li className="nav-item">
                                     <button
                                         type="button"
-                                        className="btn btn-primary m-2"
+                                        className="btn btn-primary-outline m-2"
                                         onClick={() =>
                                             (window.location.href =
                                                 "/StudentLogin")
@@ -84,18 +84,19 @@ class Navigation extends Component {
                                         Student Login
                                     </button>
                                 </li>
+                                <li className="nav-item">
+                                    <button
+                                        type="button"
+                                        className="btn btn-primary-outline m-2"
+                                        onClick={() =>
+                                            (window.location.href =
+                                                "/")
+                                        }
+                                    >
+                                        Grad School Finder
+                                    </button>
+                                </li>
                             </ul>
-                            {/* <form className="d-flex">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form> */}
                         </div>
                     </div>
                 </nav>
