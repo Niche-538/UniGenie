@@ -1,8 +1,6 @@
 package models
 
 import (
-	"fmt"
-
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -20,16 +18,27 @@ type University struct {
 }
 type User struct {
 	gorm.Model
-	ID        uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
-	FirstName string `json:"First Name"`
+	ID        uint   `gorm:"primaryKey;autoIncrement" json:"user_id"`
+	FirstName string `json:"first_name"`
 	LastName  string `json:"Last Name"`
 	Email     string `json:"username"`
 	Password  string `json:"password"`
 }
 
+type Program struct {
+	gorm.Model
+	ID            uint   `gorm:"primaryKey;autoIncrement" json:"program_id"`
+	InstituteName string `json:"institute_name"`
+	ProgramName   string `json:"program_name"`
+	OfferedBy     string `json:"offered_by"`
+	FallIntake    string `json:"fall_intake"`
+	SpringIntake  string `json:"spring_intake"`
+}
+
 type OfferedCourse struct {
 	gorm.Model
-	ID uint `gorm:"primaryKey;autoIncrement" json:"Course ID"`
+	ID         uint   `gorm:"primaryKey;autoIncrement" json:"course_id"`
+	CourseName string `json:"course_name"`
 }
 
 func SetDatabase() {
@@ -41,16 +50,7 @@ func SetDatabase() {
 	// Migrate the schema
 	db.AutoMigrate(&University{})
 	db.AutoMigrate(&User{})
-	// db.AutoMigrate(&OfferedCourse{})
+	db.AutoMigrate(&Program{})
+	db.AutoMigrate(&OfferedCourse{})
 
-	var users = []User{{FirstName: "John", LastName: "Doe", Email: "jd@floridaman.com", Password: "John@123"},
-		{FirstName: "Jenny", LastName: "Doe", Email: "jend@floridaman.com", Password: "Jen@123"},
-		{FirstName: "Don", LastName: "Joe", Email: "dj@floridaman.com", Password: "Don@123"}}
-
-	db.Create(&users)
-
-}
-
-func PrintingTp() {
-	fmt.Println("Imported")
 }

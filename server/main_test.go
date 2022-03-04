@@ -38,7 +38,7 @@ func TestGetUsers(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getUsers", models.GetUsers)
+	r.GET("/getUsers", models.GetUniversities)
 
 	req, err := http.NewRequest(http.MethodGet, "/getUsers", nil)
 
