@@ -87,6 +87,21 @@
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 
+function handleOnClick() {
+    // POST request using fetch with set headers
+    const requestOptions = {
+        method: 'POST',
+        mode:'cors',
+        body: JSON.stringify({  "first_name": "Kunal", 
+                                "last_name":"Dudhe",
+                                "email":"kd@ufl.edu",
+                                "password":"uyegfuyewfvhj",
+                                })
+    };
+    fetch("http://localhost:8080/addUsers", requestOptions);
+}
+
+
 class StudentSignup extends Component {
     state = {};
 
@@ -158,6 +173,7 @@ class StudentSignup extends Component {
                         variant="primary"
                         type="submit"
                         href="/StudentDetails"
+                        onClick={handleOnClick}
                     >
                         Signup
                     </Button>{" "}
