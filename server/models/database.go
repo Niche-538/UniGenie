@@ -1,8 +1,6 @@
 package models
 
 import (
-	"fmt"
-
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -41,16 +39,6 @@ func SetDatabase() {
 	// Migrate the schema
 	db.AutoMigrate(&University{})
 	db.AutoMigrate(&User{})
-	// db.AutoMigrate(&OfferedCourse{})
+	db.AutoMigrate(&OfferedCourse{})
 
-	var users = []User{{FirstName: "John", LastName: "Doe", Email: "jd@floridaman.com", Password: "John@123"},
-		{FirstName: "Jenny", LastName: "Doe", Email: "jend@floridaman.com", Password: "Jen@123"},
-		{FirstName: "Don", LastName: "Joe", Email: "dj@floridaman.com", Password: "Don@123"}}
-
-	db.Create(&users)
-
-}
-
-func PrintingTp() {
-	fmt.Println("Imported")
 }
