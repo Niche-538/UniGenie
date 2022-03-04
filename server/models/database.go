@@ -20,8 +20,8 @@ type User struct {
 	gorm.Model
 	ID        uint   `gorm:"primaryKey;autoIncrement" json:"user_id"`
 	FirstName string `json:"first_name"`
-	LastName  string `json:"Last Name"`
-	Email     string `json:"username"`
+	LastName  string `json:"last_name"`
+	Email     string `json:"email"`
 	Password  string `json:"password"`
 }
 
@@ -41,6 +41,22 @@ type OfferedCourse struct {
 	CourseName string `json:"course_name"`
 }
 
+type PersonalDetails struct {
+	gorm.Model
+	ID uint `gorm:"primaryKey;autoIncrement" json:"personal_details_id"`
+	FirstName 		string `json:"first_name"`
+	LastName  		string `json:"last_name"`
+	Email     		string `json:"email"`
+	AddressLine1 	string `json:"address_line_1"`
+	AddressLine2 	string `json:"address_line_2"`
+	City 			string `json:"address_line_1"`
+	State 			string `json:"address_line_2"`
+	ZipCode 		uint `json:"address_line_1"`
+	Country 		string `json:"address_line_2"`
+
+	
+}
+
 func SetDatabase() {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
@@ -48,9 +64,9 @@ func SetDatabase() {
 	}
 
 	// Migrate the schema
-	db.AutoMigrate(&University{})
-	db.AutoMigrate(&User{})
-	db.AutoMigrate(&Program{})
-	db.AutoMigrate(&OfferedCourse{})
-
+	// db.AutoMigrate(&University{})
+	// db.AutoMigrate(&User{})
+	// db.AutoMigrate(&Program{})
+	// db.AutoMigrate(&OfferedCourse{})
+	db.AutoMigrate(&PersonalDetails{})
 }
