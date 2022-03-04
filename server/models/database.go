@@ -18,16 +18,27 @@ type University struct {
 }
 type User struct {
 	gorm.Model
-	ID        uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
-	FirstName string `json:"First Name"`
+	ID        uint   `gorm:"primaryKey;autoIncrement" json:"user_id"`
+	FirstName string `json:"first_name"`
 	LastName  string `json:"Last Name"`
 	Email     string `json:"username"`
 	Password  string `json:"password"`
 }
 
+type Program struct {
+	gorm.Model
+	ID            uint   `gorm:"primaryKey;autoIncrement" json:"User ID"`
+	InstituteName string `json:"Institute Name"`
+	ProgramName   string `json:"Program Name"`
+	OfferedBy     string `json:"Offered By"`
+	FallIntake    string `json:"Fall Intake"`
+	SpringIntake  string `json:"Spring Intake"`
+}
+
 type OfferedCourse struct {
 	gorm.Model
-	ID uint `gorm:"primaryKey;autoIncrement" json:"Course ID"`
+	ID         uint   `gorm:"primaryKey;autoIncrement" json:"Course ID"`
+	CourseName string `json:"Course Name"`
 }
 
 func SetDatabase() {
@@ -39,6 +50,7 @@ func SetDatabase() {
 	// Migrate the schema
 	db.AutoMigrate(&University{})
 	db.AutoMigrate(&User{})
+	db.AutoMigrate(&Program{})
 	db.AutoMigrate(&OfferedCourse{})
 
 }
