@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "react-spring": "^9.4.3"
+    "gin": "^0.0.1",
+    "gorm": "^1.0.3",
+    "react-spring": "^9.4.3",
+    "sqlite": "^4.0.23"
   }
 }

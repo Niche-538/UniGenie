@@ -346,9 +346,29 @@ import { Button, Form } from "react-bootstrap";
 import { Formik } from "formik";
 import * as yup from "yup";
 
+function handleOnClick() {
+    // POST request using fetch with set headers
+    const requestOptions = {
+        method: 'POST',
+        // headers: { 
+        //     'Content-Type': 'application/json',
+        
+        // },
+        mode:'cors',
+        body: JSON.stringify({  "Name": "University of Texas at Dallas", 
+                                "Website":"www.td.edu",
+                                "Address":"4000 SW 37th Blvd",
+                                "City":"Dallas",
+                                "State":"TX",
+                                "Zip":32608,
+                                "Country":"USA"})
+    };
+    fetch("http://localhost:8080/addUniversity", requestOptions);
+}
+
 class AddUniversity extends Component {
     state = {};
-
+    
     schema = yup.object().shape({
         instituteName: yup
             .string()
@@ -371,6 +391,7 @@ class AddUniversity extends Component {
             .min(1, "Min value 00001.")
             .max(99999, "Max value 99999."),
     });
+
 
     render() {
         return (
@@ -600,7 +621,7 @@ class AddUniversity extends Component {
                         </Form.Group>
 
                         <Form.Group className="text-center">
-                            <Button variant="primary" type="submit">
+                            <Button variant="primary" type="submit" onClick={handleOnClick}>
                                 Submit
                             </Button>{" "}
                         </Form.Group>

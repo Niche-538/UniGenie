@@ -74,7 +74,7 @@ else{
                     <Route path="/AdminFunc" element={<AdminFunc />} />
                     <Route path="/AddUniversity" element={<AddUniversity />} />
                     <Route path="/DeleteUniversity" element={<DeleteUniversity />}/>
-                    <Route path="/StudentDetails" element={<StudentDetails />} />
+                    <Route path="/StudentDetails" element={<StudentDetails />}/>
                     <Route path="/AddPrograms" element={<AddPrograms />} />
                 </Routes>
             </Router>    
