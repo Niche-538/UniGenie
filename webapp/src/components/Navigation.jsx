@@ -1,33 +1,5 @@
 import React, { Component } from "react";
 
-// function Navigation() {
-//   return (
-//     <div className="navigation">
-//       <nav className="navbar navbar-expand navbar-dark bg-dark"></nav>
-//       <div className="container">
-//         <NavLink className="navbar-brand" to="/">
-//           UniGenie
-//         </NavLink>
-//         <div>
-//           <ul className="navbar-nav ml-auto">
-//             <li className="nav-item">
-//               <NavLink className="nav-link" to="/AdminLogin">
-//                 Admin Login
-//                 {/* <span className="sr-only">(current)</span> */}
-//               </NavLink>
-//             </li>
-//             <li className="nav-item">
-//               <NavLink className="nav-link" to="/StudentLogin">
-//                 Student Login
-//               </NavLink>
-//             </li>
-//           </ul>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 class Navigation extends Component {
     state = {};
 
@@ -37,7 +9,11 @@ class Navigation extends Component {
                 <nav className="navbar navbar-expand-lg ">
                     <div className="container-fluid">
                         <a
-                            style={{ fontSize: 40, color: "#4a54f1", fontFamily:"cursive" }}
+                            style={{
+                                fontSize: 40,
+                                color: "#4a54f1",
+                                fontFamily: "cursive",
+                            }}
                             className="navbar-brand"
                             href="/"
                         >
@@ -89,8 +65,7 @@ class Navigation extends Component {
                                         type="button"
                                         className="btn btn-primary-outline m-2"
                                         onClick={() =>
-                                            (window.location.href =
-                                                "/")
+                                            (window.location.href = "/")
                                         }
                                     >
                                         Grad School Finder
