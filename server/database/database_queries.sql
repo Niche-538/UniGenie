@@ -72,3 +72,8 @@
 -- VALUES (1, 'Bioinformatics');
 
 -- ---------------------------------------------------------------------------------------------------------
+
+/* Add Offered Courses Table - Added by Anurag on March 4 2022*/ 
+
+-- DROP TABLE personal_details;
+-- DROP TABLE education_details;
