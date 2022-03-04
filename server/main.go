@@ -2,7 +2,7 @@ package main
 
 import (
 	"os"
-	"unigenie/api/models"
+	models "unigenie/api/models"
 	"unigenie/api/routes"
 
 	"github.com/gin-gonic/gin"
@@ -24,11 +24,13 @@ func main() {
 	routes.AuthRoutes(router)
 	routes.UserRoutes(router)
 
+	models.SetDatabase();
+
 	// API Calls
 
 	router.GET("/getUniversities", models.GetUniversities)
 	router.GET("/getUsers", models.GetUsers)
-	router.POST("/addUsers", models.PostUsers)
+	router.POST("/signup", models.PostUsers)
 	router.POST("/addUniversity", models.PostUniversities)
 	// Listen and Server in 0.0.0.0:8080
 	router.Run(":" + port)
