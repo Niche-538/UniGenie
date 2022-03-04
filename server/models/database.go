@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	// "time"
@@ -28,7 +29,7 @@ type OfferedCourse struct {
 	ID uint `gorm:"primaryKey;autoIncrement" json:"Course ID"`
 }
 
-func setDatabase() {
+func SetDatabase() {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
@@ -51,4 +52,8 @@ func setDatabase() {
 
 	db.Create(&users)
 
+}
+
+func PrintingTp() {
+	fmt.Println("Imported")
 }

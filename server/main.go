@@ -1,11 +1,14 @@
 package main
 
 import (
+
 	// models "UniGenie/server/models"
 	// "models"
 	//"fmt"
 	"net/http"
 	"os"
+	models "unigenie/api/models"
+	routes "unigenie/api/routes"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/sqlite"
@@ -59,26 +62,29 @@ func getUsers(c *gin.Context) {
 
 }
 
-func main() {
+// func main() {
 
-	port := os.Getenv("PORT")
+// 	port := os.Getenv("PORT")
 
-	if port == "" {
-		port = "8080"
-	}
+// 	if port == "" {
+// 		port = "8080"
+// 	}
 
-	// setting up the router
-	router := gin.Default()
-	router.Use(gin.Logger())
-	// setDatabase()
+// 	models.PrintingTp()
 
-	router.GET("/getUniversities", getUniversities)
-	router.GET("/getUsers", getUsers)
-	router.POST("/signup", postUsers)
-	router.POST("/addUniversity", postUniversities)
-	// Listen and Server in 0.0.0.0:8080
-	router.Run(":8080")
-}
+// 	// setting up the router
+// 	router := gin.Default()
+// 	router.Use(gin.Logger())
+// 	// setDatabase()
+
+// 	// router.GET("/getUniversities", getUniversities)
+// 	router.GET("/getUsers", getUsers)
+// 	router.GET("/getUni", models.GetUniversities)
+// 	router.POST("/signup", postUsers)
+// 	router.POST("/addUniversity", postUniversities)
+// 	// Listen and Server in 0.0.0.0:8080
+// 	router.Run(":8080")
+// }
 
 // POST Functions
 
@@ -123,4 +129,31 @@ func postUniversities(c *gin.Context) {
 	db.Create(&univ)
 
 	c.JSON(http.StatusOK, gin.H{"data": univ})
+}
+
+func main() {
+
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
+	// setting up the router
+	router := gin.New()
+	router.Use(gin.Logger())
+
+	// Routes
+	routes.AuthRoutes(router)
+	routes.UserRoutes(router)
+
+	// API Calls
+
+	// router.GET("/getUniversities", getUniversities)
+	// router.GET("/getUsers", getUsers)
+	router.GET("/getUsersMod", models.GetUsers)
+	router.GET("/getUniMod", models.GetUniversities)
+
+	// Listen and Server in 0.0.0.0:8080
+	router.Run(":" + port)
 }
