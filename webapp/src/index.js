@@ -25,7 +25,7 @@ const text = document.getElementById("text");
 //const needAnim=true;
 var wind = window.location.href;
 //console.log(wind)
-if (wind == "http://localhost:3000/") {
+if (wind === "http://localhost:3000/") {
     ReactDOM.render(
         <StrictMode>
             <Navigation />
