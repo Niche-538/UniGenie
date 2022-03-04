@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"unigenie/api/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,7 +14,7 @@ func TestGetUniversities(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getUniversities", getUniversities)
+	r.GET("/getUniversities", models.GetUniversities)
 
 	req, err := http.NewRequest(http.MethodGet, "/getUniversities", nil)
 
@@ -37,7 +38,7 @@ func TestGetUsers(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getUsers", getUsers)
+	r.GET("/getUsers", models.GetUsers)
 
 	req, err := http.NewRequest(http.MethodGet, "/getUsers", nil)
 
