@@ -22,9 +22,21 @@
 
 -- ---------------------------------------------------------------------------------------------------------
 
+/* Add User Table - Added by Pratik on March 3 2022*/ 
 
--- var users = []User{{FirstName: "John", LastName: "Doe", Email: "jd@floridaman.com", Password: "John@123"},
--- 		{FirstName: "Jenny", LastName: "Doe", Email: "jend@floridaman.com", Password: "Jen@123"},
--- 		{FirstName: "Don", LastName: "Joe", Email: "dj@floridaman.com", Password: "Don@123"}}
+-- drop table users;
+-- create table users (
+--     user_id int PRIMARY_KEY AUTO_INCREMENT,
+--     first_name varchar(255),
+--     last_name varchar(255),
+--     email varchar(255),
+--     password varchar(255),
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL 
+-- );
 
--- 	db.Create(&users)
+-- INSERT INTO users (user_id, first_name, last_name, email, password)
+-- VALUES (1, 'Patrick', 'Campbell', 'pcambell@ufl.edu', 'password123');
+
+-- ---------------------------------------------------------------------------------------------------------

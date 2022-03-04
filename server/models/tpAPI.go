@@ -55,26 +55,26 @@ func PostUsers(c *gin.Context) {
 
 }
 
-// func postUniversities(c *gin.Context) {
-// 	var newUniv University
-// 	if err := c.ShouldBindJSON(&newUniv); err != nil {
-// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-// 		return
-// 	}
+func postUniversities(c *gin.Context) {
+	var newUniv University
+	if err := c.ShouldBindJSON(&newUniv); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
-// 	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-// 	if sht != nil {
-// 		panic("failed to connect database")
-// 	}
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
 
-// 	univ := University{Name: newUniv.Name,
-// 		Website: newUniv.Website,
-// 		Address: newUniv.Address,
-// 		City:    newUniv.City,
-// 		State:   newUniv.State,
-// 		Zip:     newUniv.Zip,
-// 		Country: newUniv.Country}
-// 	db.Create(&univ)
+	univ := University{Name: newUniv.Name,
+		Website: newUniv.Website,
+		Address: newUniv.Address,
+		City:    newUniv.City,
+		State:   newUniv.State,
+		Zip:     newUniv.Zip,
+		Country: newUniv.Country}
+	db.Create(&univ)
 
-// 	c.JSON(http.StatusOK, gin.H{"data": univ})
-// }
+	c.JSON(http.StatusOK, gin.H{"data": univ})
+}
