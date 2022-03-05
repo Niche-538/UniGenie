@@ -23,15 +23,24 @@ https://github.com/Niche-538/UniGenie/projects/2
 https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 
 # API Unit Testing Sceenshots
+## GET API
+### Get Universities
+<img width="1440" alt="Test Get Univeristy" src="https://user-images.githubusercontent.com/41022671/156867868-987b093b-c2de-4767-84f7-a226e5cc3b63.png">
+
+### Get Users
+<img width="1440" alt="Test Get Users" src="https://user-images.githubusercontent.com/41022671/156867908-bbbb9164-c501-442c-a6fd-f692574ea599.png">
+
 ## POST API
 ### Add Universities
-![image](https://user-images.githubusercontent.com/41022671/156867761-607d3cf4-b5e0-4349-849a-8896bd41dc88.png)
+<img width="1440" alt="Test Add Univeristy" src="https://user-images.githubusercontent.com/41022671/156867968-9af6e2c5-e023-425d-9d10-0996f8e2b8dd.png">
+
 
 ### Add Users
-![image](https://user-images.githubusercontent.com/41022671/156867695-cc8220a0-266e-4b64-96c8-af3b73a5af80.png)
+<img width="1440" alt="Test Add Users" src="https://user-images.githubusercontent.com/41022671/156867941-41577518-2858-4fc3-b06e-f28b362fb69b.png">
+
 
 ### Student Details
-![image](https://user-images.githubusercontent.com/41022671/156867643-ef127c44-12ad-4ec3-924f-b1bc8ca2aeb2.png)
+<img width="1440" alt="Test Add Student Details" src="https://user-images.githubusercontent.com/41022671/156867986-32ca4150-d7d8-4d62-9458-11831f8f10ec.png">
 
 
 # API Postman Collection
