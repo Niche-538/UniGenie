@@ -1,6 +1,29 @@
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 
+
+function handleOnClick() {
+    // POST request using fetch with set headers
+    const requestOptions = {
+        method: "POST",
+        // headers: {
+        //     'Content-Type': 'application/json',
+        // },
+        mode: "cors",
+        body: JSON.stringify({
+            first_name: "Pratik",
+            last_name: "Kamble",
+            email: "kd@ufl.edu",
+            password: "password123",
+            
+        }),
+    };
+    fetch("http://localhost:8080/signup", requestOptions);
+}
+
+
+
+
 class AdminSignup extends Component {
     state = {};
 
@@ -68,7 +91,7 @@ class AdminSignup extends Component {
                 </Form.Group>
 
                 <Form.Group className="text-center">
-                    <Button variant="primary" type="submit" href="/AdminFunc">
+                    <Button variant="primary" type="submit" href="/AdminFunc" onClick={handleOnClick}>
                         Signup
                     </Button>{" "}
                 </Form.Group>
