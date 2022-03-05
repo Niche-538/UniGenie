@@ -102,3 +102,41 @@ func TestAddUniversity(t *testing.T) {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
 }
+
+func TestAddUsers(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	_, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	r := gin.Default()
+
+	r.POST("/signup", models.PostUsers)
+
+	user := &models.User{
+		FirstName: "Attempt",
+		LastName:  "Two",
+		Email:     "at@2.com",
+		Password:  "2at@2022",
+	}
+
+	body, _ := json.Marshal(user)
+
+	req, err := http.NewRequest(http.MethodPost, "/signup", bytes.NewBuffer(body))
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
