@@ -1,28 +1,28 @@
 # Sprint 2 
-05 February 2022 - 04 March 2022
+18 February 2022 - 04 March 2022
 
 # Sprint Target
 <ul>
   <li>The backend and frontend are integrated.</li>
-  <li>Have some tests for the frontend using Cypress</li>
-   <li>You have unit tests for the backend.</li>
-  <li>Have documentation for the backend API developed</li>
+  <li>Have some tests for the frontend using Cypress.</li>
+  <li>You have unit tests for the backend.</li>
+  <li>Have documentation for the backend API developed.</li>
 </ul>
+
 # Project Scrum Board
 https://github.com/Niche-538/UniGenie/projects/2
 
-## BackEnd
+# Back-End
 <ul>
-  <li>Added Backend testcases</li>
-  <li>Restructed code into modules</li>
-  <li>Updated and added new api's and database tables according to requirements</li>
+  <li>Added Backend testcases.</li>
+  <li>Restructured code into modules.</li>
+  <li>Updated and added new APIs and database tables according to requirements.</li>
 </ul>
 
-
-## Documentation Link
+# Documentation Link
 https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 
-## Api Postman Collection: 
+# API Postman Collection
   ```javascript
 {
 	"info": {
@@ -135,7 +135,20 @@ https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 }
 
   ```
-## FrontEnd
+# Front-End
+<ul>
+  <li>Added Cypress testing.</li>
+  <li>Added front-end and back-end integration.</li>
+  <li>Modified forms to include required fields and field length.</li>
+</ul>
 
+# Cypress Testing
+<ul>
+  <li>Test 1: https://drive.google.com/file/d/1rAp4URfcshPaCDEv-_pCAnVHvtJHwGef/view?usp=sharing</li>
+  <li>Test 2: https://drive.google.com/file/d/1gLlPfB0S0enG7-97QoXKra5606HHGcas/view?usp=sharing</li>
+</ul>
 
-
+# Integration of front-end and back-end and run-through with updated UI
+<ul>
+   <li>https://drive.google.com/drive/folders/14uBgMH6pyGGRcq_QN9Wd4eH4LQskS6--?usp=sharing</li>
+</ul>
