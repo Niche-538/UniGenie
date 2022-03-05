@@ -19,9 +19,11 @@ https://github.com/Niche-538/UniGenie/projects/2
 </ul>
 
 
-Documentation Link : https://github.com/Niche-538/UniGenie/wiki/API-Documentation
-Api Postman Collection: 
+## Documentation Link
+https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 
+## Api Postman Collection: 
+  ```javascript
 {
 	"info": {
 		"_postman_id": "c30f6519-630b-4de5-93ac-c65924868a7b",
@@ -132,7 +134,7 @@ Api Postman Collection:
 	]
 }
 
-
+  ```
 ## FrontEnd
 
 
