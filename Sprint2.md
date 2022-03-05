@@ -25,7 +25,7 @@ https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 # API Unit Testing Sceenshots
 ## POST API
 ### Add Universities
-![image](https://user-images.githubusercontent.com/41022671/156867730-0301ae2a-2d19-478e-8973-ca85ba30c263.png)
+![image](https://user-images.githubusercontent.com/41022671/156867761-607d3cf4-b5e0-4349-849a-8896bd41dc88.png)
 
 ### Add Users
 ![image](https://user-images.githubusercontent.com/41022671/156867695-cc8220a0-266e-4b64-96c8-af3b73a5af80.png)
