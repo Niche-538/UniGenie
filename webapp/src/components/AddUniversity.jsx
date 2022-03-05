@@ -30,24 +30,32 @@ class AddUniversity extends Component {
     schema = yup.object().shape({
         instituteName: yup
             .string()
+            .matches(
+                /^([a-zA-Z &]+)$/,
+                "Institute name cannot contain numbers or special characters besides space and &."
+            )
             .required("Please enter a valid institute name."),
         instituteWebsite: yup
             .string()
             .matches(
                 /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-                "Enter correct url!"
+                "Please enter a valid website."
             )
             .required("Please enter a valid website."),
-        instituteAddress: yup
+        instituteAddress: yup.string(),
+        instituteCity: yup
             .string()
-            .required("Please enter a valid address."),
-        instituteCity: yup.string().required("Please enter a valid city."),
+            .matches(
+                /^([a-zA-Z ]+)$/,
+                "City name cannot contain numbers or special characters besides space."
+            )
+            .required("Please enter a valid city."),
         instituteState: yup.string().required("Please select a state."),
         instituteZip: yup
             .number()
             .required("Please enter a valid zip code.")
-            .min(1, "Min value 00001.")
-            .max(99999, "Max value 99999."),
+            .min(1, "Zip code cannot be less than 1.")
+            .max(99999, "Zip code cannot be more than 99999."),
     });
 
     render() {
