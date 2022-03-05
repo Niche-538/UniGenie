@@ -22,6 +22,18 @@ https://github.com/Niche-538/UniGenie/projects/2
 # Documentation Link
 https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 
+# API Unit Testing Sceenshots
+## POST API
+### Add Universities
+![image](https://user-images.githubusercontent.com/41022671/156867730-0301ae2a-2d19-478e-8973-ca85ba30c263.png)
+
+### Add Users
+![image](https://user-images.githubusercontent.com/41022671/156867695-cc8220a0-266e-4b64-96c8-af3b73a5af80.png)
+
+### Student Details
+![image](https://user-images.githubusercontent.com/41022671/156867643-ef127c44-12ad-4ec3-924f-b1bc8ca2aeb2.png)
+
+
 # API Postman Collection
   ```javascript
 {
