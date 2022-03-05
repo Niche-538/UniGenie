@@ -1,36 +1,36 @@
 package controllers
 
-import (
-	"net/http"
-	"fmt"
-	"time"
-	"log"
-	"strconv"
-	"context"
-	"github.com/gin-gonic/gin"
-	"github.com/go-playground/validator/v10"
-)
+// import (
+// 	"net/http"
+// 	"fmt"
+// 	"time"
+// 	"log"
+// 	"strconv"
+// 	"context"
+// 	"github.com/gin-gonic/gin"
+// 	"github.com/go-playground/validator/v10"
+// )
 
-func PasswordHash(){
+// func PasswordHash(){
 
-}
+// }
 
-func VerifyPassword(){
+// func VerifyPassword(){
 
-}
+// }
 
-func Login(){
+// func Login(){
 
-}
+// }
 
-func SignUp(){
+// func SignUp(){
 
-}
+// }
 
-func GetUsers(){
+// func GetUsers(){
 
-}
+// }
 
-func GetUniversities(){
+// func GetUniversities(){
 
-}
+// };
