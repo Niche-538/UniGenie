@@ -140,3 +140,67 @@ func TestAddUsers(t *testing.T) {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
 }
+
+func TestAddStudentDetails(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	_, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	r := gin.Default()
+
+	r.POST("/addStudentDetails", models.PostStudentDetails)
+
+	studetails := &models.StudentDetails{
+		FirstName:      "kowl",
+		LastName:       "qeds",
+		Email:          "tgv",
+		AddressLine1:   "asdca",
+		AddressLine2:   "fdlvkm",
+		City:           "ghbs",
+		State:          "vcbsd",
+		ZipCode:        535452,
+		Country:        "sdfbg",
+		InstituteName:  "ada2we",
+		InstituteCity:  "dfngb",
+		InstituteState: "aweq3af",
+		Degree:         "bndg",
+		Major:          "asdvx",
+		CGPA:           9.9,
+		CGPAScale:      10.0,
+		GRE:            335,
+		GREVerbal:      165,
+		GREQuant:       170,
+		GREAWM:         5.5,
+		TOEFL:          120,
+		TOEFLRead:      30,
+		TOEFLListen:    30,
+		TOEFLSpeak:     30,
+		TOEFLWrite:     30,
+		IELTS:          9,
+		IELTSRead:      9,
+		IELTSListen:    9,
+		IELTSSpeak:     9,
+		IELTSWrite:     9,
+	}
+
+	body, _ := json.Marshal(studetails)
+
+	req, err := http.NewRequest(http.MethodPost, "/addStudentDetails", bytes.NewBuffer(body))
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
