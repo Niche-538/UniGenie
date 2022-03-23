@@ -5,19 +5,19 @@ It also allows aspirants to interact with each other using one-to-one messaging.
 The website also features a blogging section where users can post blogs.
 
 # Team Members
-1) Aakash Naik
-2) Anurag Patil
-3) Kunal Dudhe
-4) Pratik Kamble
+1) Aakash Naik (Front-End)
+2) Anurag Patil (Back-End)
+3) Kunal Dudhe (Front-End)
+4) Pratik Kamble (Back-End)
 
 # Tech Stack
-**FrontEnd:**
+**Front-End:**
 * ReactJS
 * Bootstrap
 * Material UI
 * Cypress
 
-**BackEnd:** 
+**Back-End:** 
 * Go
 * Gin Framework
 * Gorm
