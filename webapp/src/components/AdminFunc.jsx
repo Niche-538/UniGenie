@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap";
 
-class AdminFunc extends Component {
-    state = {};
 
-    render() {
-        return (
-            <Row
+const AdminFunc = () => {
+    
+    return (
+        <Row
                 xs={1}
                 sm={2}
                 md={3}
@@ -148,8 +147,7 @@ class AdminFunc extends Component {
 
                 <Col className="col-xl-1"></Col>
             </Row>
-        );
-    }
-}
+    );
+   };
 
 export default AdminFunc;
