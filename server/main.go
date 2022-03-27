@@ -24,7 +24,7 @@ func main() {
 	routes.AuthRoutes(router)
 	routes.UserRoutes(router)
 
-	// models.SetDatabase();
+	// models.SetDatabase()
 
 	// API Calls
 
