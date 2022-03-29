@@ -1,4 +1,5 @@
-module unigenie/api
+// module unigenie/api
+module unigenie
 
 go 1.17
 
