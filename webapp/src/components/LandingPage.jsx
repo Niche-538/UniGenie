@@ -8,26 +8,15 @@ import {
     Modal,
     Row,
 } from "react-bootstrap";
-import Anim from "./Anim.tsx";
-import Icon from "./Icon.jsx";
 
 const LandingPage = () => {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return (
         <Container className="rounded">
             <div className="row g-3 mb-3 mx-auto my-auto align-items-center justify-content-center">
-                {/* <div className="col-md-8 align-items-center text-center justify-content-center">
-                    <div className="col-md-5 align-items-center text-center justify-content-center">
-                        <Anim />
-                    </div>
-                    <div className="col-md-3 align-items-center text-center justify-content-center">
-                        <Icon />
-                    </div>
-                </div> */}
                 <Form className="shadow my-5 bg-body rounded">
                     <Form.Group>
                         <FloatingLabel
@@ -161,7 +150,7 @@ const LandingPage = () => {
                         style={{ width: "10rem" }}
                         type="submit"
                         variant="success"
-                        href="/StudentDetails"
+                        href="/ProfilePage"
                     >
                         Sign Up
                     </Button>
