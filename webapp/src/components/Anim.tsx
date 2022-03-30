@@ -1,9 +1,8 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react'
-import { useTransition, animated } from '@react-spring/web'
+import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { useTransition, animated } from '@react-spring/web';
+import styles from '../styles.module.css';
 
-import styles from '../styles.module.css'
-
-export default function App() {
+export default function Anim() {
  
 	const ref = useRef<ReturnType<typeof setTimeout>[]>([])
 	const [items, set] = useState<string[]>([])
@@ -30,10 +29,10 @@ export default function App() {
 		ref.current.forEach(clearTimeout)
 		ref.current = []
 		set([])
-		ref.current.push(setTimeout(() => set(['Find', 'Your', 'Dream','University']), 2000))
-		ref.current.push(setTimeout(() => set(['Dream', 'University']), 5000))
-		ref.current.push(setTimeout(() => set(['Your', 'University']), 8000))
-		ref.current.push(setTimeout(() => set(['Find', 'Your', 'Dream','University']), 10000))
+		ref.current.push(setTimeout(() => set(['Find', 'Your', 'Dream', 'University']), 2000))
+		// ref.current.push(setTimeout(() => set(['Your', 'Dream']), 4000))
+		ref.current.push(setTimeout(() => set(['Your', 'Dream', 'University']), 5000))
+		ref.current.push(setTimeout(() => set(['Find', 'Your', 'Dream', 'University']), 8000))
 	}, [])
 
 	useEffect(() => {
@@ -43,13 +42,13 @@ export default function App() {
 
 	return (
 		<div className={styles.container}>
-		<div className={styles.main}>
-			{transitions(({ innerHeight, ...rest }, item) => (
-			<animated.div className={styles.transitionsItem} style={rest} onClick={reset}>
-				<animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
-			</animated.div>
-			))}
-		</div>
+			<div className={styles.main}>
+				{transitions(({ innerHeight, ...rest }, item) => (
+					<animated.div className={styles.transitionsItem} style={rest} onClick={reset}>
+						<animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
+					</animated.div>
+				))}
+			</div>
 		</div>
 	)
 }

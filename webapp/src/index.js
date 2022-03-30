@@ -1,6 +1,7 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LandingPage from "./components/LandingPage";
 import Navigation from "./components/Navigation";
 import Navigation_nonMain from "./components/Navigation_nonMain";
 import AdminLogin from "./components/AdminLogin";
@@ -16,11 +17,12 @@ import UniversityApplications from "./components/UniversityApplications";
 // import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Anim from "./components/Anim.tsx";
-import Icon from "./components/Icon";
+import Icon from "./components/Icon.jsx";
 
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
+const login = document.getElementById("login");
 
 //const needAnim=true;
 var wind = window.location.href;
@@ -31,6 +33,7 @@ if (wind === "http://localhost:3000/") {
             <Navigation />
             <Router>
                 <Routes>
+                    {/* <Route path="/LandingPage" element={<LandingPage />} /> */}
                     <Route path="/AdminLogin" element={<AdminLogin />} />
                     <Route path="/StudentLogin" element={<StudentLogin />} />
                     <Route path="/AdminSignup" element={<AdminSignup />} />
@@ -69,12 +72,20 @@ if (wind === "http://localhost:3000/") {
         </StrictMode>,
         text
     );
+
+    ReactDOM.render(
+        <StrictMode>
+            <LandingPage />
+        </StrictMode>,
+        login
+    );
 } else {
     ReactDOM.render(
         <StrictMode>
             <Navigation_nonMain />
             <Router>
                 <Routes>
+                    <Route path="/LandingPage" element={<LandingPage />} />
                     <Route path="/AdminLogin" element={<AdminLogin />} />
                     <Route path="/StudentLogin" element={<StudentLogin />} />
                     <Route path="/AdminSignup" element={<AdminSignup />} />
