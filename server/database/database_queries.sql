@@ -77,3 +77,20 @@
 
 -- DROP TABLE personal_details;
 -- DROP TABLE education_details;
+
+-- ---------------------------------------------------------------------------------------------------------
+
+/* Add Courses Preference Table - Added by Pratik on March 30 2022*/ 
+
+-- create table course_preferences (
+--     course_preference_id int PRIMARY_KEY AUTO_INCREMENT,
+--     user_id int,
+--     course_preference varchar(255),
+--     country_preference varchar(255),
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL 
+-- );
+
+-- INSERT INTO course_preferences (course_preference_id, user_id, course_preference, country_preference)
+-- VALUES (1, 1, "Computer Science", "Germany");
