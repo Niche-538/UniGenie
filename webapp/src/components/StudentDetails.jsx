@@ -46,24 +46,14 @@ class StudentDetails extends Component {
                         <Form.Label>First Name</Form.Label>
                     </Form.Group>
                     <Form.Group className="col-xl-2">
-                        <Form.Control
-                            type="text"
-                            placeholder="John"
-                            aria-label="Readonly input example"
-                            readOnly
-                        />
+                        <Form.Control type="text" placeholder="John" />
                     </Form.Group>
 
                     <Form.Group className="col-xl-1" controlId="formLastName">
                         <Form.Label>Last Name</Form.Label>
                     </Form.Group>
                     <Form.Group className="col-xl-2">
-                        <Form.Control
-                            type="text"
-                            placeholder="Doe"
-                            aria-label="Readonly input example"
-                            readOnly
-                        />
+                        <Form.Control type="text" placeholder="Doe" />
                     </Form.Group>
                 </Form.Group>
 
@@ -78,7 +68,6 @@ class StudentDetails extends Component {
                         <Form.Control
                             type="email"
                             placeholder="john.doe@gmail.com"
-                            aria-label="Readonly input example"
                             readOnly
                         />
                     </Form.Group>

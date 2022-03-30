@@ -4,10 +4,11 @@ function Icon() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="825.202"
-            height="591.419"
+            width="450"
+            height="300"
             data-name="Layer 1"
-            viewBox="0 0 825.202 591.419"
+            viewBox="0 0 600 600"
+            fill="none"
         >
             <path
                 fill="#f2f2f2"
