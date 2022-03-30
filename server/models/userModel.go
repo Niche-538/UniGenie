@@ -49,3 +49,11 @@ type StudentDetails struct {
 	UserID         uint
 	User           User `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
+
+type UserPreferences struct {
+	gorm.Model
+	ID                uint   `gorm:"primaryKey;autoIncrement" json:"user_preference_id"`
+	UserID            uint   `json:"user_id"`
+	CoursePreference  string `json:"course_preference"`
+	CountryPreference string `json:"country_preference"`
+}
