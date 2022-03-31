@@ -18,4 +18,5 @@ func SetDatabase() {
 	db.AutoMigrate(&OfferedCourse{})
 	db.AutoMigrate(&StudentDetails{})
 	db.AutoMigrate(&UserPreferences{})
+	db.AutoMigrate(&UserUniversityApplication{})
 }
