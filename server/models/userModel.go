@@ -57,3 +57,14 @@ type UserPreferences struct {
 	CoursePreference  string `json:"course_preference"`
 	CountryPreference string `json:"country_preference"`
 }
+
+type UserUniversityApplication struct {
+	gorm.Model
+	ID                uint   `gorm:"primaryKey;autoIncrement" json:"user_university_application_id"`
+	UserID            uint   `json:"user_id"`
+	UniversityApplicationLink  string `json:"university_application_link"`
+	TranscriptUploaded bool `json:"transcipt_uploaded"`
+	LOR1 bool `json:"lor1"`
+	LOR2 bool `json:"lor2"`
+	LOR3 bool `json:"lor3"`
+}
