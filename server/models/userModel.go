@@ -60,7 +60,7 @@ type UserPreferences struct {
 
 type UserUniversityApplication struct {
 	gorm.Model
-	ID                uint   `gorm:"primaryKey;autoIncrement" json:"user_preference_id"`
+	ID                uint   `gorm:"primaryKey;autoIncrement" json:"user_university_application_id"`
 	UserID            uint   `json:"user_id"`
 	UniversityApplicationLink  string `json:"university_application_link"`
 	TranscriptUploaded bool `json:"transcipt_uploaded"`

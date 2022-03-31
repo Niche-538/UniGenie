@@ -94,3 +94,23 @@
 
 -- INSERT INTO course_preferences (course_preference_id, user_id, course_preference, country_preference)
 -- VALUES (1, 1, "Computer Science", "Germany");
+
+-- ---------------------------------------------------------------------------------------------------------
+
+/* Add User UserUniversityApplication Table - Added by Pratik on March 31 2022*/ 
+
+-- create table user_university_application (
+--     user_university_application_id int PRIMARY_KEY AUTO_INCREMENT,
+--     user_id int,
+--     university_application_link varchar(255),
+--     transcript_uploaded boolean,
+--     lor1 boolean,
+--     lor2 boolean,
+--     lor3 boolean,
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL 
+-- );
+
+-- INSERT INTO user_university_application (user_university_application_id, user_id, university_application_link, transcript_uploaded, lor1, lor2, lor3)
+-- VALUES (1, 1, "www.ufl.edu", true, false, false, true);
