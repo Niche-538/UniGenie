@@ -88,6 +88,27 @@ func PostStudentDetails(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": detailsStudent})
 }
 
+func PostUserPreferences(c *gin.Context) {
+	var newUserPreferences models.UserPreferences
+	if err := c.ShouldBindJSON(&newUserPreferences); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	userPreferences := models.UserPreferences{
+		UserID:            newUserPreferences.UserID,
+		CoursePreference:  newUserPreferences.CoursePreference,
+		CountryPreference: newUserPreferences.CountryPreference,
+	}
+	db.Create(&userPreferences)
+	c.JSON(http.StatusOK, gin.H{"data": userPreferences})
+}
+
 func PostUserUniversityApplication(c *gin.Context) {
 	var newUserUniversityApplication models.UserUniversityApplication
 	if err := c.ShouldBindJSON(&newUserUniversityApplication); err != nil {
