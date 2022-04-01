@@ -7,7 +7,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-	models "unigenie/api/models"
+	api "unigenie/api"
+	models "unigenie/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/sqlite"
@@ -18,7 +19,7 @@ func TestGetUniversities(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getUniversities", models.GetUniversities)
+	r.GET("/getUniversities", api.GetUniversities)
 
 	req, err := http.NewRequest(http.MethodGet, "/getUniversities", nil)
 
@@ -42,7 +43,7 @@ func TestGetUsers(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getUsers", models.GetUniversities)
+	r.GET("/getUsers", api.GetUniversities)
 
 	req, err := http.NewRequest(http.MethodGet, "/getUsers", nil)
 
@@ -72,7 +73,7 @@ func TestAddUniversity(t *testing.T) {
 
 	r := gin.Default()
 
-	r.POST("/addUniversity", models.PostUniversities)
+	r.POST("/addUniversity", api.PostUniversities)
 
 	university := &models.University{
 		Name:    "University of Florida",
@@ -113,7 +114,7 @@ func TestAddUsers(t *testing.T) {
 
 	r := gin.Default()
 
-	r.POST("/signup", models.PostUsers)
+	r.POST("/signup", api.PostUsers)
 
 	user := &models.User{
 		FirstName: "Attempt",
@@ -151,7 +152,7 @@ func TestAddStudentDetails(t *testing.T) {
 
 	r := gin.Default()
 
-	r.POST("/addStudentDetails", models.PostStudentDetails)
+	r.POST("/addStudentDetails", api.PostStudentDetails)
 
 	studetails := &models.StudentDetails{
 		FirstName:      "kowl",
