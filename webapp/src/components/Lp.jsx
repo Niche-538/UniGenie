@@ -23,14 +23,14 @@ const LP = () => {
     const [first_name, setFName] = useState();
     const [last_name, setLName] = useState();
     const [email, setEmail] = useState();
-    const [password, setPass] = useState();
+    const [hpassword, setPass] = useState();
     const [confirm_password, setCPass] = useState();
     //const hashedPassword=bcrypt.hashSync(password,'$2a$10$CwTycUXWue0Thq9StjUM0u');
     const handleSubmit = (e) => {
         e.preventDefault();
-        const hashedPassword=bcrypt.hashSync(password,'$2a$10$CwTycUXWue0Thq9StjUM0u');
-        const registrationInfo = { first_name, last_name, email, hashedPassword };
-        if(confirm_password!=password){
+        const password=bcrypt.hashSync(hpassword,'$2a$10$CwTycUXWue0Thq9StjUM0u');
+        const registrationInfo = { first_name, last_name, email, password };
+        if(confirm_password!=hpassword){
             alert("Passwords don't match");
             return false;
         }
@@ -169,7 +169,7 @@ const LP = () => {
                             >
                                 <Form.Control
 
-                                name="password"
+                                name="hpassword"
                                 style={{borderRadius:"25px"}}
 
                                     type="password"
