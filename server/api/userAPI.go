@@ -1,7 +1,6 @@
 package api
 
 import (
-	"errors"
 	"net/http"
 	models "unigenie/models"
 
@@ -110,8 +109,6 @@ func PostUserPreferences(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": userPreferences})
 }
 
-
-
 func PostUserUniversityApplication(c *gin.Context) {
 	var newUserUniversityApplication models.UserUniversityApplication
 	if err := c.ShouldBindJSON(&newUserUniversityApplication); err != nil {
@@ -136,28 +133,34 @@ func PostUserUniversityApplication(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": userUniversityApplication})
 }
 
-
-
 func FindUniversityByUserId(c *gin.Context) {
 	var uua models.UserUniversityApplication
 
-	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-	if sht != nil {
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
 		panic("failed to connect database")
 	}
 
-	userUniversityApplication := []models.UserUniversityApplication{}
-
-	db.Find(&userUniversityApplication)
-	
-
-	id := c.Param("user_id")
-
-	err := db.Find(&uua, "user_id = ?", id).Error
-	if errors.Is(err, gorm.ErrRecordNotFound) {
-		c.JSON(404, gin.H{"data": nil})
+	if err := db.Where("id = ?", c.Param("id")).First(&uua).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": uua, "userUniversityApplication": userUniversityApplication})
+
+	c.JSON(http.StatusOK, gin.H{"data": uua})
 }
 
+func FindUserPreferencesBuUserId(c *gin.Context) {  
+	var up models.UserPreferences
+  
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	} 
+
+	if err := db.Where("user_id = ?", c.Param("user_id")).First(&up).Error; err != nil {
+	  c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+	  return
+	}
+  
+	c.JSON(http.StatusOK, gin.H{"data": up})
+  }
