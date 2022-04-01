@@ -35,6 +35,7 @@ func main() {
 	router.POST("/addStudentDetails", api.PostStudentDetails)
 	router.POST("/addUserPreference", api.PostUserPreferences)
 	router.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
+	router.GET("/getUserUniversityApplicationByUserId", api.FindUniversityByUserId)
 	// Listen and Server in 0.0.0.0:8080
 	router.Run(":" + port)
 }
