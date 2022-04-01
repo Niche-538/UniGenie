@@ -3,7 +3,9 @@ package main
 import (
 	"os"
 	api "unigenie/api"
-	"unigenie/routes"
+	database "unigenie/database"
+
+	// routes "unigenie/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,10 +23,10 @@ func main() {
 	router.Use(gin.Logger())
 
 	// Routes
-	routes.AuthRoutes(router)
-	routes.UserRoutes(router)
+	// routes.AuthRoutes(router)
+	// routes.UserRoutes(router)
 
-	// models.SetDatabase()
+	database.SetDatabase()
 
 	// API Calls
 

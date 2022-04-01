@@ -1,24 +1,26 @@
 package models
 
 import (
+	"github.com/go-playground/validator/v10"
+	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
 
 type User struct {
 	gorm.Model
 	ID        uint   `gorm:"primaryKey;autoIncrement" json:"user_id"`
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
-	Email     string `json:"email"`
-	Password  string `json:"password"`
+	FirstName string `json:"first_name" validate:"required"`
+	LastName  string `json:"last_name" validate:"required"`
+	Email     string `json:"email" gorm:"unique" validate:"email, required"`
+	Password  string `json:"password" validate:"required"`
 }
 
 type StudentDetails struct {
 	gorm.Model
 	ID             uint    `gorm:"primaryKey;autoIncrement" json:"personal_details_id"`
-	FirstName      string  `json:"first_name"`
-	LastName       string  `json:"last_name"`
-	Email          string  `json:"email"`
+	FirstName      string  `json:"first_name" validate:"required"`
+	LastName       string  `json:"last_name" validate:"required"`
+	Email          string  `json:"email" validate:"email, required"`
 	AddressLine1   string  `json:"address_line_1"`
 	AddressLine2   string  `json:"address_line_2"`
 	City           string  `json:"city"`
@@ -48,4 +50,26 @@ type StudentDetails struct {
 	IELTSWrite     float64 `json:"ielts_write"`
 	UserID         uint
 	User           User `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+}
+
+var validate = validator.New()
+
+// pointer receivers
+
+func (user *User) PasswordHash(password string) error {
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
+	if err != nil {
+		return err
+	}
+
+	user.Password = string(bytes)
+	return nil
+}
+
+func (user *User) CheckPassword(providedPassword string) error {
+	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(providedPassword))
+	if err != nil {
+		return err
+	}
+	return nil
 }

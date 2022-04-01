@@ -8,9 +8,11 @@ import (
 	"net/http/httptest"
 	"testing"
 	api "unigenie/api"
+	database "unigenie/database"
 	models "unigenie/models"
 
 	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -204,4 +206,8 @@ func TestAddStudentDetails(t *testing.T) {
 	} else {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
+}
+
+func TestDatabase(t *testing.T) {
+	assert.NoError(t, database.SetDatabaseTest())
 }
