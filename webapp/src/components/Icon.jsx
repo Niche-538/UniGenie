@@ -7,7 +7,7 @@ function Icon() {
             width="450"
             height="300"
             data-name="Layer 1"
-            viewBox="0 0 600 600"
+            viewBox="200 0 500 600"
             fill="none"
         >
             <path
