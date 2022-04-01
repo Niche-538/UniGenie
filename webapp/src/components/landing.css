@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #ecf0f3
+    background: #ECF0F3
 }
 
 .wrapper {
@@ -16,9 +16,9 @@ body {
     min-height: 300px;
     margin: 80px auto;
     padding: 40px 30px 30px 30px;
-    background-color: #ecf0f3;
+    background-color: #ECF0F3;
     border-radius: 15px;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff 
+    box-shadow: 13px 13px 20px #CBCED1, -13px -13px 20px #FFF 
 }
 
 .logo {
@@ -31,7 +31,7 @@ body {
     height: 80px;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 0px 0px 3px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaa7, -8px -8px 15px #fff
+    box-shadow: 0px 0px 3px #5F5F5F, 0px 0px 0px 5px #ECF0F3, 8px 8px 15px #A7AAA7, -8px -8px 15px #FFF
 }
 
 .wrapper .name {
@@ -57,7 +57,7 @@ body {
     padding-left: 10px;
     margin-bottom: 20px;
     border-radius: 20px;
-    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff
+    box-shadow: inset 8px 8px 8px #CBCED1, inset -8px -8px 8px #FFF
 }
 
 .wrapper .form-field .fas {
@@ -69,14 +69,14 @@ body {
     width: 100%;
     height: 40px;
     background-color: #6C63FF;
-    color: #fff;
+    color: #FFF;
     border-radius: 25px;
-    box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+    box-shadow: 3px 3px 3px #B1B1B1, -3px -3px 3px #FFF;
     letter-spacing: 1.3px
 }
 
 .wrapper .btn:hover {
-    background-color: #6C63FF
+    background-color: #504ac5
 }
 
 .wrapper a {
@@ -86,7 +86,63 @@ body {
 }
 
 .wrapper a:hover {
-    color: #6C63FF
+    color: #41c9b2
+}
+
+.post-button-bg {
+    background-color: #6C63FF
+}
+
+.post-button-bg:hover {
+    background-color: #504ac5
+}
+
+.chat-bg {
+    background-color: #6C63FF
+}
+
+.chat-bg:hover {
+    background-color: #504ac5
+}
+
+.notification-bg {
+    background-color: #6C63FF
+}
+
+.notification-bg:hover {
+    background-color: #504ac5
+}
+
+.profile-person-bg {
+    background-color: #6C63FF
+}
+
+.profile-person-bg:hover {
+    background-color: #504ac5
+}
+
+.update-profile-btn {
+    background-color: #6C63FF
+}
+
+.update-profile-btn:hover {
+    background-color: #504ac5
+}
+
+.update-password-btn {
+    background-color: #6C63FF
+}
+
+.update-password-btn:hover {
+    background-color: #504ac5
+}
+
+.update-preferences-btn {
+    background-color: #6C63FF
+}
+
+.update-preferences-btn:hover {
+    background-color: #504ac5
 }
 
 @media(max-width: 380px) {

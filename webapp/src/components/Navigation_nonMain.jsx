@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./landing.css";
 import {
     Button,
     Container,
@@ -44,7 +45,7 @@ const Navigation_nonMain = () => {
                 <Navbar.Brand
                     style={{
                         fontSize: 40,
-                        color: "#4a54f1",
+                        color: "#6C63FF",
                         fontFamily: "roboto",
                     }}
                     className="mx-3"
@@ -67,7 +68,7 @@ const Navigation_nonMain = () => {
 
                 <Nav className="px-3 ms-auto me-5 my-3 flex-row justify-content-end text-center align-items-center">
                     <Nav.Item className="mx-2 px-2 justify-content-center text-center align-items-center">
-                        <Button variant="dark">
+                        <Button className="notification-bg">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
@@ -81,7 +82,7 @@ const Navigation_nonMain = () => {
                         </Button>
                     </Nav.Item>
                     <Nav.Item className="mx-2 px-2 justify-content-center text-center align-items-center">
-                        <Button variant="outline-dark">
+                        <Button className="chat-bg">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
@@ -110,16 +111,16 @@ const Navigation_nonMain = () => {
                                             className="flex-column"
                                         >
                                             <Nav.Link
-                                                href="/ProfilePage"
+                                                href="/ProfileSettingsPage"
                                                 className="rounded border mb-3 mx-2 px-2 text-start"
                                             >
                                                 My Profile
                                             </Nav.Link>
                                             <Nav.Link
-                                                href="/ProfileSettingsPage"
+                                                href="/ProfilePage"
                                                 className="rounded border mb-3 mx-2 px-2 text-start"
                                             >
-                                                Settings
+                                                My Preferences
                                             </Nav.Link>
                                             <Nav.Link
                                                 href="/"
@@ -132,7 +133,7 @@ const Navigation_nonMain = () => {
                                 </Popover>
                             }
                         >
-                            <Button variant="dark">
+                            <Button className="profile-person-bg">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"

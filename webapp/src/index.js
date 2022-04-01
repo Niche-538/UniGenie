@@ -28,7 +28,7 @@ const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
 const login = document.getElementById("login");
-const foot=document.getElementById("foot");
+const foot = document.getElementById("foot");
 var wind = window.location.href;
 
 if (wind === "http://localhost:3000/") {
@@ -87,7 +87,7 @@ if (wind === "http://localhost:3000/") {
 
     ReactDOM.render(
         <StrictMode>
-            <LP/>
+            <LP />
         </StrictMode>,
         login
     );
@@ -98,7 +98,6 @@ if (wind === "http://localhost:3000/") {
         </StrictMode>,
         foot
     );
-    
 } else {
     ReactDOM.render(
         <StrictMode>

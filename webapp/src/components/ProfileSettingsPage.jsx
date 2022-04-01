@@ -1,41 +1,12 @@
 import React from "react";
-import { Button, Container, Form, Nav } from "react-bootstrap";
+import styles from "./landing.css";
+import { Button, Container, Form } from "react-bootstrap";
 
 const ProfileSettingsPage = () => {
     return (
         <Container className="rounded border">
             <div className="row g-3 my-3 mx-auto align-items-top">
-                <div className="col-xl-2">
-                    <Nav
-                        // defaultActiveKey="/ProfilePage"
-                        variant="pills"
-                        className="flex-column"
-                        activeKey="/ProfileSettingsPage"
-                    >
-                        <Nav.Link
-                            // eventKey="link-1"
-                            href="/ProfilePage"
-                            className="rounded border mb-2"
-                        >
-                            My Profile
-                        </Nav.Link>
-                        <Nav.Link
-                            // eventKey="link-2"
-                            href="/ProfileSettingsPage"
-                            className="rounded border mb-2"
-                        >
-                            Settings
-                        </Nav.Link>
-                        <Nav.Link
-                            // eventKey="link-3"
-                            href="/"
-                            className="rounded border mb-2"
-                        >
-                            Log Out
-                        </Nav.Link>
-                    </Nav>
-                </div>
-                <div className="col-xl-10 justify-content-center">
+                <div className="col-xl-12 justify-content-center">
                     <h3 className="text-center">Personal Details</h3>
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center">
@@ -77,19 +48,24 @@ const ProfileSettingsPage = () => {
                                 <Form.Control
                                     type="number"
                                     placeholder="(123) 456-7890"
+                                    // min="2002110000"
+                                    // max="9199999999"
                                 />
                             </Form.Group>
                         </div>
                         <Form.Group className="text-center justify-content-center">
-                            <Button variant="primary" size="lg" type="submit">
-                                Submit
+                            <Button
+                                className="update-profile-btn"
+                                type="submit"
+                            >
+                                Update Profile
                             </Button>
                         </Form.Group>
                     </Form>
 
                     <div className="row my-4 mx-3 border-bottom border-1 text-center justify-content-center align-items-center"></div>
 
-                    <h3 className="text-center mt-3">Change Password</h3>
+                    <h3 className="text-center mt-3">Change Your Password</h3>
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center">
                             <Form.Group
@@ -134,8 +110,11 @@ const ProfileSettingsPage = () => {
                             </Form.Group>
                         </div>
                         <Form.Group className="text-center justify-content-center">
-                            <Button variant="primary" size="lg" type="submit">
-                                Submit
+                            <Button
+                                className="update-password-btn"
+                                type="submit"
+                            >
+                                Update Password
                             </Button>
                         </Form.Group>
                     </Form>
