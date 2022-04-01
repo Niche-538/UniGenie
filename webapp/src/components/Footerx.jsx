@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footerx = () => {
     return (
         <div>
-        <footer className="text-center text-lg-start bg-light text-muted" style={{position:'fixed',bottom:30,width:window.outerWidth}}>
+        <footer className="text-center text-lg-start bg-light text-muted" style={{position:'fixed',bottom:0,width:window.outerWidth}}>
         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <div className="me-5 d-none d-lg-block">
                 <span>Get connected with us on social networks:</span>
