@@ -9,7 +9,7 @@ const Navigation = () => {
                     style={{
                         fontSize: 40,
                         color: "#6C63FF",
-                        fontFamily: "roboto",
+                        // fontFamily: "roboto",
                     }}
                     className="mx-3"
                     href="/"

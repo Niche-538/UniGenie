@@ -45,7 +45,7 @@ const Navigation_nonMain = () => {
                     style={{
                         fontSize: 40,
                         color: "#4a54f1",
-                        fontFamily: "roboto",
+                        // fontFamily: "roboto",
                     }}
                     className="mx-3"
                     href="/StudentHomePage"

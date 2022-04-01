@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom";
 import styles from "./landing.css";
 import {Button,Col,
     Container,
@@ -7,9 +8,44 @@ import {Button,Col,
     Modal,
     Row,} from "react-bootstrap";
 const LP = () => {
+    //const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [first_name, setFName] = useState();
+    const [last_name, setLName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPass] = useState();
+    const [confirm_password, setCPass] = useState();
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const registrationInfo = { first_name, last_name, email, password };
+        if(confirm_password!=password){
+            alert("Passwords don't match");
+            return false;
+        }
+        
+        fetch("http://localhost:8080/signup", {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache",
+                "Access-Control-Request-Headers": "*",
+                "Access-Control-Request-Method": "*",
+            },
+            body: JSON.stringify(registrationInfo),
+        }).then(() => {
+            console.log(registrationInfo);
+            
+        });
+        
+        handleClose();
+    }; 
+
 
    return(
        <Container>
@@ -48,7 +84,7 @@ const LP = () => {
                     <Modal.Title>Sign up. Your dreams lie beyond.</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form className="my-3 bg-body rounded">
+                    <Form className="my-3 bg-body rounded" onSubmit={handleSubmit}>
                         <Row className="mb-3 mx-2 g-3">
                             <Col>
                                 <FloatingLabel
@@ -56,9 +92,11 @@ const LP = () => {
                                     label="First name"
                                 >
                                     <Form.Control
+                                    name="first_name"
                                     style={{borderRadius:"25px"}}
                                         type="text"
                                         placeholder="First name"
+                                        onChange={(e)=> setFName(e.target.value)}
                                     />
                                 </FloatingLabel>
                             </Col>
@@ -68,9 +106,11 @@ const LP = () => {
                                     label="Last name"
                                 >
                                     <Form.Control
+                                    name="last_name"
                                     style={{borderRadius:"25px"}}
                                         type="text"
                                         placeholder="Last name"
+                                        onChange={(e)=> setLName(e.target.value)}
                                     />
                                 </FloatingLabel>
                             </Col>
@@ -82,9 +122,12 @@ const LP = () => {
                                 className="mb-3 mx-3"
                             >
                                 <Form.Control
+                                
                                 style={{borderRadius:"25px"}}
-                                    type="email"
+                                    type="text"
+                                    name="email"
                                     placeholder="name@example.com"
+                                    onChange={(e)=> setEmail(e.target.value)}
                                 />
                             </FloatingLabel>
                             <FloatingLabel
@@ -93,9 +136,11 @@ const LP = () => {
                                 className="mb-3 mx-3"
                             >
                                 <Form.Control
+                                name="password"
                                 style={{borderRadius:"25px"}}
                                     type="password"
                                     placeholder="Password"
+                                    onChange={(e)=> setPass(e.target.value)}
                                 />
                             </FloatingLabel>
                             <FloatingLabel
@@ -104,36 +149,45 @@ const LP = () => {
                                 className="mb-3 mx-3"
                             >
                                 <Form.Control
+                                name="confirm_password"
                                 style={{borderRadius:"25px"}}
                                     type="password"
                                     placeholder="Password"
+                                    onChange={(e)=> setCPass(e.target.value)}
                                 />
-                            </FloatingLabel>
+                            </FloatingLabel>   
                         </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer className="align-items-center text-center justify-content-center">
+                    <Form.Group className="text-center">   
                     <Button
-                        style={{ width: "8rem",borderRadius:"25px" }}
+                    
+                        style={{ width: "8rem",borderRadius:"25px"}}
                         variant="secondary"
                         onClick={handleClose}
                     >
                         Close
                     </Button>
                     <Button
-                        style={{ width: "10rem",background:"#6C63FF", borderRadius:"25px" }}
-                        
+                        style={{ width: "8rem",background:"#6C63FF", borderRadius:"25px"}}
+
                         type="submit"
                         variant="success"
-                        href="/ProfilePage"
-                        // color="#6C63FF"
+                        href="/ProfileSettingsPage"
+                        onClick={handleSubmit}
+                    // color="#6C63FF"
                     >
                         Sign Up
                     </Button>
-                </Modal.Footer>
+                    </Form.Group>
+                    
+                    
+                    
+                    </Form>
+                </Modal.Body>
+                
             </Modal>
 </Container>
    );
-
 };
 export default LP;
+
+
