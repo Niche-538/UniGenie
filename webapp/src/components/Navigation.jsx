@@ -8,13 +8,13 @@ const Navigation = () => {
                 <Navbar.Brand
                     style={{
                         fontSize: 40,
-                        color: "#4a54f1",
+                        color: "#6C63FF",
                         fontFamily: "roboto",
                     }}
                     className="mx-3"
                     href="/"
                 >
-                    UniGenie
+                  UniGenie
                 </Navbar.Brand>
 
                 <Nav className="px-3 ms-3 me-auto my-3 flex-row justify-content-center text-center align-items-center">

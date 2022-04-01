@@ -23,7 +23,7 @@ import ProfilePage from "./components/ProfilePage";
 import ProfileSettingsPage from "./components/ProfileSettingsPage";
 import StudentHomePage from "./components/StudentHomePage";
 import Footerx from "./components/Footerx";
-
+import LP from "./components/Lp";
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
@@ -87,7 +87,7 @@ if (wind === "http://localhost:3000/") {
 
     ReactDOM.render(
         <StrictMode>
-            <LandingPage />
+            <LP/>
         </StrictMode>,
         login
     );
