@@ -1,6 +1,9 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import Anim from "./components/Anim.tsx";
 import Icon from "./components/Icon.jsx";
 import LandingPage from "./components/LandingPage";
@@ -18,8 +21,7 @@ import AddPrograms from "./components/AddPrograms";
 import UniversityApplications from "./components/UniversityApplications";
 import ProfilePage from "./components/ProfilePage";
 import ProfileSettingsPage from "./components/ProfileSettingsPage";
-import "bootstrap/dist/css/bootstrap.min.css";
-// import 'bootstrap/dist/css/bootstrap.css';
+import StudentHomePage from "./components/StudentHomePage";
 
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
@@ -34,7 +36,6 @@ if (wind === "http://localhost:3000/") {
             <Navigation />
             <Router>
                 <Routes>
-                    {/* <Route path="/LandingPage" element={<LandingPage />} /> */}
                     <Route path="/AdminLogin" element={<AdminLogin />} />
                     <Route path="/StudentLogin" element={<StudentLogin />} />
                     <Route path="/AdminSignup" element={<AdminSignup />} />
@@ -58,6 +59,10 @@ if (wind === "http://localhost:3000/") {
                     <Route
                         path="/ProfileSettingsPage"
                         element={<ProfileSettingsPage />}
+                    />
+                    <Route
+                        path="/StudentHomePage"
+                        element={<StudentHomePage />}
                     />
                 </Routes>
             </Router>
@@ -91,7 +96,6 @@ if (wind === "http://localhost:3000/") {
             <Navigation_nonMain />
             <Router>
                 <Routes>
-                    {/* <Route path="/LandingPage" element={<LandingPage />} /> */}
                     <Route path="/AdminLogin" element={<AdminLogin />} />
                     <Route path="/StudentLogin" element={<StudentLogin />} />
                     <Route path="/AdminSignup" element={<AdminSignup />} />
@@ -115,6 +119,10 @@ if (wind === "http://localhost:3000/") {
                     <Route
                         path="/ProfileSettingsPage"
                         element={<ProfileSettingsPage />}
+                    />
+                    <Route
+                        path="/StudentHomePage"
+                        element={<StudentHomePage />}
                     />
                 </Routes>
             </Router>

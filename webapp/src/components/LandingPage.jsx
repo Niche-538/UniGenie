@@ -47,7 +47,7 @@ const LandingPage = () => {
                             variant="primary"
                             size="lg"
                             className="mb-3 mx-3 rounded-4"
-                            href="/UniversityApplications"
+                            href="/StudentHomePage"
                         >
                             Log In
                         </Button>
