@@ -1,6 +1,7 @@
 package api
 
 import (
+	"fmt"
 	"net/http"
 	models "unigenie/models"
 
@@ -28,6 +29,10 @@ func PostUsers(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
+	fmt.Println("##################")
+	fmt.Println(newUser.Password)
+	fmt.Println("##################")
 
 	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if sht != nil {

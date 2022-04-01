@@ -45,8 +45,9 @@ const Navigation_nonMain = () => {
                 <Navbar.Brand
                     style={{
                         fontSize: 40,
-                        color: "#6C63FF",
-                        fontFamily: "roboto",
+                        color: "#4a54f1",
+                        // fontFamily: "roboto",
+
                     }}
                     className="mx-3"
                     href="/StudentHomePage"
