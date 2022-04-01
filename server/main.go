@@ -3,7 +3,6 @@ package main
 import (
 	"os"
 	api "unigenie/api"
-	database "unigenie/database"
 
 	// routes "unigenie/routes"
 
@@ -26,7 +25,7 @@ func main() {
 	// routes.AuthRoutes(router)
 	// routes.UserRoutes(router)
 
-	database.SetDatabase()
+	// database.SetDatabase()
 
 	// API Calls
 
