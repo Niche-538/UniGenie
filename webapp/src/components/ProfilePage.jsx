@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button, Container, Form, Nav } from "react-bootstrap";
+import styles from "./landing.css";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 const ProfilePage = () => {
     const [has_taken_gre, setHasTakenGRE] = useState(true);
@@ -67,38 +68,8 @@ const ProfilePage = () => {
 
     return (
         <Container className="rounded border">
-            <div className="row g-3 my-3 mx-auto align-items-top" >
-                <div className="col-xl-2">
-                    <Nav
-                        // defaultActiveKey="/ProfilePage"
-                        variant="pills"
-                        className="flex-column"
-                        activeKey="/ProfilePage"
-                    >
-                        <Nav.Link
-                            // eventKey="link-1"
-                            href="/ProfilePage"
-                            className="rounded border mb-2"
-                        >
-                            My Profile
-                        </Nav.Link>
-                        <Nav.Link
-                            // eventKey="link-2"
-                            href="/ProfileSettingsPage"
-                            className="rounded border mb-2"
-                        >
-                            Settings
-                        </Nav.Link>
-                        <Nav.Link
-                            // eventKey="link-3"
-                            href="/"
-                            className="rounded border mb-2"
-                        >
-                            Log Out
-                        </Nav.Link>
-                    </Nav>
-                </div>
-                <div className="col-xl-10 justify-content-center">
+            <div className="row g-3 my-3 mx-auto align-items-top">
+                <div className="col-xl-12 justify-content-center">
                     <h3 className="text-center">Educational Details</h3>
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
@@ -910,16 +881,22 @@ const ProfilePage = () => {
 
                     <div className="row my-4 mx-3 border-bottom border-1 text-center justify-content-center align-items-center"></div>
 
-                    <div className="row mb-3 text-center justify-content-center align-items-center">
-                        <div>
-                            <Button type="submit" size="lg" variant="success">
-                                Submit
-                            </Button>
-                        </div>
-                    </div>
-                    
+                    <Form>
+                        <Row className="mb-3 text-center justify-content-center align-items-center">
+                            <Col>
+                                <Button
+                                    className="update-preferences-btn"
+                                    type="submit"
+                                >
+                                    Update Preferences
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Form>
                 </div>
-                <div><p></p></div>
+                <div>
+                    <p></p>
+                </div>
             </div>
         </Container>
     );
