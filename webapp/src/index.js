@@ -12,6 +12,7 @@ import Navigation_nonMain from "./components/Navigation_nonMain";
 import AdminLogin from "./components/AdminLogin";
 import StudentLogin from "./components/StudentLogin";
 import AdminSignup from "./components/AdminSignup";
+import StudSignUp from "./components/StudSignUp";
 import StudentSignup from "./components/StudentSignup";
 import AdminFunc from "./components/AdminFunc";
 import AddUniversity from "./components/AddUniversity";
@@ -38,6 +39,7 @@ if (wind === "http://localhost:3000/") {
             <Router>
                 <Routes>
                     <Route path="/AdminLogin" element={<AdminLogin />} />
+                    <Route path="/StudSignUp" element={<StudSignUp/>}/>
                     <Route path="/StudentLogin" element={<StudentLogin />} />
                     <Route path="/AdminSignup" element={<AdminSignup />} />
                     <Route path="/StudentSignup" element={<StudentSignup />} />
@@ -104,6 +106,7 @@ if (wind === "http://localhost:3000/") {
             <Navigation_nonMain />
             <Router>
                 <Routes>
+                    <Route path="/StudSignUp" element={<StudSignUp/>}/>
                     <Route path="/AdminLogin" element={<AdminLogin />} />
                     <Route path="/StudentLogin" element={<StudentLogin />} />
                     <Route path="/AdminSignup" element={<AdminSignup />} />
