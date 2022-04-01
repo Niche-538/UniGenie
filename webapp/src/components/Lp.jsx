@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import styles from "./landing.css";
+import bcrypt from "bcryptjs";
 import {
     Button,
     Container,
@@ -10,6 +11,8 @@ import {
     FloatingLabel,
     Col,
 } from "react-bootstrap";
+const salt = bcrypt.genSaltSync(10);
+
 
 const LP = () => {
     //const navigate = useNavigate();
@@ -22,11 +25,11 @@ const LP = () => {
     const [email, setEmail] = useState();
     const [password, setPass] = useState();
     const [confirm_password, setCPass] = useState();
-    
+    //const hashedPassword=bcrypt.hashSync(password,'$2a$10$CwTycUXWue0Thq9StjUM0u');
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        const registrationInfo = { first_name, last_name, email, password };
+        const hashedPassword=bcrypt.hashSync(password,'$2a$10$CwTycUXWue0Thq9StjUM0u');
+        const registrationInfo = { first_name, last_name, email, hashedPassword };
         if(confirm_password!=password){
             alert("Passwords don't match");
             return false;
