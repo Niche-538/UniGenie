@@ -1,6 +1,8 @@
 package models
 
 import (
+	"unigenie/database"
+
 	"github.com/go-playground/validator/v10"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
@@ -56,7 +58,7 @@ var validate = validator.New()
 
 // pointer receivers
 
-func (user *User) PasswordHash(password string) error {
+func (user *User) HashPassword(password string) error {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	if err != nil {
 		return err
@@ -71,6 +73,15 @@ func (user *User) CheckPassword(providedPassword string) error {
 	if err != nil {
 		return err
 	}
+	return nil
+}
+
+func (user *User) CreateUserRecord() error {
+	result := database.DBConn.Create(&user)
+	if result.Error != nil {
+		return result.Error
+	}
+
 	return nil
 }
 
