@@ -218,11 +218,14 @@ func TestHashPassword(t *testing.T) {
 		Password: "secret",
 	}
 
+	// db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+
+	// res := db.Select("Email", "Password").Find(&user, "4")
+
 	err := user.HashPassword(user.Password)
 	assert.NoError(t, err)
 
 	os.Setenv("passwordHash", user.Password)
-	fmt.Println(os.Getenv("passwordHash"))
 }
 
 // func TestCreateUserRecord(t *testing.T) {
@@ -258,7 +261,6 @@ func TestHashPassword(t *testing.T) {
 
 func TestCheckPassword(t *testing.T) {
 	hash := os.Getenv("passwordHash")
-	// fmt.Println(hash)
 
 	user := models.User{
 		Password: hash,

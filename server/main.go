@@ -27,6 +27,34 @@ func main() {
 
 	// database.SetDatabase()
 
+	// hashing check
+	// user := models.User{
+	// 	Password: "secret",
+	// }
+
+	// err := user.HashPassword(user.Password)
+	// // assert.NoError(t, err)
+	// if err != nil {
+	// 	return
+	// }
+	// os.Setenv("passwordHash", user.Password)
+
+	// fmt.Println("passwordHash Env: ", os.Getenv("passwordHash"))
+
+	// hash := os.Getenv("passwordHash")
+
+	// usr := models.User{
+	// 	Password: hash,
+	// }
+
+	// err = usr.CheckPassword("secret")
+
+	// if err != nil {
+	// 	fmt.Println("Hash function does not work")
+	// } else {
+	// 	fmt.Println("Hash function works")
+	// }
+
 	// API Calls
 
 	router.GET("/getUniversities", api.GetUniversities)
