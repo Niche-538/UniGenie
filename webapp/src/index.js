@@ -22,12 +22,13 @@ import UniversityApplications from "./components/UniversityApplications";
 import ProfilePage from "./components/ProfilePage";
 import ProfileSettingsPage from "./components/ProfileSettingsPage";
 import StudentHomePage from "./components/StudentHomePage";
+import Footerx from "./components/Footerx";
 
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
 const login = document.getElementById("login");
-
+const foot=document.getElementById("foot");
 var wind = window.location.href;
 
 if (wind === "http://localhost:3000/") {
@@ -90,6 +91,14 @@ if (wind === "http://localhost:3000/") {
         </StrictMode>,
         login
     );
+
+    ReactDOM.render(
+        <StrictMode>
+            <Footerx />
+        </StrictMode>,
+        foot
+    );
+    
 } else {
     ReactDOM.render(
         <StrictMode>
@@ -129,18 +138,10 @@ if (wind === "http://localhost:3000/") {
         </StrictMode>,
         rootElement
     );
+    ReactDOM.render(
+        <StrictMode>
+            <Footerx />
+        </StrictMode>,
+        foot
+    );
 }
-
-// function Image(props){
-//     //const needImage=props.needImage;
-//     if(needImage){
-//         return <Icon/>
-//     }
-// }
-
-// function Animation(props){
-//     //const needAnim=props.needAnim;
-//     if(needAnim){
-//         return <Anim/>
-//     }
-// }
