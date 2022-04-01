@@ -3,7 +3,6 @@ package models
 import (
 	"unigenie/database"
 
-	"github.com/go-playground/validator/v10"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
@@ -54,7 +53,7 @@ type StudentDetails struct {
 	User           User `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
 
-var validate = validator.New()
+// var validate = validator.New()
 
 // pointer receivers
 
