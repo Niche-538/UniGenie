@@ -27,7 +27,6 @@ func SetDatabaseTest() (err error) {
 		return err
 	}
 
-	DBConn.DB()
-
+	DBConn.Name()
 	return nil
 }
