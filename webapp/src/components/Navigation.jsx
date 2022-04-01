@@ -14,7 +14,7 @@ const Navigation = () => {
                     className="mx-3"
                     href="/"
                 >
-                  UniGenie
+                    UniGenie
                 </Navbar.Brand>
 
                 <Nav className="px-3 ms-3 me-auto my-3 flex-row justify-content-center text-center align-items-center">

@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import styles from "./landing.css";
-import {Button,Col,
+import {
+    Button,
     Container,
-    FloatingLabel,
-    Form,
     Modal,
-    Row,} from "react-bootstrap";
+    Row,
+    Form,
+    FloatingLabel,
+    Col,
+} from "react-bootstrap";
+
 const LP = () => {
     //const navigate = useNavigate();
     const [show, setShow] = useState(false);
@@ -58,20 +62,40 @@ const LP = () => {
             <input type="text" name="userName" id="userName" placeholder="Username"/> 
         </div>
 
-        <div className="form-field d-flex align-items-center"> 
-            <span className="fas fa-key"></span> 
-            <input type="password" name="password" id="pwd" placeholder="Password"/> 
-        </div> 
-        <Button type="submit" variant="primary" className="btn mt-3" href="/StudentHomePage">
-           <h6>Login</h6>
-        </Button>
-        <Button type="submit" variant="primary" className="btn mt-3" href="#" onClick={handleShow}>
-        <h6>Register</h6>
-        </Button>               
-    </form>
-    <div className="text-center fs-6"> <a href="#">Forget password?</a> </div>     
-</div>
-<Modal
+
+                    <div className="form-field d-flex align-items-center">
+                        <span className="fas fa-key"></span>
+                        <input
+                            type="password"
+                            name="password"
+                            id="pwd"
+                            placeholder="Password"
+                        />
+                    </div>
+                    <Button
+                        type="submit"
+                        variant="primary"
+                        className="btn mt-3"
+                        href="/StudentHomePage"
+                    >
+                        <h6>Login</h6>
+                    </Button>
+                    <Button
+                        type="submit"
+                        variant="primary"
+                        className="btn mt-3"
+                        href="#"
+                        onClick={handleShow}
+                    >
+                        <h6>Register</h6>
+                    </Button>
+                </form>
+                <div className="text-center fs-6">
+                    {" "}
+                    <a href="#">Forget password?</a>{" "}
+                </div>
+            </div>
+            <Modal
                 show={show}
                 onHide={handleClose}
                 backdrop="static"
@@ -92,8 +116,10 @@ const LP = () => {
                                     label="First name"
                                 >
                                     <Form.Control
+
                                     name="first_name"
                                     style={{borderRadius:"25px"}}
+
                                         type="text"
                                         placeholder="First name"
                                         onChange={(e)=> setFName(e.target.value)}
@@ -106,8 +132,10 @@ const LP = () => {
                                     label="Last name"
                                 >
                                     <Form.Control
+
                                     name="last_name"
                                     style={{borderRadius:"25px"}}
+
                                         type="text"
                                         placeholder="Last name"
                                         onChange={(e)=> setLName(e.target.value)}
@@ -126,6 +154,7 @@ const LP = () => {
                                 style={{borderRadius:"25px"}}
                                     type="text"
                                     name="email"
+
                                     placeholder="name@example.com"
                                     onChange={(e)=> setEmail(e.target.value)}
                                 />
@@ -136,8 +165,10 @@ const LP = () => {
                                 className="mb-3 mx-3"
                             >
                                 <Form.Control
+
                                 name="password"
                                 style={{borderRadius:"25px"}}
+
                                     type="password"
                                     placeholder="Password"
                                     onChange={(e)=> setPass(e.target.value)}
@@ -149,8 +180,10 @@ const LP = () => {
                                 className="mb-3 mx-3"
                             >
                                 <Form.Control
+
                                 name="confirm_password"
                                 style={{borderRadius:"25px"}}
+
                                     type="password"
                                     placeholder="Password"
                                     onChange={(e)=> setCPass(e.target.value)}
@@ -167,7 +200,9 @@ const LP = () => {
                         Close
                     </Button>
                     <Button
+
                         style={{ width: "8rem",background:"#6C63FF", borderRadius:"25px"}}
+
 
                         type="submit"
                         variant="success"
@@ -185,9 +220,8 @@ const LP = () => {
                 </Modal.Body>
                 
             </Modal>
+
 </Container>
    );
 };
 export default LP;
-
-
