@@ -67,7 +67,7 @@ const ProfilePage = () => {
 
     return (
         <Container className="rounded border">
-            <div className="row g-3 my-3 mx-auto align-items-top">
+            <div className="row g-3 my-3 mx-auto align-items-top" >
                 <div className="col-xl-2">
                     <Nav
                         // defaultActiveKey="/ProfilePage"
@@ -917,7 +917,9 @@ const ProfilePage = () => {
                             </Button>
                         </div>
                     </div>
+                    
                 </div>
+                <div><p></p></div>
             </div>
         </Container>
     );
