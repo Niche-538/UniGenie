@@ -8,7 +8,7 @@ const Navigation = () => {
                 <Navbar.Brand
                     style={{
                         fontSize: 40,
-                        color: "#4a54f1",
+                        color: "#6C63FF",
                         fontFamily: "roboto",
                     }}
                     className="mx-3"

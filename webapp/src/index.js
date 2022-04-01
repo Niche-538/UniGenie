@@ -12,6 +12,7 @@ import Navigation_nonMain from "./components/Navigation_nonMain";
 import AdminLogin from "./components/AdminLogin";
 import StudentLogin from "./components/StudentLogin";
 import AdminSignup from "./components/AdminSignup";
+import StudSignUp from "./components/StudSignUp";
 import StudentSignup from "./components/StudentSignup";
 import AdminFunc from "./components/AdminFunc";
 import AddUniversity from "./components/AddUniversity";
@@ -22,12 +23,13 @@ import UniversityApplications from "./components/UniversityApplications";
 import ProfilePage from "./components/ProfilePage";
 import ProfileSettingsPage from "./components/ProfileSettingsPage";
 import StudentHomePage from "./components/StudentHomePage";
-
+import Footerx from "./components/Footerx";
+import LP from "./components/Lp";
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
 const login = document.getElementById("login");
-
+const foot = document.getElementById("foot");
 var wind = window.location.href;
 
 if (wind === "http://localhost:3000/") {
@@ -37,6 +39,7 @@ if (wind === "http://localhost:3000/") {
             <Router>
                 <Routes>
                     <Route path="/AdminLogin" element={<AdminLogin />} />
+                    <Route path="/StudSignUp" element={<StudSignUp/>}/>
                     <Route path="/StudentLogin" element={<StudentLogin />} />
                     <Route path="/AdminSignup" element={<AdminSignup />} />
                     <Route path="/StudentSignup" element={<StudentSignup />} />
@@ -86,9 +89,16 @@ if (wind === "http://localhost:3000/") {
 
     ReactDOM.render(
         <StrictMode>
-            <LandingPage />
+            <LP />
         </StrictMode>,
         login
+    );
+
+    ReactDOM.render(
+        <StrictMode>
+            <Footerx />
+        </StrictMode>,
+        foot
     );
 } else {
     ReactDOM.render(
@@ -96,6 +106,7 @@ if (wind === "http://localhost:3000/") {
             <Navigation_nonMain />
             <Router>
                 <Routes>
+                    <Route path="/StudSignUp" element={<StudSignUp/>}/>
                     <Route path="/AdminLogin" element={<AdminLogin />} />
                     <Route path="/StudentLogin" element={<StudentLogin />} />
                     <Route path="/AdminSignup" element={<AdminSignup />} />
@@ -129,18 +140,10 @@ if (wind === "http://localhost:3000/") {
         </StrictMode>,
         rootElement
     );
+    ReactDOM.render(
+        <StrictMode>
+            <Footerx />
+        </StrictMode>,
+        foot
+    );
 }
-
-// function Image(props){
-//     //const needImage=props.needImage;
-//     if(needImage){
-//         return <Icon/>
-//     }
-// }
-
-// function Animation(props){
-//     //const needAnim=props.needAnim;
-//     if(needAnim){
-//         return <Anim/>
-//     }
-// }

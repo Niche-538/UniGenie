@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
+body {
+    background: #ECF0F3
+}
+
+.wrapper {
+    overflow: 'scroll';
+    max-width: 350px;
+    min-height: 300px;
+    margin: 10px auto;
+    padding: 40px 30px 30px 30px;
+    background-color: #ECF0F3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #CBCED1, -13px -13px 20px #FFF 
+}
+
+.logo {
+    width: 80px;
+    margin: auto
+}
+
+.logo img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px #5F5F5F, 0px 0px 0px 5px #ECF0F3, 8px 8px 15px #A7AAA7, -8px -8px 15px #FFF
+}
+
+.wrapper .name {
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
+    color: #555
+}
+
+.wrapper .form-field input {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 10px 15px 10px 10px
+}
+
+.wrapper .form-field {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: inset 8px 8px 8px #CBCED1, inset -8px -8px 8px #FFF
+}
+
+.wrapper .form-field .fas {
+    color: #555
+}
+
+.wrapper .btn {
+    box-shadow: none;
+    width: 100%;
+    height: 40px;
+    background-color: #6C63FF;
+    color: #FFF;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px #B1B1B1, -3px -3px 3px #FFF;
+    letter-spacing: 1.3px
+}
+
+.wrapper .btn:hover {
+    background-color: #504ac5
+}
+
+.wrapper a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #6C63FF
+}
+
+.wrapper a:hover {
+    color: #41c9b2
+}
+
+.post-button-bg {
+    background-color: #6C63FF
+}
+
+.post-button-bg:hover {
+    background-color: #504ac5
+}
+
+.chat-bg {
+    background-color: #6C63FF
+}
+
+.chat-bg:hover {
+    background-color: #504ac5
+}
+
+.notification-bg {
+    background-color: #6C63FF
+}
+
+.notification-bg:hover {
+    background-color: #504ac5
+}
+
+.profile-person-bg {
+    background-color: #6C63FF
+}
+
+.profile-person-bg:hover {
+    background-color: #504ac5
+}
+
+.profile-settings-page-form-field {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: inset 8px 8px 8px #CBCED1, inset -8px -8px 8px #FFF
+}
+
+.profile-settings-page-form-field input {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 10px 15px 10px 10px
+}
+
+.update-profile-btn {
+    box-shadow: none;
+    width: 100%;
+    height: 40px;
+    background-color: #6C63FF;
+    color: #FFF;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px #B1B1B1, -3px -3px 3px #FFF;
+    letter-spacing: 1.3px
+}
+
+.update-profile-btn:hover {
+    background-color: #504ac5
+}
+
+.update-password-btn {
+    box-shadow: none;
+    width: 100%;
+    height: 40px;
+    background-color: #6C63FF;
+    color: #FFF;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px #B1B1B1, -3px -3px 3px #FFF;
+    letter-spacing: 1.3px
+}
+
+.update-password-btn:hover {
+    background-color: #504ac5
+}
+
+.update-preferences-btn {
+    background-color: #6C63FF
+}
+
+.update-preferences-btn:hover {
+    background-color: #504ac5
+}
+
+@media(max-width: 380px) {
+    .wrapper {
+        margin: 30px 20px;
+        padding: 40px 15px 15px 15px
+    }
+}
