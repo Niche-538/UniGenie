@@ -2,8 +2,11 @@ import React from "react";
 import { Button, Container, Form } from "react-bootstrap";
 
 const StudentHomePage = () => {
+    // const length=window.outerWidth;
+    // console.log(length)
     return (
-        <Container className="rounded border my-5">
+    <div>
+        <Container className="rounded border my-4">
             <h3 className="row g-3 my-3 mx-5 align-items-top justify-content-center">
                 Create a post
             </h3>
@@ -24,8 +27,12 @@ const StudentHomePage = () => {
                     </Button>
                 </Form.Group>
             </Form>
+            
         </Container>
+    </div>
     );
 };
 
 export default StudentHomePage;
+
+
