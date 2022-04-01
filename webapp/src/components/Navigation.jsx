@@ -1,80 +1,36 @@
-import React, { Component } from "react";
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Navigation = () => {
-    
     return (
-        <div className="navigation">
-        <nav className="navbar navbar-expand-lg ">
-            <div className="container-fluid">
-                <a
+        <Navbar bg="light" expand={false}>
+            <Container fluid>
+                <Navbar.Brand
                     style={{
                         fontSize: 40,
                         color: "#4a54f1",
-                        fontFamily: "cursive",
+                        fontFamily: "roboto",
                     }}
-                    className="navbar-brand"
+                    className="mx-3"
                     href="/"
                 >
                     UniGenie
-                </a>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+                </Navbar.Brand>
 
-                <div
-                    className="collapse navbar-collapse"
-                    id="navbarSupportedContent"
-                >
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
-                        <li className="nav-item">
-                            <button
-                                type="button"
-                                className="btn btn-primary-outline m-2"
-                                onClick={() =>
-                                    (window.location.href =
-                                        "/AdminLogin")
-                                }
-                            >
-                                Admin Login
-                            </button>
-                        </li>
-                        <li className="nav-item">
-                            <button
-                                type="button"
-                                className="btn btn-primary-outline m-2"
-                                onClick={() =>
-                                    (window.location.href =
-                                        "/StudentLogin")
-                                }
-                            >
-                                Student Login
-                            </button>
-                        </li>
-                        <li className="nav-item">
-                            <button
-                                type="button"
-                                className="btn btn-primary-outline m-2"
-                                onClick={() =>
-                                    (window.location.href = "/")
-                                }
-                            >
-                                Grad School Finder
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+                <Nav className="px-3 ms-3 me-auto my-3 flex-row justify-content-center text-center align-items-center">
+                    <Nav.Item className="mx-2 px-2 justify-content-center text-center align-items-center">
+                        <Nav.Link href="/">Home</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item className="mx-2 px-2 justify-content-center text-center align-items-center">
+                        <Nav.Link href="#action2">Explore</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item className="mx-2 px-2 justify-content-center text-center align-items-center">
+                        <Nav.Link href="#action3">Resources</Nav.Link>
+                    </Nav.Item>
+                </Nav>
+            </Container>
+        </Navbar>
     );
-   };
+};
 
 export default Navigation;

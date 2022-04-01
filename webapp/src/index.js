@@ -1,6 +1,12 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Anim from "./components/Anim.tsx";
+import Icon from "./components/Icon.jsx";
+import LandingPage from "./components/LandingPage";
 import Navigation from "./components/Navigation";
 import Navigation_nonMain from "./components/Navigation_nonMain";
 import AdminLogin from "./components/AdminLogin";
@@ -13,18 +19,17 @@ import DeleteUniversity from "./components/DeleteUniversity";
 import StudentDetails from "./components/StudentDetails";
 import AddPrograms from "./components/AddPrograms";
 import UniversityApplications from "./components/UniversityApplications";
-// import 'bootstrap/dist/css/bootstrap.css';
-import "bootstrap/dist/css/bootstrap.min.css";
-import Anim from "./components/Anim.tsx";
-import Icon from "./components/Icon";
+import ProfilePage from "./components/ProfilePage";
+import ProfileSettingsPage from "./components/ProfileSettingsPage";
+import StudentHomePage from "./components/StudentHomePage";
 
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
+const login = document.getElementById("login");
 
-//const needAnim=true;
 var wind = window.location.href;
-//console.log(wind)
+
 if (wind === "http://localhost:3000/") {
     ReactDOM.render(
         <StrictMode>
@@ -50,6 +55,15 @@ if (wind === "http://localhost:3000/") {
                         path="/UniversityApplications"
                         element={<UniversityApplications />}
                     />
+                    <Route path="/ProfilePage" element={<ProfilePage />} />
+                    <Route
+                        path="/ProfileSettingsPage"
+                        element={<ProfileSettingsPage />}
+                    />
+                    <Route
+                        path="/StudentHomePage"
+                        element={<StudentHomePage />}
+                    />
                 </Routes>
             </Router>
         </StrictMode>,
@@ -68,6 +82,13 @@ if (wind === "http://localhost:3000/") {
             <Anim />
         </StrictMode>,
         text
+    );
+
+    ReactDOM.render(
+        <StrictMode>
+            <LandingPage />
+        </StrictMode>,
+        login
     );
 } else {
     ReactDOM.render(
@@ -93,6 +114,15 @@ if (wind === "http://localhost:3000/") {
                     <Route
                         path="/UniversityApplications"
                         element={<UniversityApplications />}
+                    />
+                    <Route path="/ProfilePage" element={<ProfilePage />} />
+                    <Route
+                        path="/ProfileSettingsPage"
+                        element={<ProfileSettingsPage />}
+                    />
+                    <Route
+                        path="/StudentHomePage"
+                        element={<StudentHomePage />}
                     />
                 </Routes>
             </Router>
