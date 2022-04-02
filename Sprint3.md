@@ -1,6 +1,9 @@
 # Sprint 3
 18 March 2022 - 01 April 2022
 
+![image](https://user-images.githubusercontent.com/41022671/161364955-38ca48eb-62ce-4515-9ce2-81639502e61d.png)
+
+
 # Sprint Target
 <ul>
   <li>Update the theme on frontend with the discussed design</li>
@@ -32,12 +35,17 @@ https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 
 
 # API Postman Collection
+
 1. Sign-Up with Password Hashing
 ![image](https://user-images.githubusercontent.com/41022671/161364363-23945573-9cd9-4a19-95cd-02e18a19b78a.png)
 
 2. Token Response after Login
 ![image](https://user-images.githubusercontent.com/41022671/161364389-22394a7c-dac5-425b-ab4c-0b5ad62a75e5.png)
 
+3. Add User Preferences
+![image](https://user-images.githubusercontent.com/41022671/161365210-92b2f966-93ef-435c-9091-b69b1b468bdd.png)
+
+4.  
 
 # Front-End
 <ul>
