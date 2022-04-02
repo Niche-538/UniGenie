@@ -5,7 +5,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var DBConn *gorm.DB
+// var DBConn *gorm.DB
 
 // func SetDatabase() {
 // 	DBConn, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
@@ -29,4 +29,12 @@ func SetDatabaseTest() (err error) {
 
 	DBConn.Name()
 	return nil
+}
+
+func ReturnDatabase() (DBConn *gorm.DB) {
+	DBConn, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		return nil
+	}
+	return DBConn
 }
