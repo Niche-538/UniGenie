@@ -45,7 +45,9 @@ https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 3. Add User Preferences
 ![image](https://user-images.githubusercontent.com/41022671/161365210-92b2f966-93ef-435c-9091-b69b1b468bdd.png)
 
-4.  
+4.  Add University Application 
+![Screen Shot 2022-04-01 at 23 52 27](https://user-images.githubusercontent.com/54627841/161365352-f87074d3-a069-4544-8e99-40f865c6fcaa.png)
+
 
 # Front-End
 <ul>
