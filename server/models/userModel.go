@@ -57,14 +57,14 @@ type StudentDetails struct {
 
 // pointer receivers
 
-func (user *User) HashPassword(password string) error {
+func (user *User) HashPassword(password string) (error, string) {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	if err != nil {
-		return err
+		return err, ""
 	}
 
 	user.Password = string(bytes)
-	return nil
+	return nil, user.Password
 }
 
 func (user *User) CheckPassword(providedPassword string) error {
@@ -76,7 +76,7 @@ func (user *User) CheckPassword(providedPassword string) error {
 }
 
 func (user *User) CreateUserRecord() error {
-	result := database.DBConn.Create(&user)
+	result := database.ReturnDatabase().Create(&user)
 	if result.Error != nil {
 		return result.Error
 	}
