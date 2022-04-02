@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	api "unigenie/api"
+	"unigenie/controllers"
 
 	// routes "unigenie/routes"
 
@@ -59,7 +60,9 @@ func main() {
 
 	router.GET("/getUniversities", api.GetUniversities)
 	router.GET("/getUsers", api.GetUsers)
-	router.POST("/signup", api.PostUsers)
+	// router.POST("/signup", api.PostUsers)
+	router.POST("/signup", controllers.Signup)
+	router.POST("/login", controllers.Login)
 	router.POST("/addUniversity", api.PostUniversities)
 	router.POST("/addStudentDetails", api.PostStudentDetails)
 	router.POST("/addUserPreference", api.PostUserPreferences)
