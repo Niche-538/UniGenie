@@ -98,6 +98,17 @@ body {
     background-color: #504ac5
 }
 
+.blog-image {
+    width: 50%;
+    height: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    justify-content: center;
+    /* margin-left: 243.90px; */
+}
+
 .chat-bg {
     background-color: #6C63FF
 }
