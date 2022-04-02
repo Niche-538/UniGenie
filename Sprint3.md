@@ -32,6 +32,11 @@ https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 
 
 # API Postman Collection
+1. Sign-Up with Password Hashing
+![image](https://user-images.githubusercontent.com/41022671/161364363-23945573-9cd9-4a19-95cd-02e18a19b78a.png)
+
+2. Token Response after Login
+![image](https://user-images.githubusercontent.com/41022671/161364389-22394a7c-dac5-425b-ab4c-0b5ad62a75e5.png)
 
 
 # Front-End
