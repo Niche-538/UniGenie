@@ -205,3 +205,82 @@ func TestAddStudentDetails(t *testing.T) {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
 }
+
+func TestAddUserPreference(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	_, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	r := gin.Default()
+
+	r.POST("/addUserPreference", api.PostUsers)
+
+
+	userPreferences := &models.UserPreferences{
+		UserID: 1,
+		CoursePreference:  "Mechanical",
+		CountryPreference:     "Germany",
+	}
+
+	body, _ := json.Marshal(userPreferences)
+
+	req, err := http.NewRequest(http.MethodPost, "/addUserPreference", bytes.NewBuffer(body))
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
+
+func TestUserUniversityApplication(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	_, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	r := gin.Default()
+
+	r.POST("/addUserUniversityApplication", api.PostUsers)
+
+
+	userUniversityApplication := &models.UserUniversityApplication{
+		UserID: 1,
+		UniversityApplicationLink:  "www.ufl.edu",
+		TranscriptUploaded:     true,
+		LOR1:     true,
+		LOR2:     false,
+		LOR3:     true,
+	}
+
+	body, _ := json.Marshal(userUniversityApplication)
+
+	req, err := http.NewRequest(http.MethodPost, "/addUserUniversityApplication", bytes.NewBuffer(body))
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
