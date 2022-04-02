@@ -3,7 +3,9 @@ package main
 import (
 	"os"
 	api "unigenie/api"
-	"unigenie/routes"
+	"unigenie/controllers"
+
+	// routes "unigenie/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,16 +23,46 @@ func main() {
 	router.Use(gin.Logger())
 
 	// Routes
-	routes.AuthRoutes(router)
-	routes.UserRoutes(router)
+	// routes.AuthRoutes(router)
+	// routes.UserRoutes(router)
 
-	// models.SetDatabase()
+	// database.SetDatabase()
+
+	// hashing check
+	// user := models.User{
+	// 	Password: "secret",
+	// }
+
+	// err := user.HashPassword(user.Password)
+	// // assert.NoError(t, err)
+	// if err != nil {
+	// 	return
+	// }
+	// os.Setenv("passwordHash", user.Password)
+
+	// fmt.Println("passwordHash Env: ", os.Getenv("passwordHash"))
+
+	// hash := os.Getenv("passwordHash")
+
+	// usr := models.User{
+	// 	Password: hash,
+	// }
+
+	// err = usr.CheckPassword("secret")
+
+	// if err != nil {
+	// 	fmt.Println("Hash function does not work")
+	// } else {
+	// 	fmt.Println("Hash function works")
+	// }
 
 	// API Calls
 
 	router.GET("/getUniversities", api.GetUniversities)
 	router.GET("/getUsers", api.GetUsers)
-	router.POST("/signup", api.PostUsers)
+	// router.POST("/signup", api.PostUsers)
+	router.POST("/signup", controllers.Signup)
+	router.POST("/login", controllers.Login)
 	router.POST("/addUniversity", api.PostUniversities)
 	router.POST("/addStudentDetails", api.PostStudentDetails)
 	router.POST("/addUserPreference", api.PostUserPreferences)

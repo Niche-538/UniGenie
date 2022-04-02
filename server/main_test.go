@@ -6,11 +6,14 @@ import (
 	"fmt"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 	api "unigenie/api"
+	database "unigenie/database"
 	models "unigenie/models"
 
 	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -206,6 +209,69 @@ func TestAddStudentDetails(t *testing.T) {
 	}
 }
 
+func TestDatabase(t *testing.T) {
+	assert.NoError(t, database.SetDatabaseTest())
+}
+
+func TestHashPassword(t *testing.T) {
+	user := models.User{
+		Password: "secret",
+	}
+
+	// db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+
+	// res := db.Select("Email", "Password").Find(&user, "4")
+
+	err, pwd := user.HashPassword(user.Password)
+	if pwd == "" {
+		return
+	}
+	assert.NoError(t, err)
+
+	os.Setenv("passwordHash", user.Password)
+}
+
+// func TestCreateUserRecord(t *testing.T) {
+// 	var userResult models.User
+
+// 	err := database.SetDatabaseTest()
+// 	if err != nil {
+// 		t.Error(err)
+// 	}
+
+// 	err = database.DBConn.AutoMigrate(&models.User{})
+// 	assert.NoError(t, err)
+
+// 	user := models.User{
+// 		FirstName: "Testing",
+// 		LastName:  "Usering",
+// 		Email:     "test@email.com",
+// 		Password:  os.Getenv("passwordHash"),
+// 	}
+
+// 	err = user.CreateUserRecord()
+// 	assert.NoError(t, err)
+
+// 	database.DBConn.Where("email = ?", user.Email).Find(&userResult)
+
+// 	// database.DBConn.Unscoped().Delete(&user)
+
+// 	assert.Equal(t, "Testing", userResult.FirstName)
+// 	assert.Equal(t, "Usering", userResult.LastName)
+// 	assert.Equal(t, "test@email.com", userResult.Email)
+
+// }
+
+func TestCheckPassword(t *testing.T) {
+	hash := os.Getenv("passwordHash")
+
+	user := models.User{
+		Password: hash,
+	}
+
+	err := user.CheckPassword("secret")
+	assert.NoError(t, err)
+}
 func TestAddUserPreference(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
@@ -218,11 +284,10 @@ func TestAddUserPreference(t *testing.T) {
 
 	r.POST("/addUserPreference", api.PostUsers)
 
-
 	userPreferences := &models.UserPreferences{
-		UserID: 1,
+		UserID:            1,
 		CoursePreference:  "Mechanical",
-		CountryPreference:     "Germany",
+		CountryPreference: "Germany",
 	}
 
 	body, _ := json.Marshal(userPreferences)
@@ -256,14 +321,13 @@ func TestUserUniversityApplication(t *testing.T) {
 
 	r.POST("/addUserUniversityApplication", api.PostUsers)
 
-
 	userUniversityApplication := &models.UserUniversityApplication{
-		UserID: 1,
-		UniversityApplicationLink:  "www.ufl.edu",
-		TranscriptUploaded:     true,
-		LOR1:     true,
-		LOR2:     false,
-		LOR3:     true,
+		UserID:                    1,
+		UniversityApplicationLink: "www.ufl.edu",
+		TranscriptUploaded:        true,
+		LOR1:                      true,
+		LOR2:                      false,
+		LOR3:                      true,
 	}
 
 	body, _ := json.Marshal(userUniversityApplication)
