@@ -222,7 +222,7 @@ func TestHashPassword(t *testing.T) {
 
 	// res := db.Select("Email", "Password").Find(&user, "4")
 
-	err, pwd := user.HashPassword(user.Password)
+	pwd, err := user.HashPassword(user.Password)
 	if pwd == "" {
 		return
 	}
