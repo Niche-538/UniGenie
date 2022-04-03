@@ -5,6 +5,8 @@ import (
 	api "unigenie/api"
 	"unigenie/controllers"
 
+	"github.com/gin-contrib/cors"
+
 	// routes "unigenie/routes"
 
 	"github.com/gin-gonic/gin"
@@ -22,42 +24,19 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 
-	// Routes
-	// routes.AuthRoutes(router)
-	// routes.UserRoutes(router)
-
-	// models.SetDatabase()
-
-	// hashing check
-	// user := models.User{
-	// 	Password: "secret",
-	// }
-
-	// err := user.HashPassword(user.Password)
-	// // assert.NoError(t, err)
-	// if err != nil {
-	// 	return
-	// }
-	// os.Setenv("passwordHash", user.Password)
-
-	// fmt.Println("passwordHash Env: ", os.Getenv("passwordHash"))
-
-	// hash := os.Getenv("passwordHash")
-
-	// usr := models.User{
-	// 	Password: hash,
-	// }
-
-	// err = usr.CheckPassword("secret")
-
-	// if err != nil {
-	// 	fmt.Println("Hash function does not work")
-	// } else {
-	// 	fmt.Println("Hash function works")
-	// }
+	// Setting CORS headers
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"http://localhost:3000"},
+		AllowMethods:     []string{"GET", "POST", "PATCH", "PUT", "DELETE"},
+		AllowHeaders:     []string{"Content-Type"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		AllowOriginFunc: func(origin string) bool {
+			return origin == "https://localhost:3000"
+		},
+	}))
 
 	// API Calls
-
 	router.GET("/getUniversities", api.GetUniversities)
 	router.GET("/getUsers", api.GetUsers)
 	// router.POST("/signup", api.PostUsers)
