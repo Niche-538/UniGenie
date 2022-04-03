@@ -26,7 +26,7 @@ func main() {
 	// routes.AuthRoutes(router)
 	// routes.UserRoutes(router)
 
-	// database.SetDatabase()
+	// models.SetDatabase()
 
 	// hashing check
 	// user := models.User{
