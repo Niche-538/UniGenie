@@ -1,9 +1,8 @@
 package models
 
 import (
-	"unigenie/database"
-
 	"golang.org/x/crypto/bcrypt"
+	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -12,7 +11,7 @@ type User struct {
 	ID        uint   `gorm:"primaryKey;autoIncrement" json:"user_id"`
 	FirstName string `json:"first_name" validate:"required"`
 	LastName  string `json:"last_name" validate:"required"`
-	Email     string `json:"email" gorm:"unique" validate:"email, required"`
+	Email     string `gorm:"unique" json:"email" validate:"email, required"`
 	Password  string `json:"password" validate:"required"`
 }
 
@@ -21,7 +20,7 @@ type StudentDetails struct {
 	ID             uint    `gorm:"primaryKey;autoIncrement" json:"personal_details_id"`
 	FirstName      string  `json:"first_name" validate:"required"`
 	LastName       string  `json:"last_name" validate:"required"`
-	Email          string  `json:"email" validate:"email, required"`
+	Email          string  `gorm:"unique" json:"email" validate:"email, required"`
 	AddressLine1   string  `json:"address_line_1"`
 	AddressLine2   string  `json:"address_line_2"`
 	City           string  `json:"city"`
@@ -57,14 +56,14 @@ type StudentDetails struct {
 
 // pointer receivers
 
-func (user *User) HashPassword(password string) (error, string) {
+func (user *User) HashPassword(password string) (string, error) {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	if err != nil {
-		return err, ""
+		return "", err
 	}
 
 	user.Password = string(bytes)
-	return nil, user.Password
+	return user.Password, nil
 }
 
 func (user *User) CheckPassword(providedPassword string) error {
@@ -75,13 +74,24 @@ func (user *User) CheckPassword(providedPassword string) error {
 	return nil
 }
 
-func (user *User) CreateUserRecord() error {
-	result := database.ReturnDatabase().Create(&user)
-	if result.Error != nil {
-		return result.Error
+// func (user *User) CreateUserRecord() error {
+// 	result := database.ReturnDatabase().Create(&user)
+// 	if result.Error != nil {
+// 		return result.Error
+// 	}
+
+// 	return nil
+// }
+
+func SetDatabase() {
+	DBConn, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
 	}
 
-	return nil
+	// Migrate the schema
+	DBConn.AutoMigrate(&User{})
+	DBConn.AutoMigrate(&StudentDetails{})
 }
 
 type UserPreferences struct {
