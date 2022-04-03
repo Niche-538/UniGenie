@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"unigenie/auth"
@@ -26,16 +25,12 @@ func Signup(c *gin.Context) {
 		panic("failed to connect database")
 	}
 
-	fmt.Println("Password Signup: ", newUser.Password, "\t\t Type: %T", newUser.Password)
-
-	err, pwd := newUser.HashPassword(newUser.Password)
+	hashedPwd, err := newUser.HashPassword(newUser.Password)
 	if err != nil {
 		panic("failed to create a hash")
-	} else {
-		fmt.Println("Hash Password: ", pwd)
 	}
 
-	user := models.User{FirstName: newUser.FirstName, LastName: newUser.LastName, Email: newUser.Email, Password: pwd}
+	user := models.User{FirstName: newUser.FirstName, LastName: newUser.LastName, Email: newUser.Email, Password: hashedPwd}
 	db.Create(&user)
 
 	c.JSON(http.StatusOK, gin.H{"data": user})
@@ -65,15 +60,7 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	fmt.Print("#########\n\n")
-	fmt.Println(payload.Email, "\t\t", payload.Password)
-	fmt.Print("\n\n #########\n")
-
 	result := database.ReturnDatabase().Where("email = ?", payload.Email).First(&user)
-
-	fmt.Print("#########\n\n")
-	fmt.Println(result)
-	fmt.Print("\n\n #########\n")
 
 	if result.Error == gorm.ErrRecordNotFound {
 		c.JSON(401, gin.H{
@@ -114,5 +101,4 @@ func Login(c *gin.Context) {
 	}
 
 	c.JSON(200, tokenResponse)
-
 }
