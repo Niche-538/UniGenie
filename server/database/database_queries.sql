@@ -114,3 +114,6 @@
 
 -- INSERT INTO user_university_application (user_university_application_id, user_id, university_application_link, transcript_uploaded, lor1, lor2, lor3)
 -- VALUES (1, 1, "www.ufl.edu", true, false, false, true);
+
+-- SELECT DATABASE unigenie.db;
+-- DELETE FROM users;
