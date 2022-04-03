@@ -9,10 +9,11 @@ import (
 
 func TestHashPassword(t *testing.T) {
 	user := User{
-		Password: "secret",
+		Password: "siiiuu",
 	}
 
-	err := user.HashPassword(user.Password)
+	_, err := user.HashPassword(user.Password)
+
 	assert.NoError(t, err)
 
 	os.Setenv("passwordHash", user.Password)
@@ -55,6 +56,6 @@ func TestCheckPassword(t *testing.T) {
 		Password: hash,
 	}
 
-	err := user.CheckPassword("secret")
+	err := user.CheckPassword("siiiuu")
 	assert.NoError(t, err)
 }
