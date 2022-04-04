@@ -2,7 +2,6 @@ package models
 
 import (
 	"golang.org/x/crypto/bcrypt"
-	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -48,8 +47,8 @@ type StudentDetails struct {
 	IELTSListen    float64 `json:"ielts_listen"`
 	IELTSSpeak     float64 `json:"ielts_speak"`
 	IELTSWrite     float64 `json:"ielts_write"`
-	UserID         uint
-	User           User `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	UserID         uint    `json:"user_id"`
+	User           User    `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
 
 // var validate = validator.New()
@@ -74,41 +73,25 @@ func (user *User) CheckPassword(providedPassword string) error {
 	return nil
 }
 
-// func (user *User) CreateUserRecord() error {
-// 	result := database.ReturnDatabase().Create(&user)
-// 	if result.Error != nil {
-// 		return result.Error
-// 	}
-
-// 	return nil
-// }
-
-func SetDatabase() {
-	DBConn, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-	if err != nil {
-		panic("failed to connect database")
-	}
-
-	// Migrate the schema
-	DBConn.AutoMigrate(&User{})
-	DBConn.AutoMigrate(&StudentDetails{})
-}
-
 type UserPreferences struct {
 	gorm.Model
 	ID                uint   `gorm:"primaryKey;autoIncrement" json:"user_preference_id"`
 	UserID            uint   `json:"user_id"`
+	User              User   `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 	CoursePreference  string `json:"course_preference"`
 	CountryPreference string `json:"country_preference"`
 }
 
 type UserUniversityApplication struct {
 	gorm.Model
-	ID                        uint   `gorm:"primaryKey;autoIncrement" json:"user_university_application_id"`
-	UserID                    uint   `json:"user_id"`
-	UniversityApplicationLink string `json:"university_application_link"`
-	TranscriptUploaded        bool   `json:"transcipt_uploaded"`
-	LOR1                      bool   `json:"lor1"`
-	LOR2                      bool   `json:"lor2"`
-	LOR3                      bool   `json:"lor3"`
+	ID                        uint       `gorm:"primaryKey;autoIncrement" json:"user_university_application_id"`
+	UserID                    uint       `json:"user_id"`
+	User                      User       `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	UniversityApplicationLink string     `json:"university_application_link"`
+	UniversityID              University `json:"univeristy_id"`
+	University                University `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	TranscriptUploaded        bool       `json:"transcipt_uploaded"`
+	LOR1                      bool       `json:"lor1"`
+	LOR2                      bool       `json:"lor2"`
+	LOR3                      bool       `json:"lor3"`
 }
