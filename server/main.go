@@ -20,6 +20,9 @@ func main() {
 		port = "8080"
 	}
 
+	//For Auto-Migration of structs in the form of tables in DB
+	// models.SetDatabase()
+
 	// setting up the router
 	router := gin.New()
 	router.Use(gin.Logger())
@@ -47,7 +50,7 @@ func main() {
 	router.POST("/addUserPreference", api.PostUserPreferences)
 	router.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
 	router.GET("/getUserUniversityApplication/:user_id", api.FindUniversityByUserId)
-	router.GET("/getUserPreferences/:user_id", api.FindUserPreferencesBuUserId)
+	router.GET("/getUserPreferences/:user_id", api.FindUserPreferencesByUserId)
 	// Listen and Server in 0.0.0.0:8080
 	router.Run(":" + port)
 }

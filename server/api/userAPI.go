@@ -154,18 +154,18 @@ func FindUniversityByUserId(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": uua})
 }
 
-func FindUserPreferencesBuUserId(c *gin.Context) {  
+func FindUserPreferencesByUserId(c *gin.Context) {
 	var up models.UserPreferences
-  
+
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
-	} 
+	}
 
 	if err := db.Where("user_id = ?", c.Param("user_id")).First(&up).Error; err != nil {
-	  c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-	  return
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+		return
 	}
-  
+
 	c.JSON(http.StatusOK, gin.H{"data": up})
-  }
+}
