@@ -25,6 +25,7 @@ import ProfileSettingsPage from "./components/ProfileSettingsPage";
 import StudentHomePage from "./components/StudentHomePage";
 import Footerx from "./components/Footerx";
 import LP from "./components/Lp";
+import Get from "./components/Get";
 const rootElement = document.getElementById("root");
 const image = document.getElementById("image");
 const text = document.getElementById("text");
@@ -45,6 +46,7 @@ if (wind === "http://localhost:3000/") {
                     <Route path="/StudentSignup" element={<StudentSignup />} />
                     <Route path="/AdminFunc" element={<AdminFunc />} />
                     <Route path="/AddUniversity" element={<AddUniversity />} />
+                    
                     <Route
                         path="/DeleteUniversity"
                         element={<DeleteUniversity />}
@@ -82,7 +84,7 @@ if (wind === "http://localhost:3000/") {
 
     ReactDOM.render(
         <StrictMode>
-            <Anim />
+            <Anim/>
         </StrictMode>,
         text
     );
