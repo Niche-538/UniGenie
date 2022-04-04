@@ -117,3 +117,6 @@
 
 -- SELECT DATABASE unigenie.db;
 -- DELETE FROM users;
+
+-- SQLite does NOT fully support DROP column feature
+-- ALTER TABLE programs DROP COLUMN fall_intake;--, spring_intake;
