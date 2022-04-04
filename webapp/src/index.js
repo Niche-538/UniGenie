@@ -84,7 +84,7 @@ if (wind === "http://localhost:3000/") {
 
     ReactDOM.render(
         <StrictMode>
-            <Anim/>
+            <Get/>
         </StrictMode>,
         text
     );
