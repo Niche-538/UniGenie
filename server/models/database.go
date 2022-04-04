@@ -13,7 +13,7 @@ package models
 
 // 	// Migrate the schema
 // 	db.AutoMigrate(&University{})
-// 	db.AutoMigrate(&User{})
+// 	// db.AutoMigrate(&User{})
 // 	db.AutoMigrate(&Program{})
 // 	db.AutoMigrate(&OfferedCourse{})
 // 	db.AutoMigrate(&StudentDetails{})
