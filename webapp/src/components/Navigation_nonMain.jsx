@@ -12,42 +12,13 @@ import {
 
 const Navigation_nonMain = () => {
     return (
-        <Navbar bg="light" expand={false}>
+        <Navbar style={{ backgroundColor: "white" }} expand={false}>
             <Container fluid>
-                <Navbar.Toggle
-                    className="me-3 ms-5"
-                    aria-controls="offcanvasNavbar"
-                />
-
-                <Navbar.Offcanvas
-                    // className="justify-content-start"
-                    id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel"
-                    placement="start"
-                >
-                    <Offcanvas.Header closeButton className="mt-3 mx-3">
-                        <Offcanvas.Title id="offcanvasNavbarLabel">
-                            Dashboard
-                        </Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                        <Nav className="justify-content-end flex-grow-1 px-3 mx-3 mb-3">
-                            <Nav.Link href="/UniversityApplications">
-                                My Applications
-                            </Nav.Link>
-                            <Nav.Link href="#action2">My Documents</Nav.Link>
-                            <Nav.Link href="#action3">My Tasks</Nav.Link>
-                            <Nav.Link href="/">Log Out</Nav.Link>
-                        </Nav>
-                    </Offcanvas.Body>
-                </Navbar.Offcanvas>
-
                 <Navbar.Brand
                     style={{
                         fontSize: 40,
                         color: "#4a54f1",
                         // fontFamily: "roboto",
-
                     }}
                     className="mx-3"
                     href="/StudentHomePage"
@@ -58,6 +29,9 @@ const Navigation_nonMain = () => {
                 <Nav className="px-3 ms-3 me-auto my-3 flex-row justify-content-center text-center align-items-center">
                     <Nav.Item className="mx-2 px-2 justify-content-center text-center align-items-center">
                         <Nav.Link href="/StudentHomePage">Home</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item className="mx-2 px-2 justify-content-center text-center align-items-center">
+                        <Nav.Link href="/Dashboard">My Dashboard</Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="mx-2 px-2 justify-content-center text-center align-items-center">
                         <Nav.Link href="#action2">Explore</Nav.Link>
