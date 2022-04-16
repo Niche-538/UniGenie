@@ -30,7 +30,7 @@ const Get = (props) => {
     {/* {data.map((user) => (
       <p>[{user.ID}]{user.email}</p>))} */}
     {data.map((user) => (
-      <p>{user.email}</p>))}
+      <p>{user.first_name}</p>))}
     </div>
    );
 };
