@@ -138,34 +138,36 @@ func PostUserUniversityApplication(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": userUniversityApplication})
 }
 
-func FindUniversityByUserId(c *gin.Context) {
-	var uua models.UserUniversityApplication
+//TO DO, write Test case and check this functionality.
 
-	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-	if err != nil {
-		panic("failed to connect database")
-	}
+// func FindUniversityByUserId(c *gin.Context) {
+// 	var uua models.UserUniversityApplication
 
-	if err := db.Where("id = ?", c.Param("id")).First(&uua).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-		return
-	}
+// 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+// 	if err != nil {
+// 		panic("failed to connect database")
+// 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": uua})
-}
+// 	if err := db.Where("id = ?", c.Param("id")).First(&uua).Error; err != nil {
+// 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+// 		return
+// 	}
 
-func FindUserPreferencesByUserId(c *gin.Context) {
-	var up models.UserPreferences
+// 	c.JSON(http.StatusOK, gin.H{"data": uua})
+// }
 
-	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-	if err != nil {
-		panic("failed to connect database")
-	}
+// func FindUserPreferencesByUserId(c *gin.Context) {
+// 	var up models.UserPreferences
 
-	if err := db.Where("user_id = ?", c.Param("user_id")).First(&up).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-		return
-	}
+// 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+// 	if err != nil {
+// 		panic("failed to connect database")
+// 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": up})
-}
+// 	if err := db.Where("user_id = ?", c.Param("user_id")).First(&up).Error; err != nil {
+// 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+// 		return
+// 	}
+
+// 	c.JSON(http.StatusOK, gin.H{"data": up})
+// }
