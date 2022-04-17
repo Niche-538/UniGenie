@@ -4,6 +4,7 @@ import (
 	"os"
 	api "unigenie/api"
 	"unigenie/controllers"
+
 	"github.com/gin-contrib/cors"
 
 	// routes "unigenie/routes"
@@ -40,10 +41,11 @@ func main() {
 	// API Calls
 	router.GET("/getUniversities", api.GetUniversities)
 	router.GET("/getUsers", api.GetUsers)
-
 	router.GET("/getStudentDetails", api.GetStudentDetails)
 	router.GET("/getUserPreferences", api.GetUserPreferences)
 	router.GET("/getUserUniversityApplications", api.GetUserUniversityApplication)
+
+	router.GET("/getUniversityById/:id", api.GetUniversity)
 
 	// router.POST("/signup", api.PostUsers)
 	router.POST("/signup", controllers.Signup)
@@ -52,7 +54,7 @@ func main() {
 	router.POST("/addStudentDetails", api.PostStudentDetails)
 	router.POST("/addUserPreference", api.PostUserPreferences)
 	router.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
-	
+
 	// Listen and Server in 0.0.0.0:8080
 	router.Run(":" + port)
 }
