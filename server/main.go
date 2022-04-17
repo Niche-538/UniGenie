@@ -40,6 +40,11 @@ func main() {
 	// API Calls
 	router.GET("/getUniversities", api.GetUniversities)
 	router.GET("/getUsers", api.GetUsers)
+
+	router.GET("/getStudentDetails", api.GetStudentDetails)
+	router.GET("/getUserPreferences", api.GetUserPreferences)
+	router.GET("/getUserUniversityApplications", api.GetUserUniversityApplication)
+
 	// router.POST("/signup", api.PostUsers)
 	router.POST("/signup", controllers.Signup)
 	router.POST("/login", controllers.Login)

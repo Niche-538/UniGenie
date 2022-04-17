@@ -46,6 +46,19 @@ func PostUsers(c *gin.Context) {
 
 }
 
+func GetStudentDetails(c *gin.Context) {
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	studentDetails := []models.StudentDetails{}
+
+	db.Find(&studentDetails)
+	c.JSON(http.StatusOK, &studentDetails)
+
+}
+
 func PostStudentDetails(c *gin.Context) {
 	var studetails models.StudentDetails
 	if err := c.ShouldBindJSON(&studetails); err != nil {
@@ -93,6 +106,19 @@ func PostStudentDetails(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": detailsStudent})
 }
 
+func GetUserPreferences(c *gin.Context) {
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	userPreferences := []models.UserPreferences{}
+
+	db.Find(&userPreferences)
+	c.JSON(http.StatusOK, &userPreferences)
+
+}
+
 func PostUserPreferences(c *gin.Context) {
 	var newUserPreferences models.UserPreferences
 	if err := c.ShouldBindJSON(&newUserPreferences); err != nil {
@@ -112,6 +138,19 @@ func PostUserPreferences(c *gin.Context) {
 	}
 	db.Create(&userPreferences)
 	c.JSON(http.StatusOK, gin.H{"data": userPreferences})
+}
+
+func GetUserUniversityApplication(c *gin.Context) {
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	userUniversityApplication := []models.UserUniversityApplication{}
+
+	db.Find(&userUniversityApplication)
+	c.JSON(http.StatusOK, &userUniversityApplication)
+
 }
 
 func PostUserUniversityApplication(c *gin.Context) {
@@ -138,16 +177,5 @@ func PostUserUniversityApplication(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": userUniversityApplication})
 }
 
-func GetUserUniversityApplication(c *gin.Context) {
-	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-	if err != nil {
-		panic("failed to connect database")
-	}
 
-	userUniversityApplication := []models.UserUniversityApplication{}
-
-	db.Find(&userUniversityApplication)
-	c.JSON(http.StatusOK, &userUniversityApplication)
-
-}
 
