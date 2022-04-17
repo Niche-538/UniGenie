@@ -135,26 +135,26 @@
 /* Add CS,Mech Table - Added by Pratik on March 2 2022*/ 
 
 
--- create table cs_universities (
---     cs_university_id int PRIMARY_KEY AUTO_INCREMENT,
---     name varchar(255),
---     type varchar(255),
---     website varchar(255),
---     state varchar(255),
---     country varchar(255),
---     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
---     created_at datetime DEFAULT CURRENT_TIMESTAMP,
---     deleted_at datetime DEFAULT NULL 
--- );
+create table cs_universities (
+    cs_university_id int PRIMARY_KEY AUTO_INCREMENT,
+    name varchar(255),
+    type varchar(255),
+    website varchar(255),
+    state varchar(255),
+    country varchar(255),
+    updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+    created_at datetime DEFAULT CURRENT_TIMESTAMP,
+    deleted_at datetime DEFAULT NULL 
+);
 
--- INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
--- VALUES (1, 'University of Florida','public', 'www.ufl.edu', 'Florida','US');
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (1, 'University of Florida','public', 'www.ufl.edu', 'Florida','US');
 
--- INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
--- VALUES (2, 'University of London','public', 'www.queencollege.edu', 'London','UK');
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (2, 'University of London','public', 'www.queencollege.edu', 'London','UK');
 
--- INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
--- VALUES (3, 'Balle Balle University','private', 'www.pubjab.com', 'Punjab','Can');
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (3, 'Balle Balle University','private', 'www.pubjab.com', 'Punjab','Can');
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -203,3 +203,12 @@
 -- VALUES (3, 'MBA 3','private', 'www.pubjab.com', 'Punjab','Can');
 
 -------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (1, 'Second CS','private', 'www2cs.edu', 'California','US');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (1, 'Third CS','public', 'www.3cs.edu', 'NY','US');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (1, 'Fourth CS','private', 'www.4cs.edu', 'Hawai','US');
