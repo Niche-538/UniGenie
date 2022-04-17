@@ -41,6 +41,7 @@ const Navigation = () => {
           <Nav.Item className="px-2 justify-content-center text-center align-items-center">
             <Button
               variant="outline-white"
+              href="/Explore"
               style={{
                 outline: "white",
                 color: "black",

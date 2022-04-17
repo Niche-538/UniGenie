@@ -125,6 +125,14 @@ body {
     background-color: #504ac5
 }
 
+.search-bg {
+    background-color: #6C63FF
+}
+
+.search-bg:hover {
+    background-color: #504ac5
+}
+
 .profile-person-bg {
     background-color: #6C63FF
 }
