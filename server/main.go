@@ -43,9 +43,11 @@ func main() {
 	router.GET("/getUsers", api.GetUsers)
 	router.GET("/getStudentDetails", api.GetStudentDetails)
 	router.GET("/getUserPreferences", api.GetUserPreferences)
+	
 	router.GET("/getUserUniversityApplications", api.GetUserUniversityApplication)
-
-	router.GET("/getUniversityById/:country", api.GetUniversity)
+	router.GET("/getCsUniversityByCountry/:country", api.GetCSUniversity)
+	router.GET("/getMechUniversityByCountry/:country", api.GetMechUniversity)
+	router.GET("/getMbaUniversityByCountry/:country", api.GetMBAUniversity)
 
 	// router.POST("/signup", api.PostUsers)
 	router.POST("/signup", controllers.Signup)

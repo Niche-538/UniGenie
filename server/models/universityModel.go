@@ -16,6 +16,36 @@ type University struct {
 	Country string `json:"country"`
 }
 
+type CsUniversity struct {
+	gorm.Model
+	ID      uint   `gorm:"primaryKey;autoIncrement" json:"cs_university_id"`
+	Name    string `gorm:"unique" json:"name"`
+	Type    string `gorm:"unique" json:"type"`
+	Website string `gorm:"unique" json:"website"`
+	State   string `json:"state"`
+	Country string `json:"country"`
+}
+
+type MechUniversity struct {
+	gorm.Model
+	ID      uint   `gorm:"primaryKey;autoIncrement" json:"mech_university_id"`
+	Name    string `gorm:"unique" json:"name"`
+	Type    string `gorm:"unique" json:"type"`
+	Website string `gorm:"unique" json:"website"`
+	State   string `json:"state"`
+	Country string `json:"country"`
+}
+
+type MbaUniversity struct {
+	gorm.Model
+	ID      uint   `gorm:"primaryKey;autoIncrement" json:"mba_university_id"`
+	Name    string `gorm:"unique" json:"name"`
+	Type    string `gorm:"unique" json:"type"`
+	Website string `gorm:"unique" json:"website"`
+	State   string `json:"state"`
+	Country string `json:"country"`
+}
+
 type Program struct {
 	gorm.Model
 	ID            uint   `gorm:"primaryKey;autoIncrement" json:"program_id"`
