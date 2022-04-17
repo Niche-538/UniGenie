@@ -184,14 +184,14 @@ func GetUniversity(c *gin.Context) {
 		panic("failed to connect database")
 	}
 
-	var university models.University
+	var university []models.University
   
-	if err := db.Where("id = ?", c.Param("id")).First(&university).Error; err != nil {
+	if err := db.Where("country = ?", c.Param("country")).Find(&university).Error; err != nil {
 	  c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
 	  return
 	}
   
-	c.JSON(http.StatusOK, gin.H{"data": university})
+	c.JSON(http.StatusOK, gin.H{"data": &university})
   }
 
 
