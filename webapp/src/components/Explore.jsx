@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, FormCheck, FormControl } from "react-bootstrap";
-
+import { Form, Button, FormCheck, FormControl, Tab } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 const Explore = () => {
   const [Country, setCountry] = useState("");
   const [Course, setCourse] = useState("");
@@ -54,6 +54,7 @@ const Explore = () => {
   const caller = (e) => {
     e.preventDefault();
     getData();
+    console.log(typeof data);
   };
 
   return (
@@ -146,21 +147,34 @@ const Explore = () => {
         className="row my-5 px-2 align-items-center text-center justify-content-center rounded border"
         style={{}}
       >
-        {data.map((user) => (
-          <p>
-            <table>
-              <tr>
-                <th>Name</th>
-                <th>State</th>
-              </tr>
-              <tr>
-                <td>{user.name}</td>
-                <td>{user.state}</td>
-              </tr>
-            </table>
-          </p>
-          //   <p>{user.state}</p>
-        ))}
+        <Table striped bordered hover style={{ width: "800px" }}>
+          <thead
+            style={{
+              backgroundColor: "#6C63FF",
+              color: "white",
+            }}
+          >
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>State</th>
+              <th>Website</th>
+            </tr>
+          </thead>
+          <tbody>
+          {data.map((user) => (
+            <tr>
+              <td>{user.name}</td>
+              <td>{user.type}</td>
+              <td>{user.state}</td>
+              <td>
+                <a href="{user.website}">{user.website}</a>
+              </td>
+            </tr>
+            //   <p>{user.state}</p>
+          ))}
+          </tbody>
+        </Table>
       </div>
     </div>
   );
