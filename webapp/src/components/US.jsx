@@ -1180,7 +1180,7 @@ const US = () => {
                                     there are individual universities (even good
                                     ones) that may accept three-year. The best
                                     option is to check within the eligibility
-                                    criteria of your shortlisted university
+                                    criteria of your shortlisted university.
                                 </p>
                             </li>
                             <li>
@@ -1224,7 +1224,7 @@ const US = () => {
                                     How to get on-campus jobs in the US?
                                 </strong>
                                 <p>
-                                    ou should be proactive in terms of
+                                    You should be proactive in terms of
                                     networking and volunteering. Reach out the
                                     university's career center for a job.
                                     Getting hand-on tips from seniors also
@@ -1248,8 +1248,8 @@ const US = () => {
 
                             <li>
                                 <strong>
-                                    Can I get my OPT after coming back to the
-                                    U.S from my home country?
+                                    Can I get my OPT after coming back to the US
+                                    from my home country?
                                 </strong>
                                 <p>
                                     No, if you had not received an Employment
