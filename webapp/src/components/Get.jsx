@@ -6,7 +6,7 @@ const Get = (props) => {
   
   const getData = () => {
 
-    fetch("http://localhost:8080/getUsers").then(function (response) {
+    fetch("http://localhost:8080/getUniversityById/US").then(function (response) {
       console.log(response);
       return response.json();
     }).then(function(myJSON){
@@ -16,8 +16,11 @@ const Get = (props) => {
       // setData(JSON.stringify(myJSON));
     })
   }
+
+  
   useEffect(() => {
-    getData()
+    getData();
+    // console.log(data);
   },[])
 
   return (
@@ -30,7 +33,7 @@ const Get = (props) => {
     {/* {data.map((user) => (
       <p>[{user.ID}]{user.email}</p>))} */}
     {data.map((user) => (
-      <p>{user.first_name}</p>))}
+      <p>{user.data}</p>))}
     </div>
    );
 };

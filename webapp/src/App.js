@@ -15,13 +15,13 @@ import Footerx from "./components/Footerx";
 import LP from "./components/Lp";
 import Get from "./components/Get";
 import Dashboard from "./components/Dashboard";
-import Resources from "./components/Resources";
 import MBA from "./components/MBA";
 import CS from "./components/CS";
 import Mech from "./components/Mech";
 import US from "./components/US";
 import UK from "./components/UK";
 import Canada from "./components/Canada";
+import Explore from "./components/Explore";
 
 function App() {
   const rootElement = document.getElementById("root");
@@ -38,13 +38,14 @@ function App() {
           <Navigation />
           <Router>
             <Routes>
-              <Route path="/Resources" element={<Resources />} />
+              
               <Route path="/UK" element={<UK />} />
               <Route path="/US" element={<US />} />
               <Route path="/Canada" element={<Canada />} />
               <Route path="/CS" element={<CS />} />
               <Route path="/Mech" element={<Mech />} />
               <Route path="/MBA" element={<MBA />} />
+              <Route path="/Explore" element={<Explore/>}/>
             </Routes>
           </Router>
         </StrictMode>,
@@ -58,7 +59,7 @@ function App() {
       ),
       ReactDOM.render(
         <StrictMode>
-          <Anim />
+          <Anim/>
         </StrictMode>,
         text
       ),
@@ -100,7 +101,7 @@ function App() {
               <Route path="/CS" element={<CS />} />
               <Route path="/Mech" element={<Mech />} />
               <Route path="/MBA" element={<MBA />} />
-              <Route path="/Resources" element={<Resources />} />
+              <Route path="/Explore" element={<Explore/>}/>
             </Routes>
           </Router>
         </StrictMode>,
