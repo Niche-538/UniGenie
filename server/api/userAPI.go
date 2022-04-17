@@ -138,36 +138,3 @@ func PostUserUniversityApplication(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": userUniversityApplication})
 }
 
-//TO DO, write Test case and check this functionality.
-
-// func FindUniversityByUserId(c *gin.Context) {
-// 	var uua models.UserUniversityApplication
-
-// 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-// 	if err != nil {
-// 		panic("failed to connect database")
-// 	}
-
-// 	if err := db.Where("id = ?", c.Param("id")).First(&uua).Error; err != nil {
-// 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-// 		return
-// 	}
-
-// 	c.JSON(http.StatusOK, gin.H{"data": uua})
-// }
-
-// func FindUserPreferencesByUserId(c *gin.Context) {
-// 	var up models.UserPreferences
-
-// 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
-// 	if err != nil {
-// 		panic("failed to connect database")
-// 	}
-
-// 	if err := db.Where("user_id = ?", c.Param("user_id")).First(&up).Error; err != nil {
-// 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-// 		return
-// 	}
-
-// 	c.JSON(http.StatusOK, gin.H{"data": up})
-// }

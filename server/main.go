@@ -48,10 +48,6 @@ func main() {
 	router.POST("/addUserPreference", api.PostUserPreferences)
 	router.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
 	
-	//Test the below api's before deployment.
-	//router.GET("/getUserUniversityApplication/:user_id", api.FindUniversityByUserId)
-	//router.GET("/getUserPreferences/:user_id", api.FindUserPreferencesByUserId)
-	
 	// Listen and Server in 0.0.0.0:8080
 	router.Run(":" + port)
 }
