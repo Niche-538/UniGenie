@@ -2,32 +2,59 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, FormCheck, FormControl } from "react-bootstrap";
 
 const Explore = () => {
-  const [Country, setCountry] = useState();
-  const [Course, setCourse] = useState();
+  const [Country, setCountry] = useState("");
+  const [Course, setCourse] = useState("");
   const [data, setData] = useState([]);
-  const c="US";
-  
-  const getData = (Country) => {
-    
-    fetch('http://localhost:8080/getCsUniversityByCountry/'+Country+'')
-      .then(function (response) {
-        console.log(response);
-        return response.json();
-      })
-      .then(function (myJSON) {
-        //console.log(typeof myJSON); // returns object
-        // setData(JSON.parse(myJSON));
-        setData(myJSON);
 
-        // setData(JSON.stringify(myJSON));
-      });
+  const getData = () => {
+    if (Course == "CS") {
+      fetch("http://localhost:8080/getCsUniversityByCountry/" + Country + "")
+        .then(function (response) {
+          console.log(response);
+          return response.json();
+        })
+        .then(function (myJSON) {
+          //console.log(typeof myJSON); // returns object
+          // setData(JSON.parse(myJSON));
+          setData(myJSON);
+
+          // setData(JSON.stringify(myJSON));
+        });
+    }
+    if (Course == "Mech") {
+      fetch("http://localhost:8080/getMechUniversityByCountry/" + Country + "")
+        .then(function (response) {
+          console.log(response);
+          return response.json();
+        })
+        .then(function (myJSON) {
+          //console.log(typeof myJSON); // returns object
+          // setData(JSON.parse(myJSON));
+          setData(myJSON);
+
+          // setData(JSON.stringify(myJSON));
+        });
+    }
+
+    if (Course == "MBA") {
+      fetch("http://localhost:8080/getMbaUniversityByCountry/" + Country + "")
+        .then(function (response) {
+          console.log(response);
+          return response.json();
+        })
+        .then(function (myJSON) {
+          //console.log(typeof myJSON); // returns object
+          // setData(JSON.parse(myJSON));
+          setData(myJSON);
+          // setData(JSON.stringify(myJSON));
+        });
+    }
   };
 
-  useEffect(() => {
-      
-    getData(c);
-
-  },[]);
+  const caller = (e) => {
+    e.preventDefault();
+    getData();
+  };
 
   return (
     <div>
@@ -42,7 +69,7 @@ const Explore = () => {
           All you need to know about university fees, courses, deadlines,
           scholarships and more.
           <div className="my-4 border-top border-3  align-items-top"></div>
-          <Form>
+          <Form onSubmit={caller}>
             <div className="row">
               {/* <div className="col">   */}
               <Form.Group
@@ -54,8 +81,11 @@ const Explore = () => {
               <Form.Group className="col-3">
                 {/* <FormControl> */}
                 <Form.Select
-                  as="select"
-                  name="Country"
+                  //as="select"
+                  //name="Country"
+                  value={Country}
+                  //type="text"
+                  //id="Country"
                   onChange={(e) => setCountry(e.target.value)}
                 >
                   <option selected>Choose...</option>
@@ -75,8 +105,11 @@ const Explore = () => {
               </Form.Group>
               <Form.Group className="col-3">
                 <Form.Select
-                  as="select"
-                  name="Course"
+                  //as="select"
+                  //name="Course"
+                  value={Course}
+                  //type="text"
+                  //id="Course"
                   onChange={(e) => {
                     setCourse(e.target.value);
                   }}
@@ -90,7 +123,7 @@ const Explore = () => {
               <Button
                 className="col-1 mx-5 search-bg text-center align-items-center justify-content-center"
                 type="submit"
-                onClick={useEffect}
+                onClick={caller}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +147,19 @@ const Explore = () => {
         style={{}}
       >
         {data.map((user) => (
-          <p>{user.name}</p>
+          <p>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>State</th>
+              </tr>
+              <tr>
+                <td>{user.name}</td>
+                <td>{user.state}</td>
+              </tr>
+            </table>
+          </p>
+          //   <p>{user.state}</p>
         ))}
       </div>
     </div>
