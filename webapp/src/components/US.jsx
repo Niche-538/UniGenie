@@ -13,7 +13,7 @@ const US = () => {
                     backgroundSize: "cover",
                 }}
             >
-                <div className="col-3 my-5 mx-2 justify-content-center">
+                {/* <div className="col-3 my-5 mx-2 justify-content-center">
                     <img
                         src="https://static.yocket.in/images/universities/countries/usa-logo.jpg"
                         alt="United States flag"
@@ -21,9 +21,11 @@ const US = () => {
                         srcset="https://static.yocket.in/images/universities/countries/usa-logo.jpg 96w"
                         className="object-cover mt-6 w-24 h-12"
                     />
-                </div>
+                </div> */}
                 <div className="col-8 my-5 mx-2 justify-content-center">
-                    <h2>United States</h2>
+                    <h1 style={{ color: "#6C63FF" }}>
+                        <strong>United States</strong>
+                    </h1>
                 </div>
             </div>
             <div className="row mx-5 my-5 px-2 align-items-center text-center justify-content-center rounded border">
@@ -350,7 +352,12 @@ const US = () => {
                             look at the best universities in USA.
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>University</th>
                                     <th>QS World Ranking 2022</th>
@@ -448,7 +455,12 @@ const US = () => {
                             in America are:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Program</th>
                                     <th>Duration</th>
@@ -548,7 +560,12 @@ const US = () => {
                             international students:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Degree</th>
                                     <th>Requirements</th>
@@ -630,7 +647,12 @@ const US = () => {
                             charge high fees in comparison to the public ones.
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Degree</th>
                                     <th>Average Annual Tuition Fee</th>
@@ -659,7 +681,12 @@ const US = () => {
                             for international students is discussed below:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Particular</th>
                                     <th>Average Cost Per Year</th>
@@ -712,7 +739,12 @@ const US = () => {
                             below is a list of best place to study in USA:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>City</th>
                                     <th>Average Cost of Living</th>
@@ -996,7 +1028,12 @@ const US = () => {
                             international students are:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Part-Time Jobs</th>
                                     <th>Average Salary Per Hour</th>
@@ -1056,7 +1093,12 @@ const US = () => {
                         </h4>
                         <p>Here's a quick look at the jobs after MS in USA:</p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Area of Specialization</th>
                                     <th>Median Annual Salary</th>

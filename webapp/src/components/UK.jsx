@@ -14,18 +14,19 @@ const UK = () => {
                     backgroundPosition: "0px",
                 }}
             >
-                <div className="col-3 my-5 mx-2 justify-content-center">
+                {/* <div className="col-3 my-5 mx-2 justify-content-center">
                     <img
-                        data-v-f8696742=""
                         src="https://static.yocket.in/images/universities/countries/uk-logo.jpg"
                         alt="United Kingdom flag"
                         sizes="96px"
                         srcset="https://static.yocket.in/images/universities/countries/uk-logo.jpg 96w"
-                        class="object-cover -mt-6 w-24 h-12"
+                        className="object-cover mt-6 w-24 h-12"
                     />
-                </div>
+                </div> */}
                 <div className="col-8 my-5 mx-2 justify-content-center">
-                    <h2>United Kingdom</h2>
+                    <h1 style={{ color: "#6C63FF" }}>
+                        <strong>United Kingdom</strong>
+                    </h1>
                 </div>
             </div>
             <div className="row mx-5 my-5 px-2 align-items-center text-center justify-content-center rounded border">
@@ -387,7 +388,12 @@ const UK = () => {
                             universities in UK:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>University</th>
                                     <th>QS World Ranking 2022</th>
@@ -396,7 +402,7 @@ const UK = () => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>University of Oxford </th>
+                                    <th>University of Oxford</th>
                                     <th>2</th>
                                     <th>£18,000 - £40,000</th>
                                 </tr>
@@ -480,7 +486,12 @@ const UK = () => {
                             in UK are:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Program</th>
                                     <th>Duration</th>
@@ -499,7 +510,7 @@ const UK = () => {
                                     <th>£25,900/year</th>
                                 </tr>
                                 <tr>
-                                    <th>LLB </th>
+                                    <th>LLB</th>
                                     <th>3 years</th>
                                     <th>£16,000/year</th>
                                 </tr>
@@ -581,7 +592,12 @@ const UK = () => {
                             requirements are met:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Degree</th>
                                     <th>Requirements</th>
@@ -648,7 +664,12 @@ const UK = () => {
                             cost of living in UK is discussed below:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Particular</th>
                                     <th>Cost Per Year</th>
@@ -700,7 +721,12 @@ const UK = () => {
                             consider in UK for further education.
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>City</th>
                                     <th>Average Cost of Living</th>
@@ -953,7 +979,12 @@ const UK = () => {
                             job opportunities in UK after Master's:
                         </p>
                         <Table striped bordered hover>
-                            <thead style={{ backgroundColor: "#6C63FF" }}>
+                            <thead
+                                style={{
+                                    backgroundColor: "#6C63FF",
+                                    color: "white",
+                                }}
+                            >
                                 <tr>
                                     <th>Area of Specialization</th>
                                     <th>Average Annual Salary</th>
