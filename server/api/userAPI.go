@@ -138,3 +138,16 @@ func PostUserUniversityApplication(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": userUniversityApplication})
 }
 
+func GetUserUniversityApplication(c *gin.Context) {
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	userUniversityApplication := []models.UserUniversityApplication{}
+
+	db.Find(&userUniversityApplication)
+	c.JSON(http.StatusOK, &userUniversityApplication)
+
+}
+
