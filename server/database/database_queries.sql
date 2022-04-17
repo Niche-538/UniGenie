@@ -2,6 +2,8 @@
 
 /* Add University Table - Added by Pratik on March 2 2022*/ 
 
+-- drop table universities;
+
 -- create table universities (
 --     university_id int PRIMARY_KEY AUTO_INCREMENT,
 --     name varchar(255),
@@ -18,6 +20,12 @@
 
 -- INSERT INTO universities (university_id, name, website, address, city, state, zip, country)
 -- VALUES (1, 'University of Florida', 'www.ufl.edu', 'University Avenue SW', 'Gainesville', 'FL', '32611','US');
+
+-- INSERT INTO universities (university_id, name, website, address, city, state, zip, country)
+-- VALUES (2, 'UK cha college', 'www.uk.edu', 'UK road', 'London', 'UK', '32611','UK');
+
+-- INSERT INTO universities (university_id, name, website, address, city, state, zip, country)
+-- VALUES (3, 'Punjab College Canada', 'www.can.edu', 'Can', 'Totonto', 'TO', '32611','Can');
 
 -- ---------------------------------------------------------------------------------------------------------
 
