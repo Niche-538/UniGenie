@@ -5,28 +5,18 @@ const CS = () => {
   return (
     <div>
       <div
-        className="row mx-5 my-5 px-2 align-items-center text-start justify-content-center rounded border container"
+        className="row mx-5 my-5 px-2 align-items-center text-start justify-content-center rounded border"
         style={{
           backgroundImage: `url("https://www.mercy.edu/sites/default/files/2020-07/iStock-1182604339.jpg")`,
           height: "300px",
-
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
       >
         <h5>Masters (MS) in Computer Science (CS) Abroad</h5>
-
-        {/* <div className="row mx-5 my-5 px-2 align-items-center text-center justify-content-center rounded border"> */}
       </div>
       <div style={{ display: "flex", alignItems: "flex-start" }}>
         <StickyBox className="col-3 mx-5 my-4 align-items-center text-start justify-content-center">
-          {/* <div
-            className="col-3 my-4 me-4 rounded border"
-            style={{
-              backgroundColor: "white",
-            }}
-          > */}
-
           <div className="px-3" style={{ backgroundColor: "" }}>
             <p>
               <a href="#overview">Overview</a>
@@ -47,8 +37,6 @@ const CS = () => {
               <a href="#Work Opportunities">Work Opportunities</a>
             </p>
           </div>
-
-          {/* </div> */}
         </StickyBox>
 
         <div className="col-7 my-4">

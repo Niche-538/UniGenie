@@ -1,5 +1,5 @@
 import React from "react";
-
+import StickyBox from "react-sticky-box";
 const MBA = () => {
   return (
     <div>
@@ -15,38 +15,36 @@ const MBA = () => {
       >
         <h5>Masters in Business Administration (MBA) Abroad</h5>
       </div>
-      <div className="row mx-5 my-5 px-2 align-items-center text-center justify-content-center rounded border">
-        <div
-          className="fixed col-3 my-4 me-4 rounded border"
-          style={{
-            backgroundColor: "white",
-          }}
-        >
-          <p>
-            <a href="#overview">Overview</a>
-          </p>
-          <p>
-            <a href="#Course Structure">Course Structure</a>
-          </p>
-          <p>
-            <a href="#Course Subjects">Course Subjects</a>
-          </p>
-          <p>
-            <a href="#Top Specializations">Top Specializations</a>
-          </p>
-          <p>
-            <a href="#Core Skills">Core Skills</a>
-          </p>
-          <p>
-            <a href="#Requirements">Requirements</a>
-          </p>
-          <p>
-            <a href="#Top Scholarships">Top Scholarships</a>
-          </p>
-          <p>
-            <a href="#Work Opportunities">Work Opportunities</a>
-          </p>
-        </div>
+      <div style={{ display: "flex", alignItems: "flex-start" }}>
+        <StickyBox className="col-3 mx-5 my-4 align-items-center text-start justify-content-center">
+          <div className="px-3" style={{ backgroundColor: "" }}>
+            <p>
+              <a href="#overview">Overview</a>
+            </p>
+            <p>
+              <a href="#Course Structure">Course Structure</a>
+            </p>
+            <p>
+              <a href="#Course Subjects">Course Subjects</a>
+            </p>
+            <p>
+              <a href="#Top Specializations">Top Specializations</a>
+            </p>
+            <p>
+              <a href="#Core Skills">Core Skills</a>
+            </p>
+            <p>
+              <a href="#Requirements">Requirements</a>
+            </p>
+            <p>
+              <a href="#Top Scholarships">Top Scholarships</a>
+            </p>
+            <p>
+              <a href="#Work Opportunities">Work Opportunities</a>
+            </p>
+          </div>
+        </StickyBox>
+
         <div className="col-8 my-4">
           <div
             id="overview"
