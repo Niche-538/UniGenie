@@ -59,7 +59,7 @@ function App() {
       ),
       ReactDOM.render(
         <StrictMode>
-          <Anim/>
+          <Get/>
         </StrictMode>,
         text
       ),

@@ -6,7 +6,7 @@ const Get = (props) => {
   
   const getData = () => {
 
-    fetch("http://localhost:8080/getUniversityById/US").then(function (response) {
+    fetch("http://localhost:8080/getCsUniversityByCountry/US").then(function (response) {
       console.log(response);
       return response.json();
     }).then(function(myJSON){
@@ -33,7 +33,7 @@ const Get = (props) => {
     {/* {data.map((user) => (
       <p>[{user.ID}]{user.email}</p>))} */}
     {data.map((user) => (
-      <p>{user.data}</p>))}
+      <p>{user.ID}</p>))}
     </div>
    );
 };

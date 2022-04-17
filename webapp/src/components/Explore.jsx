@@ -5,9 +5,11 @@ const Explore = () => {
   const [Country, setCountry] = useState();
   const [Course, setCourse] = useState();
   const [data, setData] = useState([]);
-
-  const getData = () => {
-    fetch("http://localhost:8080/getUniversityById/US")
+  const c="US";
+  
+  const getData = (Country) => {
+    
+    fetch('http://localhost:8080/getCsUniversityByCountry/'+Country+'')
       .then(function (response) {
         console.log(response);
         return response.json();
@@ -16,16 +18,16 @@ const Explore = () => {
         //console.log(typeof myJSON); // returns object
         // setData(JSON.parse(myJSON));
         setData(myJSON);
-        
+
         // setData(JSON.stringify(myJSON));
       });
   };
 
   useEffect(() => {
-    getData();
-    console.log(data);
-  }, []);
-  
+      
+    getData(c);
+
+  },[]);
 
   return (
     <div>
@@ -111,7 +113,9 @@ const Explore = () => {
         className="row my-5 px-2 align-items-center text-center justify-content-center rounded border"
         style={{}}
       >
-
+        {data.map((user) => (
+          <p>{user.name}</p>
+        ))}
       </div>
     </div>
   );
