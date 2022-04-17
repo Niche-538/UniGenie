@@ -1,10 +1,11 @@
 import React from "react";
-
+import { StickyContainer, Sticky } from "react-sticky";
+import StickyBox from "react-sticky-box";
 const CS = () => {
   return (
     <div>
       <div
-        className="row mx-5 my-5 px-2 align-items-center text-start justify-content-center rounded border"
+        className="row mx-5 my-5 px-2 align-items-center text-start justify-content-center rounded border container"
         style={{
           backgroundImage: `url("https://www.mercy.edu/sites/default/files/2020-07/iStock-1182604339.jpg")`,
           height: "300px",
@@ -14,34 +15,46 @@ const CS = () => {
         }}
       >
         <h5>Masters (MS) in Computer Science (CS) Abroad</h5>
+
+        {/* <div className="row mx-5 my-5 px-2 align-items-center text-center justify-content-center rounded border"> */}
       </div>
-      <div className="row mx-5 my-5 px-2 align-items-center text-center justify-content-center rounded border">
-        <div className="fixed col-3 my-4 me-4 rounded border" style={{
+      <div style={{ display: "flex", alignItems: "flex-start" }}>
+        <StickyBox className="col-3 mx-5 my-4 align-items-center text-start justify-content-center">
+          {/* <div
+            className="col-3 my-4 me-4 rounded border"
+            style={{
               backgroundColor: "white",
-            }}>
-          <p>
-            <a href="#overview">Overview</a>
-          </p>
-          <p>
-            <a href="#Course Structure">Course Structure</a>
-          </p>
-          <p>
-            <a href="#Course Subjects">Course Subjects</a>
-          </p>
-          <p>
-            <a href="#Top Specializations">Top Specializations</a>
-          </p>
-          <p>
-            <a href="#Top Scholarships">Top Scholarships</a>
-          </p>
-          <p>
-            <a href="#Work Opportunities">Work Opportunities</a>
-          </p>
-        </div>
-        <div className="col-8 my-4">
+            }}
+          > */}
+
+          <div className="px-3" style={{ backgroundColor: "" }}>
+            <p>
+              <a href="#overview">Overview</a>
+            </p>
+            <p>
+              <a href="#Course Structure">Course Structure</a>
+            </p>
+            <p>
+              <a href="#Course Subjects">Course Subjects</a>
+            </p>
+            <p>
+              <a href="#Top Specializations">Top Specializations</a>
+            </p>
+            <p>
+              <a href="#Top Scholarships">Top Scholarships</a>
+            </p>
+            <p>
+              <a href="#Work Opportunities">Work Opportunities</a>
+            </p>
+          </div>
+
+          {/* </div> */}
+        </StickyBox>
+
+        <div className="col-7 my-4">
           <div
             id="overview"
-            className="py-4 px-4 mb-4 rounded border align-items-center text-start justify-content-center"
+            className="py-4 px-4 mb-4 rounded border align-items-center text-start justify-content-right"
             style={{
               backgroundColor: "white",
             }}
