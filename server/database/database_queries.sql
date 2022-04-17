@@ -126,5 +126,80 @@
 -- SELECT DATABASE unigenie.db;
 -- DELETE FROM users;
 
+-------------------------------------------------------------------------------------------------------------------------------------------
+
 -- SQLite does NOT fully support DROP column feature
 -- ALTER TABLE programs DROP COLUMN fall_intake;--, spring_intake;
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+/* Add CS,Mech Table - Added by Pratik on March 2 2022*/ 
+
+
+-- create table cs_universities (
+--     cs_university_id int PRIMARY_KEY AUTO_INCREMENT,
+--     name varchar(255),
+--     type varchar(255),
+--     website varchar(255),
+--     state varchar(255),
+--     country varchar(255),
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL 
+-- );
+
+-- INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+-- VALUES (1, 'University of Florida','public', 'www.ufl.edu', 'Florida','US');
+
+-- INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+-- VALUES (2, 'University of London','public', 'www.queencollege.edu', 'London','UK');
+
+-- INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+-- VALUES (3, 'Balle Balle University','private', 'www.pubjab.com', 'Punjab','Can');
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+-- create table mech_universities (
+--     mech_university_id int PRIMARY_KEY AUTO_INCREMENT,
+--     name varchar(255),
+--     type varchar(255),
+--     website varchar(255),
+--     state varchar(255),
+--     country varchar(255),
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL 
+-- );
+
+-- INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+-- VALUES (1, 'Mech 1','public', 'www.ufl.edu', 'Florida','US');
+
+-- INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+-- VALUES (2, 'Mech 2','public', 'www.queencollege.edu', 'London','UK');
+
+-- INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+-- VALUES (3, 'Mech 3','private', 'www.pubjab.com', 'Punjab','Can');
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+-- create table mba_universities (
+--     mba_university_id int PRIMARY_KEY AUTO_INCREMENT,
+--     name varchar(255),
+--     type varchar(255),
+--     website varchar(255),
+--     state varchar(255),
+--     country varchar(255),
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL 
+-- );
+
+-- INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+-- VALUES (1, 'MBA 1','public', 'www.ufl.edu', 'Florida','US');
+
+-- INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+-- VALUES (2, 'MBA 2','public', 'www.queencollege.edu', 'London','UK');
+
+-- INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+-- VALUES (3, 'MBA 3','private', 'www.pubjab.com', 'Punjab','Can');
+
+-------------------------------------------------------------------------------------------------------------------------------------------

@@ -174,25 +174,55 @@ func PostUserUniversityApplication(c *gin.Context) {
 		LOR3:                      newUserUniversityApplication.LOR3,
 	}
 	db.Create(&userUniversityApplication)
-	c.JSON(http.StatusOK, gin.H{"data": userUniversityApplication})
+	c.JSON(http.StatusOK, &userUniversityApplication)
 }
 
-func GetUniversity(c *gin.Context) { 
-	
+func GetCSUniversity(c *gin.Context) {
+
 	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if sht != nil {
 		panic("failed to connect database")
 	}
 
-	var university []models.University
-  
-	if err := db.Where("country = ?", c.Param("country")).Find(&university).Error; err != nil {
-	  c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-	  return
+	var csUniversity []models.CsUniversity
+
+	if err := db.Where("country = ?", c.Param("country")).Find(&csUniversity).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+		return
 	}
-  
-	c.JSON(http.StatusOK, gin.H{"data": &university})
-  }
+	c.JSON(http.StatusOK, &csUniversity)
+}
 
+func GetMechUniversity(c *gin.Context) {
 
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
 
+	var mechUniversity []models.MechUniversity
+
+	if err := db.Where("country = ?", c.Param("country")).Find(&mechUniversity).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+		return
+	}
+
+	c.JSON(http.StatusOK, &mechUniversity)
+}
+
+func GetMBAUniversity(c *gin.Context) {
+
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	var mbaUniversity []models.MbaUniversity
+
+	if err := db.Where("country = ?", c.Param("country")).Find(&mbaUniversity).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+		return
+	}
+	c.JSON(http.StatusOK, &mbaUniversity)
+
+}
