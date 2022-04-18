@@ -39,16 +39,11 @@ func main() {
 	}))
 
 	// API Calls
-	router.GET("/getUniversities", api.GetUniversities)
+
+	// User APIs
 	router.GET("/getUsers", api.GetUsers)
 	router.GET("/getStudentDetails", api.GetStudentDetails)
 	router.GET("/getUserPreferences", api.GetUserPreferences)
-	
-	router.GET("/getUserUniversityApplications", api.GetUserUniversityApplication)
-	router.GET("/getCsUniversityByCountry/:country", api.GetCSUniversity)
-	router.GET("/getMechUniversityByCountry/:country", api.GetMechUniversity)
-	router.GET("/getMbaUniversityByCountry/:country", api.GetMBAUniversity)
-
 	// router.POST("/signup", api.PostUsers)
 	router.POST("/signup", controllers.Signup)
 	router.POST("/login", controllers.Login)
@@ -56,6 +51,15 @@ func main() {
 	router.POST("/addStudentDetails", api.PostStudentDetails)
 	router.POST("/addUserPreference", api.PostUserPreferences)
 	router.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
+	router.GET("/blogs", api.GetBlogs)
+
+	// University APIs
+
+	router.GET("/getUniversities", api.GetUniversities)
+	router.GET("/getUserUniversityApplications", api.GetUserUniversityApplication)
+	router.GET("/getCsUniversityByCountry/:country", api.GetCSUniversity)
+	router.GET("/getMechUniversityByCountry/:country", api.GetMechUniversity)
+	router.GET("/getMbaUniversityByCountry/:country", api.GetMBAUniversity)
 
 	// Listen and Server in 0.0.0.0:8080
 	router.Run(":" + port)
