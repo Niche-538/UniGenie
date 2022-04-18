@@ -242,3 +242,72 @@ INSERT INTO mba_universities (mba_university_id, name, type, website, state, cou
 VALUES (6, 'Dartomuth College','private', 'www.dartmouth.edu', 'New Hampshire','US');
 
 -------------------------------------------------------------------------------------------
+
+/* Populating the table - Added by Anurag on April 18 2022*/ 
+-- Adding UK universities
+
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (7, 'University of Oxford', 'private', 'www.ox.ac.uk', 'Oxford', 'UK');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (8, 'University College London', 'private', 'www.ucl.ac.uk', 'London', 'UK');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (9, 'Imperial College London','private', 'www.imperial.ac.uk', 'London', 'UK');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (10, 'University of Cambridge','private', 'www.cam.ac.uk', 'Cambridge', 'UK');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (11, 'University of Edinburgh','private', 'www.ed.ac.uk', 'Edinburgh', 'UK');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (12, 'University of Surrey','private', 'www.surrey.ac.uk', 'Guildford', 'UK');
+
+-- DELETE FROM cs_universities WHERE name IN ("University of Cambridge", "University of Edinburgh", "University of Surrey");
+
+-------------------------------------------------------------------------------------------
+
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (7, 'Imperial College London','private', 'www.imperial.ac.uk', 'London', 'UK');
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (8, 'University of Nottingham','private', 'www.nottingham.ac.uk', 'Nottingham', 'UK');
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (9, 'University of Cambridge','private', 'www.cam.ac.uk', 'Cambridge', 'UK');
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (10, 'University of Southampton','public', 'www.southampton.ac.uk', 'Southampton', 'UK');
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (11, 'University of Liverpool','private', 'www.liverpool.ac.uk', 'Liverpool', 'UK');
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (12, 'Cranfield University','public', 'www.cranfield.ac.uk', 'Bedford', 'UK');
+
+-- DELETE FROM mech_universities WHERE name IN ("University of Cambridge");--, "University of Edinburgh", "University of Surrey");
+-------------------------------------------------------------------------------------------
+
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (7, 'London Business School','private', 'www.london.edu', 'London', 'UK');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (8, 'University of Cambridge','private', 'www.cam.ac.uk', 'Cambridge', 'UK');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (9, 'University of Oxford', 'private', 'www.ox.ac.uk', 'Oxford', 'UK');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (10, 'University of Warwick','public', 'www.warwick.ac.uk', 'Coventry', 'UK');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (11, 'Imperial College London','private', 'www.imperial.ac.uk', 'London', 'UK');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (12, 'University of Manchester','private', 'www.manchester.ac.uk', 'Manchester', 'UK');
+
+
