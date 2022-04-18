@@ -391,3 +391,7 @@ create table blogs (
     deleted_at datetime DEFAULT NULL,
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
+
+-- INSERT INTO blogs (blog_id, blog_head, blog_content, upvotes, user_id)
+-- VALUES (1, 'How to do Siiiiiuuuuu','Run on the field, take one legged hop, arms up while hopping, turn around, throw your arms down, and... "SSSIIIIIIIIIUUUUUUUUU" ', 77777, 3);
+
