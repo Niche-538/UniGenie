@@ -372,3 +372,22 @@ VALUES (17, 'York Univeristy','public', 'www.yorku.ca', 'Toronto', 'Canada');
 
 INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
 VALUES (18, 'University of British Columbia','public', 'www.ubc.ca', 'Vancouver', 'Canada');
+
+
+-------------------------------------------------------------------------------------------
+
+/* Populating the table - Added by Anurag on April 18 2022*/ 
+-- Creating a table to store blogposts
+
+create table blogs (
+    blog_id int PRIMARY_KEY AUTO_INCREMENT,
+    blog_head varchar(300),
+    blog_content varchar(1000000),
+    upvotes INTEGER DEFAULT 0,
+    downvotes INTEGER DEFAULT 0,
+    user_id INTEGER,
+    updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+    created_at datetime DEFAULT CURRENT_TIMESTAMP,
+    deleted_at datetime DEFAULT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
