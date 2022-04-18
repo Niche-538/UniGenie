@@ -133,6 +133,14 @@ body {
     background-color: #504ac5
 }
 
+.add-bg {
+    background-color: #6C63FF
+}
+
+.add-bg:hover {
+    background-color: #504ac5
+}
+
 .profile-person-bg {
     background-color: #6C63FF
 }
