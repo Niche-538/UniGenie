@@ -310,4 +310,65 @@ VALUES (11, 'Imperial College London','private', 'www.imperial.ac.uk', 'London',
 INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
 VALUES (12, 'University of Manchester','private', 'www.manchester.ac.uk', 'Manchester', 'UK');
 
+-------------------------------------------------------------------------------------------
 
+/* Populating the table - Added by Anurag on April 18 2022*/ 
+-- Adding Canadian universities
+
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (13, 'University of Toronto', 'public', 'www.utoronto.ca', 'Toronto', 'Canada');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (14, 'University of Waterloo', 'public', 'www.uwaterloo.ca', 'Waterloo', 'Canada');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (15, 'University of British Columbia','public', 'www.ubc.ca', 'Vancouver', 'Canada');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (16, 'University of Montreal','public', 'www.umontreal.ca', 'Montreal', 'Canada');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (17, 'University of Alberta','public', 'www.ualberta.ca', 'Edmonton', 'Canada');
+
+INSERT INTO cs_universities (cs_university_id, name, type, website, state, country)
+VALUES (18, 'McGill University','public', 'www.mcgill.ca', 'Montreal', 'Canada');
+
+-- DELETE FROM cs_universities WHERE name IN ("University of Cambridge", "University of Edinburgh", "University of Surrey");
+
+-------------------------------------------------------------------------------------------
+
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (13, 'University of Waterloo', 'public', 'www.uwaterloo.ca', 'Waterloo', 'Canada');
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (14, 'McGill University','public', 'www.mcgill.ca', 'Montreal', 'Canada');
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (15, 'University of Alberta','public', 'www.ualberta.ca', 'Edmonton', 'Canada');
+
+INSERT INTO mech_universities (mech_university_id, name, type, website, state, country)
+VALUES (16, 'University of Toronto', 'public', 'www.utoronto.ca', 'Toronto', 'Canada');
+
+-- DELETE FROM mech_universities WHERE name IN ("University of Cambridge");--, "University of Edinburgh", "University of Surrey");
+-------------------------------------------------------------------------------------------
+
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (13, 'University of Toronto', 'public', 'www.utoronto.ca', 'Toronto', 'Canada');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (14, "Queen's University",'public', 'www.queensu.ca', 'Kingston', 'Canada');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (15, 'Univeristy of Western Ontario', 'public', 'www.uwo.ca', 'London', 'Canada');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (16, 'McGill University','public', 'www.mcgill.ca', 'Montreal', 'Canada');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (17, 'York Univeristy','public', 'www.yorku.ca', 'Toronto', 'Canada');
+
+INSERT INTO mba_universities (mba_university_id, name, type, website, state, country)
+VALUES (18, 'University of British Columbia','public', 'www.ubc.ca', 'Vancouver', 'Canada');
