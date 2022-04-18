@@ -20,7 +20,7 @@ const Navigation_nonMain = () => {
             // fontFamily: "roboto",
           }}
           className="mx-3"
-          href="/StudentHomePage"
+          href="/"
         >
           UniGenie
         </Navbar.Brand>
@@ -55,6 +55,7 @@ const Navigation_nonMain = () => {
           <Nav.Item className="px-2 justify-content-center text-center align-items-center">
             <Button
               variant="outline-white"
+              href="/Explore"
               style={{
                 outline: "white",
                 color: "black",

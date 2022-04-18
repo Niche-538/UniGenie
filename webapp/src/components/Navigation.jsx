@@ -27,7 +27,7 @@ const Navigation = () => {
         <Nav className="px-3 ms-3 me-auto my-3 flex-row justify-content-center text-center align-items-center">
           <Nav.Item className="px-2 justify-content-center text-center align-items-center">
             <Button
-              href="/StudentHomePage"
+              href="/"
               variant="outline-white"
               style={{
                 outline: "white",

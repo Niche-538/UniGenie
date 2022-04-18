@@ -6,7 +6,7 @@ const Get = (props) => {
   
   const getData = () => {
 
-    fetch("http://localhost:8080/getCsUniversityByCountry/US").then(function (response) {
+    fetch("http://localhost:8080/getUniversities").then(function (response) {
       console.log(response);
       return response.json();
     }).then(function(myJSON){
