@@ -95,3 +95,14 @@ type UserUniversityApplication struct {
 	LOR2                      bool       `json:"lor2"`
 	LOR3                      bool       `json:"lor3"`
 }
+
+type Blogs struct {
+	gorm.Model
+	Blog_id      uint   `gorm:"primaryKey;autoIncrement" json:"blog_id"`
+	Blog_head    string `json:"blog_head"`
+	Blog_content string `json:"blog_content"`
+	Upvotes      uint   `json:"upvotes"`
+	Downvotes    uint   `json:"downvotes"`
+	UserID       uint   `json:"user_id"`
+	User         User   `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+}
