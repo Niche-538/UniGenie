@@ -395,3 +395,18 @@ create table blogs (
 -- INSERT INTO blogs (blog_id, blog_head, blog_content, upvotes, user_id)
 -- VALUES (1, 'How to do Siiiiiuuuuu','Run on the field, take one legged hop, arms up while hopping, turn around, throw your arms down, and... "SSSIIIIIIIIIUUUUUUUUU" ', 77777, 3);
 
+-------------------------------------------------------------------------------------------
+/* Creating Task Table - Added by Pratik on April 18 2022*/ 
+
+create table tasks (
+    task_id int PRIMARY_KEY AUTO_INCREMENT,
+    task varchar(1000000),
+    user_id INTEGER,
+    updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+    created_at datetime DEFAULT CURRENT_TIMESTAMP,
+    deleted_at datetime DEFAULT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+INSERT INTO tasks (task_id, task, user_id)
+ VALUES (1, 'Mail Kristina at UF for i20', 1);
