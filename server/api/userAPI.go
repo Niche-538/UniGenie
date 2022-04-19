@@ -201,9 +201,9 @@ func GetTasks(c *gin.Context) {
 	c.JSON(http.StatusOK, &tasks)
 }
 
-func PostTask(c *gin.Context) {
-	var task models.Tasks
-	if err := c.ShouldBindJSON(&task); err != nil {
+func PostTasks(c *gin.Context) {
+	var _tasks models.Tasks
+	if err := c.ShouldBindJSON(&_tasks); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -213,20 +213,11 @@ func PostTask(c *gin.Context) {
 		panic("failed to connect database")
 	}
 
-	ID      uint   `gorm:"primaryKey;autoIncrement" json:"task_id"`
-	Task string `json:"task"`
-	UserID       uint   `json:"user_id"`
-	User         User   `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
-
-
-	task := models.Tasks{
-		UserID:                    newUserUniversityApplication.UserID,
-		UniversityApplicationLink: newUserUniversityApplication.UniversityApplicationLink,
-		TranscriptUploaded:        newUserUniversityApplication.TranscriptUploaded,
-		LOR1:                      newUserUniversityApplication.LOR1,
-		LOR2:                      newUserUniversityApplication.LOR2,
-		LOR3:                      newUserUniversityApplication.LOR3,
+	tasks := models.Tasks{
+		UserID: _tasks.UserID,
+		Task:   _tasks.Task,
 	}
-	db.Create(&userUniversityApplication)
-	c.JSON(http.StatusOK, &userUniversityApplication)
+
+	db.Create(&tasks)
+	c.JSON(http.StatusOK, gin.H{"data": tasks})
 }
