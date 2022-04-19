@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./landing.css";
+
+
 import bcrypt from "bcryptjs";
 import {
   Button,
@@ -11,7 +11,7 @@ import {
   FloatingLabel,
   Col,
 } from "react-bootstrap";
-const salt = bcrypt.genSaltSync(10);
+// const salt = bcrypt.genSaltSync(10);
 
 const LP = () => {
   //const navigate = useNavigate();
@@ -32,7 +32,7 @@ const LP = () => {
       "$2a$10$CwTycUXWue0Thq9StjUM0u"
     );
     const registrationInfo = { first_name, last_name, email, password };
-    if (confirm_password != hpassword) {
+    if (confirm_password !== hpassword) {
       alert("Passwords don't match");
       return false;
     }
@@ -130,7 +130,9 @@ const LP = () => {
                     style={{ borderRadius: "25px" }}
                     type="text"
                     placeholder="First name"
+                    required
                     onChange={(e) => setFName(e.target.value)}
+                    
                   />
                 </FloatingLabel>
               </Col>
@@ -141,6 +143,7 @@ const LP = () => {
                     style={{ borderRadius: "25px" }}
                     type="text"
                     placeholder="Last name"
+                    required
                     onChange={(e) => setLName(e.target.value)}
                   />
                 </FloatingLabel>
@@ -157,6 +160,7 @@ const LP = () => {
                   type="text"
                   name="email"
                   placeholder="name@example.com"
+                  required
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </FloatingLabel>
@@ -170,6 +174,7 @@ const LP = () => {
                   style={{ borderRadius: "25px" }}
                   type="password"
                   placeholder="Password"
+                  required
                   onChange={(e) => setPass(e.target.value)}
                 />
               </FloatingLabel>
@@ -183,6 +188,7 @@ const LP = () => {
                   style={{ borderRadius: "25px" }}
                   type="password"
                   placeholder="Password"
+                  required
                   onChange={(e) => setCPass(e.target.value)}
                 />
               </FloatingLabel>
