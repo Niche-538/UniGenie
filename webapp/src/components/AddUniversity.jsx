@@ -3,27 +3,6 @@ import { Button, Form } from "react-bootstrap";
 import { Formik } from "formik";
 import * as yup from "yup";
 
-// function handleOnClick() {
-//     // POST request using fetch with set headers
-//     const requestOptions = {
-//         method: "POST",
-//         // headers: {
-//         //     'Content-Type': 'application/json',
-//         // },
-//         mode: "cors",
-//         body: JSON.stringify({
-//             Name: "University of Texas at Dallas",
-//             Website: "www.td.edu",
-//             Address: "4000 SW 37th Blvd",
-//             City: "Dallas",
-//             State: "TX",
-//             Zip: 32608,
-//             Country: "USA",
-//         }),
-//     };
-//     fetch("http://localhost:8080/addUniversity", requestOptions);
-// }
-
 const AddUniversity = () => {
     
     const validSchema = yup.object().shape({

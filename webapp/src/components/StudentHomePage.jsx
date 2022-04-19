@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import styles from "./landing.css";
+import { Formik } from "formik";
+import * as yup from "yup";
+
 import {
   Button,
   Col,
@@ -8,6 +10,7 @@ import {
   Row,
   FloatingLabel,
   Modal,
+  FormGroup,
 } from "react-bootstrap";
 
 const StudentHomePage = () => {
@@ -16,7 +19,8 @@ const StudentHomePage = () => {
   const handleShow = () => setShow(true);
   const [post_title, setPTitle] = useState();
   const [content, setContent] = useState();
-  const handleSubmit = (e) => {
+
+  const handleSubmitt = (e) => {
     e.preventDefault();
 
     const payload = { post_title, content };
@@ -58,6 +62,17 @@ const StudentHomePage = () => {
     getData();
   }, []);
 
+  const validSchema = yup.object().shape({
+    post_title: yup
+      .string()
+      .matches(
+        /^([a-zA-Z0-9-_ &]+)$/,
+        "Post title cannot contain numbers or special characters besides space and &."
+      )
+      .required("Please enter a valid post title."),
+    content: yup.string().required("Please write something here."),
+  });
+
   return (
     <div>
       <Container className="rounded border my-4">
@@ -70,12 +85,9 @@ const StudentHomePage = () => {
               <Button
                 type="submit"
                 variant="primary"
-                // className="btn mt-3"
                 href="#"
                 onClick={handleShow}
                 className="post-button-bg"
-                // variant="success"
-                // type="submit"
               >
                 Create a post
               </Button>
@@ -95,69 +107,87 @@ const StudentHomePage = () => {
             <Modal.Title>Create a post.</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form className="my-3 bg-body rounded" onSubmit={handleSubmit}>
-              <Col className="mb-3 mx-2 g-3">
-                <Row>
-                  <FloatingLabel controlId="floatingInput2" label="post title">
-                    <Form.Control
-                      name="post_title"
-                      style={{ borderRadius: "20px" }}
-                      type="text"
-                      placeholder="Title"
-                      as="textarea"
-                      onChange={(e) => setPTitle(e.target.value)}
-                    />
-                  </FloatingLabel>
-                </Row>
-                <Row>
-                  <p></p>
-                </Row>
-                <Row>
-                  <FloatingLabel
-                    controlId="floatingInput3"
-                    label="Write something here!"
-                  >
-                    {/* <Form.Group
-                      className="col-xl-9 mb-3 px-5"
-                      controlId="formPostSomething"
-                    > */}
-                    <Form.Control
-                      name="content"
-                      type="text"
-                      placeholder="What's on your mind...?"
-                      as="textarea"
-                      onChange={(e) => setContent(e.target.value)}
-                      style={{ height: "100px", borderRadius: "20px" }}
-                    />
-                    {/* </Form.Group> */}
-                  </FloatingLabel>
-                </Row>
-              </Col>
-              <Form.Group></Form.Group>
-              <Form.Group className="text-center">
-                <Button
-                  style={{ width: "8rem", borderRadius: "25px" }}
-                  variant="secondary"
-                  onClick={handleClose}
+            <Formik
+              validationSchema={validSchema}
+              onSubmit={console.log}
+              initialValues={{
+                post_title: "",
+                content: "",
+              }}
+            >
+              {({ handleSubmit, handleChange, values, errors }) => (
+                <Form
+                  noValidate
+                  className="my-3 bg-body rounded"
+                  onSubmit={handleSubmitt}
                 >
-                  Cancel
-                </Button>
-                <Button
-                  style={{
-                    width: "8rem",
-                    background: "#6C63FF",
-                    borderRadius: "25px",
-                  }}
-                  type="submit"
-                  variant="success"
-                  href="/ProfileSettingsPage"
-                  onClick={handleSubmit}
-                  // color="#6C63FF"
-                >
-                  Post
-                </Button>
-              </Form.Group>
-            </Form>
+                  <Col className="mb-3 mx-2 g-3">
+                    <Row>
+                      <FloatingLabel controlId="floatingInput2">
+                        <FormGroup>
+                          <Form.Control
+                            name="post_title"
+                            style={{ borderRadius: "20px" }}
+                            type="text"
+                            placeholder="Title"
+                            as="textarea"
+                            onChange={(e) => setPTitle(e.target.value)}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.post_title}
+                          </Form.Control.Feedback>
+                        </FormGroup>
+                      </FloatingLabel>
+                    </Row>
+                    <Row>
+                      <p></p>
+                    </Row>
+                    <Row>
+                      <FormGroup>
+                      <FloatingLabel controlId="floatingInput3">
+                        <FormGroup>
+                          <Form.Control
+                            name="content"
+                            type="text"
+                            placeholder="What's on your mind...?"
+                            as="textarea"
+                            onChange={(e) => setContent(e.target.value)}
+                            style={{ height: "100px", borderRadius: "20px" }}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.content}
+                          </Form.Control.Feedback>
+                        </FormGroup>
+                      </FloatingLabel>
+                      </FormGroup>
+                    </Row>
+                  </Col>
+                  <Form.Group></Form.Group>
+                  <Form.Group className="text-center">
+                    <Button
+                      style={{ width: "8rem", borderRadius: "25px" }}
+                      variant="secondary"
+                      onClick={handleClose}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      style={{
+                        width: "8rem",
+                        background: "#6C63FF",
+                        borderRadius: "25px",
+                      }}
+                      type="submit"
+                      variant="success"
+                      href="/ProfileSettingsPage"
+                      onClick={handleSubmitt}
+                    >
+                      Post
+                    </Button>
+                  </Form.Group>
+                </Form>
+              )}
+            </Formik>
           </Modal.Body>
         </Modal>
 
