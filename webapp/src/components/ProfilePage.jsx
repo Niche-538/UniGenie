@@ -67,10 +67,15 @@ const ProfilePage = () => {
     };
 
     return (
-        <Container className="rounded border">
+        <Container
+            className="my-3 rounded border"
+            style={{ backgroundColor: "white" }}
+        >
             <div className="row g-3 my-3 mx-auto align-items-top">
                 <div className="col-xl-12 justify-content-center">
-                    <h3 className="text-center">Educational Details</h3>
+                    <h3 className="text-center">
+                        <strong>Educational Details</strong>
+                    </h3>
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
                             <Form.Group
@@ -188,7 +193,7 @@ const ProfilePage = () => {
                     <div className="row my-4 mx-3 border-bottom border-1 text-center justify-content-center align-items-center"></div>
 
                     <h3 className="text-center mt-3">
-                        Educational Preferences
+                        <strong>Educational Preferences</strong>
                     </h3>
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
@@ -283,7 +288,9 @@ const ProfilePage = () => {
 
                     <div className="row my-4 mx-3 border-bottom border-1 text-center justify-content-center align-items-center"></div>
 
-                    <h3 className="text-center mt-3">Admissions Tests</h3>
+                    <h3 className="text-center mt-3">
+                        <strong>Admissions Tests</strong>
+                    </h3>
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
                             <Form.Group
@@ -690,7 +697,9 @@ const ProfilePage = () => {
 
                     <div className="row my-4 mx-3 border-bottom border-1 text-center justify-content-center align-items-center"></div>
 
-                    <h3 className="text-center mt-3">Work Experience</h3>
+                    <h3 className="text-center mt-3">
+                        <strong>Work Experience</strong>
+                    </h3>
                     <Form>
                         {workExperienceList.map((singleWorkExp, index) => (
                             <div key={index}>
@@ -807,7 +816,7 @@ const ProfilePage = () => {
                     <div className="row my-4 mx-3 border-bottom border-1 text-center justify-content-center align-items-center"></div>
 
                     <h3 className="text-center mt-3">
-                        Research Paper Publications
+                        <strong>Research Paper Publications</strong>
                     </h3>
                     <Form>
                         {publicationsList.map((singlePublication, index) => (

@@ -4,7 +4,10 @@ import { Button, Container, Form } from "react-bootstrap";
 
 const ProfileSettingsPage = () => {
     return (
-        <Container className="rounded border">
+        <Container
+            className="my-3 rounded border"
+            style={{ backgroundColor: "white" }}
+        >
             <div className="row g-3 my-3 mx-auto align-items-top">
                 <div className="col-xl-12 justify-content-center">
                     <h3 className="text-center">Personal Details</h3>
