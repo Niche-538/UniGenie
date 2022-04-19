@@ -106,3 +106,11 @@ type Blogs struct {
 	UserID       uint   `json:"user_id"`
 	User         User   `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
+
+type Tasks struct {
+	gorm.Model
+	ID      uint   `gorm:"primaryKey;autoIncrement" json:"task_id"`
+	Task string `json:"task"`
+	UserID       uint   `json:"user_id"`
+	User         User   `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+}

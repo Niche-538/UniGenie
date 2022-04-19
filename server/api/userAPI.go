@@ -188,3 +188,15 @@ func GetBlogs(c *gin.Context) {
 	db.Find(&allBlogs)
 	c.JSON(http.StatusOK, &allBlogs)
 }
+
+func GetTasks(c *gin.Context) {
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	tasks := []models.Tasks{}
+
+	db.Find(&tasks)
+	c.JSON(http.StatusOK, &tasks)
+}

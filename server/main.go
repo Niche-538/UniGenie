@@ -52,7 +52,7 @@ func main() {
 	router.POST("/addUserPreference", api.PostUserPreferences)
 	router.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
 	router.GET("/blogs", api.GetBlogs)
-
+	router.GET("/getTasks", api.GetTasks)
 	// University APIs
 
 	router.GET("/getUniversities", api.GetUniversities)
