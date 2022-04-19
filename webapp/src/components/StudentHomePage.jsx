@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
-import * as yup from "yup";
+import * as Yup from "yup";
 
 import {
   Button,
@@ -62,15 +62,15 @@ const StudentHomePage = () => {
     getData();
   }, []);
 
-  const validSchema = yup.object().shape({
-    post_title: yup
+  const validSchema = Yup.object().shape({
+    post_title: Yup
       .string()
       .matches(
         /^([a-zA-Z0-9-_ &]+)$/,
         "Post title cannot contain numbers or special characters besides space and &."
       )
       .required("Please enter a valid post title."),
-    content: yup.string().required("Please write something here."),
+    content: Yup.string().required("Please write something here."),
   });
 
   return (
@@ -115,7 +115,7 @@ const StudentHomePage = () => {
                 content: "",
               }}
             >
-              {({ handleSubmit, handleChange, values, errors }) => (
+              {({ errors,touched }) => (
                 <Form
                   noValidate
                   className="my-3 bg-body rounded"
@@ -144,21 +144,21 @@ const StudentHomePage = () => {
                     </Row>
                     <Row>
                       <FormGroup>
-                      <FloatingLabel controlId="floatingInput3">
-                        <FormGroup>
-                          <Form.Control
-                            name="content"
-                            type="text"
-                            placeholder="What's on your mind...?"
-                            as="textarea"
-                            onChange={(e) => setContent(e.target.value)}
-                            style={{ height: "100px", borderRadius: "20px" }}
-                          />
-                          <Form.Control.Feedback type="invalid">
-                            {errors.content}
-                          </Form.Control.Feedback>
-                        </FormGroup>
-                      </FloatingLabel>
+                        <FloatingLabel controlId="floatingInput3">
+                          <FormGroup>
+                            <Form.Control
+                              name="content"
+                              type="text"
+                              placeholder="What's on your mind...?"
+                              as="textarea"
+                              onChange={(e) => setContent(e.target.value)}
+                              style={{ height: "100px", borderRadius: "20px" }}
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              {errors.content}
+                            </Form.Control.Feedback>
+                          </FormGroup>
+                        </FloatingLabel>
                       </FormGroup>
                     </Row>
                   </Col>
@@ -179,8 +179,8 @@ const StudentHomePage = () => {
                       }}
                       type="submit"
                       variant="success"
-                      href="/ProfileSettingsPage"
-                      onClick={handleSubmitt}
+                      //href="/ProfileSettingsPage"
+                      //onClick={handleSubmitt}
                     >
                       Post
                     </Button>
