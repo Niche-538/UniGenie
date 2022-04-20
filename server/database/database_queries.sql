@@ -392,21 +392,21 @@ VALUES (18, 'University of British Columbia','public', 'www.ubc.ca', 'Vancouver'
 --     FOREIGN KEY(user_id) REFERENCES users(id)
 -- );
 
--- drop table blogs;
+drop table blogs;
 
--- create table blogs (
---     blog_id int PRIMARY_KEY AUTO_INCREMENT,
---     blog_head varchar(300),
---     blog_content varchar(1000000),
---     user_id INTEGER,
---     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
---     created_at datetime DEFAULT CURRENT_TIMESTAMP,
---     deleted_at datetime DEFAULT NULL,
---     FOREIGN KEY(user_id) REFERENCES users(id)
--- );
+create table blogs (
+    id int PRIMARY_KEY AUTO_INCREMENT,
+    blog_head varchar(300),
+    blog_content varchar(1000000),
+    user_id INTEGER,
+    updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+    created_at datetime DEFAULT CURRENT_TIMESTAMP,
+    deleted_at datetime DEFAULT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
 
--- INSERT INTO blogs (id, blog_head, blog_content, user_id)
--- VALUES (1, 'How to do Siiiiiuuuuu?','Run on the field, take one legged hop, arms up while hopping, turn around, throw your arms down, and... "SSSIIIIIIIIIUUUUUUUUU" ', 3);
+INSERT INTO blogs (id, blog_head, blog_content, user_id)
+VALUES (1, 'How to do Siiiiiuuuuu?','Run on the field, take one legged hop, arms up while hopping, turn around, throw your arms down, and... "SSSIIIIIIIIIUUUUUUUUU" ', 3);
 
 ALTER TABLE DROP CONSTRAINT
 
