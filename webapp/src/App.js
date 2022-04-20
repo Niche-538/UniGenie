@@ -22,7 +22,7 @@ import US from "./components/US";
 import UK from "./components/UK";
 import Canada from "./components/canada";
 import Explore from "./components/explore";
-
+import FieldLevelValidationExample from "./components/validateEmail";
 function App() {
     const rootElement = document.getElementById("root");
     const image = document.getElementById("image");
