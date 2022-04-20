@@ -207,6 +207,19 @@ func PostBlogs(c *gin.Context) {
 		return
 	}
 
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	blogEntry := models.Blogs{
+		Blog_head:    newBlog.Blog_head,
+		Blog_content: newBlog.Blog_content,
+		UserID:       newBlog.UserID,
+	}
+
+	db.Create(&blogEntry)
+	c.JSON(http.StatusCreated, gin.H{"data": blogEntry})
 }
 
 //////////////////// Tasks ////////////////////
