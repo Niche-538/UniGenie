@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"unigenie/auth"
@@ -115,4 +116,55 @@ func Login(c *gin.Context) {
 func TempSetDB() {
 	DB := database.ReturnDatabase()
 	DB.AutoMigrate(&models.Blogs{})
+}
+
+func TokenLogin(c *gin.Context) {
+	var payload LoginPayload
+	var userLogin models.User
+
+	if err := c.ShouldBindJSON(&payload); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	// check if user exists in DB
+	result := db.Where("email = ?", payload.Email).First(userLogin)
+	if result.Error != nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"error": "user not found",
+		})
+		return
+	}
+
+	err := userLogin.CheckPassword(payload.Password)
+	if err != nil {
+		log.Println(err)
+		c.JSON(401, gin.H{
+			"msg": "invalid user credentials",
+		})
+		c.Abort()
+		return
+	}
+
+	testToken, errorString := auth.TokenGeneration(&userLogin)
+
+	fmt.Print("\n##############\n\n")
+	fmt.Print(testToken)
+	fmt.Print("\n\n##############\n")
+
+	if errorString != nil {
+		c.JSON(http.StatusUnauthorized, gin.H{
+			"error": errorString.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"token": testToken,
+	})
 }

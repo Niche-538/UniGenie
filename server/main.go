@@ -46,6 +46,7 @@ func main() {
 	// router.POST("/signup", api.PostUsers)
 	router.POST("/signup", controllers.Signup)
 	router.POST("/login", controllers.Login)
+	router.POST("/tLogin", controllers.TokenLogin)
 	router.POST("/addUniversity", api.PostUniversities)
 
 	router.GET("/getUsers", api.GetUsers)
