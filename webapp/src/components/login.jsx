@@ -16,11 +16,11 @@ function Login() {
 
     // const dispatch = useDispatch();
 
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    // const [username, setUsername] = useState();
+    // const [password, setPassword] = useState();
 
     const defaultData = {
-        email: "",
+        username: "",
         password: "",
     };
 
@@ -32,25 +32,25 @@ function Login() {
 
     const [userData, setUserData] = useState(defaultData);
 
-    const setData = (username, password) => {
-        setUserData({ ...userData, email: username });
-        setUserData({ ...userData, password: password });
-    };
+    // const setData = (username, password) => {
+    //     setUserData({ ...userData, email: username });
+    //     setUserData({ ...userData, password: password });
+    // };
 
     // // Toggle for Modal
     // // const toggle = () => setModal(!modal);
 
     // const authenticateUser = (response) => {
-    //     dispatch(loginSuccessful(response));
+        // dispatch(loginSuccessful(response));
     // };
 
-    // const updateEmail = (email) => {
-    //     setUserData({ ...userData, username: email });
-    // };
+    const updateEmail = (email:string) => {
+        setUserData({ ...userData, username: email });
+    };
 
-    // const updatePassword = (password) => {
-    //     setUserData({ ...userData, password });
-    // };
+    const updatePassword = (password:string) => {
+        setUserData({ ...userData, password });
+    };
 
     // const updateStateWithUserData = (userData) => {
     //     dispatch(updateUserData(userData));
@@ -58,48 +58,48 @@ function Login() {
 
     const login = () => {
         showSpinner = true;
-        setData();
+        // setData();
         console.log(userData);
-        // axios
-        //     .post(`http://localhost:8080/login`, userData)
-        //     .then((res) => {
-        //         // debugger;
-        //         // console.log(res.data);
-        //         // authenticateUser(res.data);
-        //         axios
-        //             .get(
-        //                 // `http://localhost:8080/getUsers/${userData.username}`,
-        //                 `http://localhost:8080/blogs`,
-        //                 {
-        //                     headers: { token: res.data.token },
-        //                 }
-        //             )
-        //             .then((res) => {
-        //                 if (res.data.ID != 0) {
-        //                     const userResponse = {
-        //                         //   name: res.data.Name,
-        //                         email: res.data.username,
-        //                         password: res.data.Password,
-        //                     };
-        //                     // updateStateWithUserData(userResponse);
-        //                 } else {
-        //                     // TO-DO: this needs to be handled in catch
-        //                     alert("Auth failed");
-        //                 }
-        //             })
-        //             .catch(() => {});
-        //     })
-        //     .catch(() => {
-        //         alert("Auth failed, please check your user name and password");
-        //     })
-        //     .finally(() => {
-        //         //setModal(false);
-        //         showSpinner = false;
-        //     });
+        axios
+            .post(`http://localhost:8080/login`, userData)
+            .then((res) => {
+                // debugger;
+                console.log(res.data);
+                // authenticateUser(res.data);
+                axios
+                    .get(
+                        `http://localhost:8080/studentHomePage/${userData.username}`,
+                        // `http://localhost:8080/blogs`,
+                        {
+                            headers: { token: res.data.token },
+                        }
+                    )
+                    .then((res) => {
+                        if (res.data.ID != 0) {
+                            const userResponse = {
+                                //   name: res.data.Name,
+                                email: res.data.username,
+                                password: res.data.Password,
+                            };
+                            // updateStateWithUserData(userResponse);
+                        } else {
+                            // TO-DO: this needs to be handled in catch
+                            alert("Auth failed");
+                        }
+                    })
+                    .catch(() => {});
+            })
+            .catch(() => {
+                alert("Auth failed, please check your user name and password");
+            })
+            .finally(() => {
+                //setModal(false);
+                showSpinner = false;
+            });
     };
 
     useEffect((e) => {
-        e.preventDefault();
+        //e.preventDefault();
         login();
         //console.log("getData: Hello");
     }, []);
@@ -124,9 +124,9 @@ function Login() {
                         // onChange={(e) => {
                         //     updateEmail(e.target.value);
                         // }}
-                        onChange={(e) => {
-                            setUsername(e.target.value);
-                        }}
+                        // onChange={(e) => {
+                        //     setUsername(e.target.value);
+                        // }}
                     />
                 </div>
 
@@ -140,9 +140,9 @@ function Login() {
                         // onChange={(e) => {
                         //     updatePassword(e.target.value);
                         // }}
-                        onChange={(e) => {
-                            setPassword(e.target.value);
-                        }}
+                        // onChange={(e) => {
+                        //     setPassword(e.target.value);
+                        // }}
                     />
                 </div>
                 {showSpinner ? (
