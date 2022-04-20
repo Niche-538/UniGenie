@@ -1,6 +1,8 @@
 package database
 
 import (
+	// models "unigenie/models"
+
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -19,6 +21,7 @@ import (
 // 	DBConn.AutoMigrate(&models.Program{})
 // 	DBConn.AutoMigrate(&models.OfferedCourse{})
 // 	DBConn.AutoMigrate(&models.StudentDetails{})
+// DBConn.AutoMigrate(&models.Blogs{})
 // }
 
 func SetDatabaseTest() (err error) {
