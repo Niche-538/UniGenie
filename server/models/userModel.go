@@ -98,11 +98,17 @@ type UserUniversityApplication struct {
 
 type Blogs struct {
 	gorm.Model
-	Blog_id      uint   `gorm:"primaryKey;autoIncrement" json:"blog_id"`
+	ID           uint   `gorm:"primaryKey;autoIncrement" json:"blog_id"`
 	Blog_head    string `json:"blog_head"`
 	Blog_content string `json:"blog_content"`
-	Upvotes      uint   `json:"upvotes"`
-	Downvotes    uint   `json:"downvotes"`
-	UserID       uint   `json:"user_id"`
-	User         User   `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	User         User   `gorm:"foreignKey:UserID;references:id;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	UserID       uint   `json:"user_id" sql:"type:uint REFERENCES users(id)"`
+}
+
+type Tasks struct {
+	gorm.Model
+	ID     uint   `gorm:"primaryKey;autoIncrement" json:"task_id"`
+	Task   string `json:"task"`
+	UserID uint   `json:"user_id"`
+	User   User   `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }

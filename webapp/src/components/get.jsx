@@ -29,8 +29,7 @@ const Get = (props) => {
             {/* <p>{JSON.parse(data)[1]["first_name"]}</p> */}
             {/* <p>{data[1].first_name}</p> */}
             {/* <p>{data}</p> */}
-            {/* {data.map((user) => (
-      <p>[{user.ID}]{user.email}</p>))} */}
+            {/* {data.map((user) => (<p>[{user.ID}]{user.email}</p>))} */}
             {data.map((user) => (
                 <p>{user.ID}</p>
             ))}

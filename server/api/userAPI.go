@@ -10,6 +10,8 @@ import (
 	"gorm.io/gorm"
 )
 
+//////////////////// Basic User APIs ////////////////////
+
 func GetUsers(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
@@ -45,6 +47,8 @@ func PostUsers(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": user})
 
 }
+
+//////////////////// Student Details ////////////////////
 
 func GetStudentDetails(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
@@ -106,6 +110,8 @@ func PostStudentDetails(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": detailsStudent})
 }
 
+//////////////////// User Preferences ////////////////////
+
 func GetUserPreferences(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
@@ -139,6 +145,8 @@ func PostUserPreferences(c *gin.Context) {
 	db.Create(&userPreferences)
 	c.JSON(http.StatusOK, gin.H{"data": userPreferences})
 }
+
+//////////////////// User University Application ////////////////////
 
 func GetUserUniversityApplication(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
@@ -177,6 +185,8 @@ func PostUserUniversityApplication(c *gin.Context) {
 	c.JSON(http.StatusOK, &userUniversityApplication)
 }
 
+//////////////////// Blogs ////////////////////
+
 func GetBlogs(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
@@ -187,4 +197,62 @@ func GetBlogs(c *gin.Context) {
 
 	db.Find(&allBlogs)
 	c.JSON(http.StatusOK, &allBlogs)
+}
+
+func PostBlogs(c *gin.Context) {
+	var newBlog models.Blogs
+
+	if err := c.ShouldBindJSON(&newBlog); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	blogEntry := models.Blogs{
+		Blog_head:    newBlog.Blog_head,
+		Blog_content: newBlog.Blog_content,
+		UserID:       newBlog.UserID,
+	}
+
+	db.Create(&blogEntry)
+	c.JSON(http.StatusCreated, gin.H{"data": blogEntry})
+}
+
+//////////////////// Tasks ////////////////////
+
+func GetTasks(c *gin.Context) {
+	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	tasks := []models.Tasks{}
+
+	db.Find(&tasks)
+	c.JSON(http.StatusOK, &tasks)
+}
+
+func PostTasks(c *gin.Context) {
+	var _tasks models.Tasks
+	if err := c.ShouldBindJSON(&_tasks); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	tasks := models.Tasks{
+		UserID: _tasks.UserID,
+		Task:   _tasks.Task,
+	}
+
+	db.Create(&tasks)
+	c.JSON(http.StatusOK, gin.H{"data": tasks})
 }

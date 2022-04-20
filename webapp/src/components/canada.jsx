@@ -14,15 +14,6 @@ const Canada = () => {
                     backgroundSize: "cover",
                 }}
             >
-                {/* <div className="col-3 my-5 mx-2 justify-content-center">
-                    <img
-                        src="https://static.yocket.in/images/universities/countries/canada-logo.jpg"
-                        alt="Canada flag"
-                        sizes="96px"
-                        srcset="https://static.yocket.in/images/universities/countries/canada-logo.jpg 96w"
-                        className="object-cover mt-6 w-24 h-12"
-                    />
-                </div> */}
                 <div className="my-5 mx-2 justify-content-center">
                     <h1 style={{ color: "#6C63FF" }}>
                         <strong>Canada</strong>

@@ -13,8 +13,7 @@ The website also features a blogging section where users can post blogs.
 # Tech Stack
 **Front-End:**
 * ReactJS
-* Bootstrap
-* Material UI
+* React-Bootstrap
 * Cypress
 
 **Back-End:** 
