@@ -10,6 +10,7 @@ import {
     FloatingLabel,
     Col,
 } from "react-bootstrap";
+import { Field, Formik } from "formik";
 // import authHeader from "./AuthHeader";
 // import Login from "./Login";
 // const salt = bcrypt.genSaltSync(10);
@@ -55,6 +56,28 @@ const LP = () => {
         handleClose();
     };
 
+    function validateUsername(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (value === "admin") {
+            error = "Ha ha! Nice try!";
+        }
+
+        return error;
+    }
+
+    function validatePassword(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        }
+
+        return error;
+    }
+
     // const API_URL = "http://localhost:8080/";
 
     // const login = (email, password) => {
@@ -76,14 +99,76 @@ const LP = () => {
             {/* <Login /> */}
             <div className="wrapper">
                 <div className="logo">
-                    {" "}
                     <img
                         src="https://as2.ftcdn.net/v2/jpg/02/34/61/79/1000_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg"
                         alt=""
-                    />{" "}
+                    />
                 </div>
-                <div className="text-center mt-4 name"> UniGenie </div>
-                <form className="p-3 mt-3">
+                <div className="text-center my-4 name"> UniGenie </div>
+                <div className="p-3 mt-3">
+                    <Formik
+                        initialValues={{
+                            userName: "",
+                        }}
+                        onSubmit={(values) => {
+                            console.log(values);
+                        }}
+                    >
+                        {({ errors, touched, isValidating }) => (
+                            <Form>
+                                <Field
+                                    name="userName"
+                                    type="text"
+                                    id="userName"
+                                    placeholder="Username"
+                                    validate={validateUsername}
+                                    className="align-items-center form-field far"
+                                    style={{
+                                        height: "40px",
+                                        width: "258px",
+                                    }}
+                                />
+                                {errors.userName && touched.userName && (
+                                    <div>{errors.userName}</div>
+                                )}
+                                <Field
+                                    name="password"
+                                    type="password"
+                                    id="pwd"
+                                    placeholder="Password"
+                                    validate={validatePassword}
+                                    className="align-items-center form-field fas"
+                                    style={{
+                                        height: "40px",
+                                        width: "258px",
+                                    }}
+                                />
+                                {errors.password && touched.password && (
+                                    <div>{errors.password}</div>
+                                )}
+                            </Form>
+                        )}
+                    </Formik>
+                </div>
+                <Button
+                    type="submit"
+                    variant="primary"
+                    className="btn mt-3"
+                    href="/StudentHomePage"
+                    // onClick={login}
+                >
+                    <h6>Login</h6>
+                </Button>
+                <Button
+                    type="submit"
+                    variant="primary"
+                    className="btn mt-3"
+                    href="#"
+                    onClick={handleShow}
+                >
+                    <h6>Register</h6>
+                </Button>
+                {/* <form className="p-3 mt-3">
                     <div className="form-field d-flex align-items-center">
                         <span className="far fa-user"></span>
                         <input
@@ -121,7 +206,7 @@ const LP = () => {
                     >
                         <h6>Register</h6>
                     </Button>
-                </form>
+                </form> */}
                 <div className="text-center fs-6">
                     {" "}
                     <a href="#">Forget password?</a>{" "}
