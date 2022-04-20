@@ -7,25 +7,164 @@ drop table universities;
 create table universities (
     university_id int PRIMARY_KEY AUTO_INCREMENT,
     name varchar(255),
+    type varchar(255),
     website varchar(255),
-    address varchar(255),
-    city varchar(255),
     state varchar(255),
-    zip int,
     country varchar(255),
     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
     created_at datetime DEFAULT CURRENT_TIMESTAMP,
     deleted_at datetime DEFAULT NULL 
 );
 
-INSERT INTO universities (university_id, name, website, address, city, state, zip, country)
-VALUES (1, 'University of Florida', 'www.ufl.edu', 'University Avenue SW', 'Gainesville', 'FL', '32611','US');
 
-INSERT INTO universities (university_id, name, website, address, city, state, zip, country)
-VALUES (2, 'UK cha college', 'www.uk.edu', 'UK road', 'London', 'UK', '32611','UK');
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (1, 'Stanford','private', 'www.stanford.edu', 'California','US');
 
-INSERT INTO universities (university_id, name, website, address, city, state, zip, country)
-VALUES (3, 'Punjab College Canada', 'www.can.edu', 'Can', 'Totonto', 'TO', '32611','Can');
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (2, 'MIT','private', 'www.mit.edu', 'Massachusetts','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (3, 'Carnegie Mellon University','private', 'www.cmu.edu', 'Pennsylvania','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (4, 'University of California, Berkley','public', 'www.berkeley.edu', 'California','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (5, 'Harvard University','private', 'www.harvard.edu', 'Massachusetts','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (6, 'University of Illinois Urbana-Champaign','public', 'www.illinois.edu', 'Illinois','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (7, 'California Institue of Technology','private', 'www.caltech.edu', 'California','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (8, 'Princeton University','private', 'www.princeton.edu', 'New Jersey','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (9, 'Cornell University','private', 'www.cornell.edu', 'New York','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (10, 'Columbia University','public', 'www.columbia.edu', 'New York','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (11, 'University of Chicago','private', 'www.chicago.edu', 'Illinois','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (12, 'University of Pennsylvania','private', 'www.upenn.edu', 'Pennsylvania','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (13, 'Northwestern University','private', 'www.northwestern.edu', 'Illinois','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (14, 'Yale University','public', 'www.yale.edu', 'Connecticut','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (15, 'Dartomuth College','private', 'www.dartmouth.edu', 'New Hampshire','US');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (16, 'University of Oxford', 'private', 'www.ox.ac.uk', 'Oxford', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (17, 'University College London', 'private', 'www.ucl.ac.uk', 'London', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (18, 'Imperial College London','private', 'www.imperial.ac.uk', 'London', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (19, 'University of Cambridge','private', 'www.cam.ac.uk', 'Cambridge', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (20, 'University of Edinburgh','private', 'www.ed.ac.uk', 'Edinburgh', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (21, 'University of Surrey','private', 'www.surrey.ac.uk', 'Guildford', 'UK');
+
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (22, 'Imperial College London','private', 'www.imperial.ac.uk', 'London', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (23, 'University of Nottingham','private', 'www.nottingham.ac.uk', 'Nottingham', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (24, 'University of Cambridge','private', 'www.cam.ac.uk', 'Cambridge', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (25, 'University of Southampton','public', 'www.southampton.ac.uk', 'Southampton', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (26, 'University of Liverpool','private', 'www.liverpool.ac.uk', 'Liverpool', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (27, 'Cranfield University','public', 'www.cranfield.ac.uk', 'Bedford', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (28, 'London Business School','private', 'www.london.edu', 'London', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (29, 'University of Cambridge','private', 'www.cam.ac.uk', 'Cambridge', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (30, 'University of Oxford', 'private', 'www.ox.ac.uk', 'Oxford', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (31, 'University of Warwick','public', 'www.warwick.ac.uk', 'Coventry', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (32, 'Imperial College London','private', 'www.imperial.ac.uk', 'London', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (33, 'University of Manchester','private', 'www.manchester.ac.uk', 'Manchester', 'UK');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (34, 'University of Toronto', 'public', 'www.utoronto.ca', 'Toronto', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (35, 'University of Waterloo', 'public', 'www.uwaterloo.ca', 'Waterloo', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (36, 'University of British Columbia','public', 'www.ubc.ca', 'Vancouver', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (37, 'University of Montreal','public', 'www.umontreal.ca', 'Montreal', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (38, 'University of Alberta','public', 'www.ualberta.ca', 'Edmonton', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (39, 'McGill University','public', 'www.mcgill.ca', 'Montreal', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (40, 'University of Waterloo', 'public', 'www.uwaterloo.ca', 'Waterloo', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (41, 'McGill University','public', 'www.mcgill.ca', 'Montreal', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (42, 'University of Alberta','public', 'www.ualberta.ca', 'Edmonton', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (43, 'University of Toronto', 'public', 'www.utoronto.ca', 'Toronto', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (44, 'University of Toronto', 'public', 'www.utoronto.ca', 'Toronto', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (45, "Queen's University",'public', 'www.queensu.ca', 'Kingston', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (46, 'Univeristy of Western Ontario', 'public', 'www.uwo.ca', 'London', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (47, 'McGill University','public', 'www.mcgill.ca', 'Montreal', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (48, 'York Univeristy','public', 'www.yorku.ca', 'Toronto', 'Canada');
+
+INSERT INTO universities (university_id, name, type, website, state, country)
+VALUES (49, 'University of British Columbia','public', 'www.ubc.ca', 'Vancouver', 'Canada');
+
 
 -- ---------------------------------------------------------------------------------------------------------
 
