@@ -42,19 +42,25 @@ func main() {
 	// API Calls
 
 	// User APIs
-	router.GET("/getUsers", api.GetUsers)
-	router.GET("/getStudentDetails", api.GetStudentDetails)
-	router.GET("/getUserPreferences", api.GetUserPreferences)
+
 	// router.POST("/signup", api.PostUsers)
 	router.POST("/signup", controllers.Signup)
 	router.POST("/login", controllers.Login)
 	router.POST("/addUniversity", api.PostUniversities)
+
+	router.GET("/getUsers", api.GetUsers)
+
+	router.GET("/getStudentDetails", api.GetStudentDetails)
 	router.POST("/addStudentDetails", api.PostStudentDetails)
+
+	router.GET("/getUserPreferences", api.GetUserPreferences)
 	router.POST("/addUserPreference", api.PostUserPreferences)
-	router.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
+
 	router.GET("/blogs", api.GetBlogs)
 	router.POST("/addBlogs", api.PostBlogs)
+
 	router.GET("/getTasks", api.GetTasks)
+	router.POST("/addTasks", api.PostTasks)
 
 	// University APIs
 
