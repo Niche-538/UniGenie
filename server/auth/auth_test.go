@@ -9,7 +9,7 @@ import (
 
 func TestGenerateToken(t *testing.T) {
 	jwtWrapper := JwtWrapper{
-		SecretKey:       "verysecretkey",
+		SecretKey:       "Secretkey",
 		Issuer:          "AuthService",
 		ExpirationHours: 24,
 	}
@@ -24,7 +24,7 @@ func TestValidateToken(t *testing.T) {
 	encodedToken := os.Getenv("testToken")
 
 	jwtWrapper := JwtWrapper{
-		SecretKey: "verysecretkey",
+		SecretKey: "Secretkey",
 		Issuer:    "AuthService",
 	}
 
