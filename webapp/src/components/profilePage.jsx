@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./landing.css";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Field, Formik } from "formik";
 
 const ProfilePage = () => {
     const [has_taken_gre, setHasTakenGRE] = useState(true);
@@ -66,6 +67,150 @@ const ProfilePage = () => {
         setPublicationsList(tempList);
     };
 
+    function validateSchoolName(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z ]+)$/i.test(value)) {
+            error = "You can only have characters in your school name";
+        }
+
+        return error;
+    }
+
+    function validateDegree(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z ]+)$/i.test(value)) {
+            error = "You can only have characters in your degree";
+        }
+
+        return error;
+    }
+
+    function validateMajor(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z ]+)$/i.test(value)) {
+            error = "You can only have characters in your major";
+        }
+
+        return error;
+    }
+
+    function validateStartYear(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([0-9]+)$/i.test(value)) {
+            error = "You can only have numbers in the start year";
+        }
+
+        return error;
+    }
+
+    function validateEndYear(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([0-9]+)$/i.test(value)) {
+            error = "You can only have numbers in the end year";
+        }
+
+        return error;
+    }
+
+    function validateCGPA(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([0-9.]+)$/i.test(value)) {
+            error = "You can only have numbers in the CGPA";
+        }
+
+        return error;
+    }
+
+    function validateCGPAScale(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([0-9.]+)$/i.test(value)) {
+            error = "You can only have numbers in the CGPA scale";
+        }
+
+        return error;
+    }
+
+    function validateCountry(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z. ]+)$/i.test(value)) {
+            error = "You can only have characters in your preffered country";
+        }
+
+        return error;
+    }
+
+    function validateDegreePreferred(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z'. ]+)$/i.test(value)) {
+            error = "You can only have characters in your preffered degree";
+        }
+
+        return error;
+    }
+
+    function validateProgram(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z'. ]+)$/i.test(value)) {
+            error = "You can only have characters in your preffered program";
+        }
+
+        return error;
+    }
+
+    function validatePreferredYear(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([0-9]+)$/i.test(value)) {
+            error = "You can only have numbers in the prferred year";
+        }
+
+        return error;
+    }
+
+    function validatePreferredSemester(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z]+)$/i.test(value)) {
+            error = "You can only have characters in your preffered semester";
+        }
+
+        return error;
+    }
+
     return (
         <Container
             className="my-3 rounded border"
@@ -76,228 +221,338 @@ const ProfilePage = () => {
                     <h3 className="text-center">
                         <strong>Educational Details</strong>
                     </h3>
-                    <Form>
-                        <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
-                            <Form.Group
-                                className="col-2"
-                                controlId="formSchoolName"
-                            >
-                                <Form.Label>School Name</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-8">
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter the name of the last school you attended"
-                                />
-                            </Form.Group>
-                        </div>
+                    <Formik
+                        initialValues={{
+                            schoolName: "",
+                            degree: "",
+                            major: "",
+                            startYear: "",
+                            endYear: "",
+                            cgpa: "",
+                            cgpaScale: "",
+                        }}
+                        onSubmit={(values) => {
+                            console.log(values);
+                        }}
+                    >
+                        {({ errors, touched, isValidating }) => (
+                            <Form>
+                                <div className="row mt-3 mb-1 mx-5 justify-content-center text-start align-items-center">
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>School Name</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="schoolName"
+                                        type="text"
+                                        id="schoolName"
+                                        placeholder="School name"
+                                        validate={validateSchoolName}
+                                        className="align-items-center profile-settings-page-form-field col-8"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
+                                </div>
+                                {errors.schoolName && touched.schoolName && (
+                                    <div className="errMsg offset-6 col-1">
+                                        {errors.schoolName}
+                                    </div>
+                                )}
 
-                        <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
-                            <Form.Group
-                                className="col-2"
-                                controlId="formDegree"
-                            >
-                                <Form.Label>Degree</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter the last degree earned"
-                                />
-                                {/* <Form.Select>
-                                    <option selected>Choose...</option>
-                                    <option value="HS Diploma">
-                                        High School Diploma
-                                    </option>
-                                    <option value="Bachelor">
-                                        Bachelor's Degree
-                                    </option>
-                                    <option value="Master">
-                                        Master's Degree
-                                    </option>
-                                    <option value="PhD">Ph.D.</option>
-                                </Form.Select> */}
-                            </Form.Group>
+                                <div className="row mt-3 mb-1 mx-5 justify-content-center text-start align-items-center">
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>Degree</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="degree"
+                                        type="text"
+                                        id="degree"
+                                        placeholder="Degree"
+                                        validate={validateDegree}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
 
-                            <Form.Group className="col-2" controlId="formMajor">
-                                <Form.Label>Major</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter your major"
-                                />
-                            </Form.Group>
-                        </div>
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>Major</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="major"
+                                        type="text"
+                                        id="major"
+                                        placeholder="Major"
+                                        validate={validateMajor}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
+                                </div>
+                                <div className="row">
+                                    {errors.degree && touched.degree && (
+                                        <div className="errMsg offset-4 col-1">
+                                            {errors.degree}
+                                        </div>
+                                    )}
+                                    {errors.major && touched.major && (
+                                        <div className="errMsg offset-4 col-1">
+                                            {errors.major}
+                                        </div>
+                                    )}
+                                </div>
 
-                        <div className="row g-3 mb-3 mx-5 justify-content-start text-start align-items-center">
-                            <Form.Group
-                                className="col-2 offset-1"
-                                controlId="formSchoolStartYear"
-                            >
-                                <Form.Label>Start Year</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control
-                                    type="number"
-                                    placeholder="YYYY"
-                                    min="1980"
-                                    max="2099"
-                                />
-                            </Form.Group>
+                                <div className="row mt-3 mb-1 mx-5 justify-content-center text-start align-items-center">
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>Start Year</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="startYear"
+                                        type="number"
+                                        id="startYear"
+                                        placeholder="YYYY"
+                                        min="1980"
+                                        max="2099"
+                                        validate={validateStartYear}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
 
-                            <Form.Group
-                                className="col-2"
-                                controlId="formSchoolEndYear"
-                            >
-                                <Form.Label>End Year</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control
-                                    type="number"
-                                    placeholder="YYYY"
-                                    min="1980"
-                                    max="2099"
-                                />
-                            </Form.Group>
-                        </div>
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>End Year</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="endYear"
+                                        type="number"
+                                        id="endYear"
+                                        placeholder="YYYY"
+                                        min="1980"
+                                        max="2099"
+                                        validate={validateEndYear}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
+                                </div>
+                                <div className="row">
+                                    {errors.startYear && touched.startYear && (
+                                        <div className="errMsg offset-4 col-1">
+                                            {errors.startYear}
+                                        </div>
+                                    )}
+                                    {errors.endYear && touched.endYear && (
+                                        <div className="errMsg offset-4 col-1">
+                                            {errors.endYear}
+                                        </div>
+                                    )}
+                                </div>
 
-                        <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
-                            <Form.Group className="col-2" controlId="formCGPA">
-                                <Form.Label>CGPA</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control type="text" placeholder="3.00" />
-                            </Form.Group>
+                                <div className="row mt-3 mb-1 mx-5 justify-content-center text-start align-items-center">
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>CGPA</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="cgpa"
+                                        type="text"
+                                        id="cgpa"
+                                        placeholder="3.00"
+                                        validate={validateCGPA}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
 
-                            <Form.Group
-                                className="col-2"
-                                controlId="formCGPAScale"
-                            >
-                                <Form.Label>CGPA Scale</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control type="text" placeholder="4.00" />
-                                {/* <Form.Select>
-                                    <option selected>Choose...</option>
-                                    <option value="4">4</option>
-                                    <option value="10">10</option>
-                                    <option value="20">20</option>
-                                    <option value="100">100</option>
-                                </Form.Select> */}
-                            </Form.Group>
-                        </div>
-                    </Form>
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>CGPA Scale</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="cgpaScale"
+                                        type="text"
+                                        id="cgpaScale"
+                                        placeholder="4.00"
+                                        validate={validateCGPAScale}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
+                                </div>
+                                <div className="row">
+                                    {errors.cgpa && touched.cgpa && (
+                                        <div className="errMsg offset-4 col-1">
+                                            {errors.cgpa}
+                                        </div>
+                                    )}
+                                    {errors.cgpaScale && touched.cgpaScale && (
+                                        <div className="errMsg offset-4 col-1">
+                                            {errors.cgpaScale}
+                                        </div>
+                                    )}
+                                </div>
+                            </Form>
+                        )}
+                    </Formik>
 
-                    <div className="row my-4 mx-3 border-bottom border-1 text-center justify-content-center align-items-center"></div>
+                    <div className="row my-4 mx-3 border-bottom border-1"></div>
 
                     <h3 className="text-center mt-3">
                         <strong>Educational Preferences</strong>
                     </h3>
-                    <Form>
-                        <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
-                            <Form.Group
-                                className="col-2"
-                                controlId="formCountryPreference"
-                            >
-                                <Form.Label>Country</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter your country preference"
-                                />
-                                {/* <Form.Select>
-                                    <option selected>Choose...</option>
-                                    <option value="USA">United States</option>
-                                    <option value="GBR">United Kingdom</option>
-                                    <option value="DEU">Germany</option>
-                                    <option value="CAN">Canada</option>
-                                    <option value="FRA">France</option>
-                                    <option value="CHE">Switzerland</option>
-                                    <option value="JPN">Japan</option>
-                                    <option value="AUS">Australia</option>
-                                    <option value="SWE">Sweden</option>
-                                    <option value="NLD">Netherlands</option>
-                                </Form.Select> */}
-                            </Form.Group>
+                    <Formik
+                        initialValues={{
+                            country: "",
+                            degreePreferred: "",
+                            program: "",
+                            preferredYear: "",
+                            preferredSemester: "",
+                        }}
+                        onSubmit={(values) => {
+                            console.log(values);
+                        }}
+                    >
+                        {({ errors, touched, isValidating }) => (
+                            <Form>
+                                <div className="row mt-3 mb-1 mx-5 justify-content-center text-start align-items-center">
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>Country</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="country"
+                                        type="text"
+                                        id="country"
+                                        placeholder="Country"
+                                        validate={validateCountry}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
 
-                            <Form.Group
-                                className="col-2"
-                                controlId="formDegreePreference"
-                            >
-                                <Form.Label>Degree</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter your degree preference"
-                                />
-                                {/* <Form.Select>
-                                    <option selected>Choose...</option>
-                                    <option value="Bachelor">
-                                        Bachelor's Degree
-                                    </option>
-                                    <option value="Master">
-                                        Master's Degree
-                                    </option>
-                                    <option value="PhD">Ph.D.</option>
-                                </Form.Select> */}
-                            </Form.Group>
-                        </div>
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>Degree</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="degreePreferred"
+                                        type="text"
+                                        id="degreePreferred"
+                                        placeholder="Degree"
+                                        validate={validateDegreePreferred}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
+                                </div>
 
-                        <div className="row g-3 mb-3 mx-5 justify-content-start text-start align-items-center">
-                            <Form.Group
-                                className="col-2 offset-1"
-                                controlId="formProgramPreference"
-                            >
-                                <Form.Label>Program</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter your program preference"
-                                />
-                            </Form.Group>
-                        </div>
+                                <div className="row">
+                                    {errors.country && touched.country && (
+                                        <div className="errMsg offset-4 col-1">
+                                            {errors.country}
+                                        </div>
+                                    )}
+                                    {errors.degreePreferred &&
+                                        touched.degreePreferred && (
+                                            <div className="errMsg offset-4 col-1">
+                                                {errors.degreePreferred}
+                                            </div>
+                                        )}
+                                </div>
 
-                        <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
-                            <Form.Group
-                                className="col-2"
-                                controlId="formIntakeYearPreference"
-                            >
-                                <Form.Label>Preferred Year</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-2">
-                                <Form.Control
-                                    type="number"
-                                    placeholder="YYYY"
-                                    min="2022"
-                                    max="2099"
-                                />
-                            </Form.Group>
+                                <div className="row mt-3 mb-1 mx-5 justify-content-start text-start align-items-center">
+                                    <Form.Group className="col-2 pt-3 offset-1 text-center">
+                                        <Form.Label>Program</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="program"
+                                        type="text"
+                                        id="program"
+                                        placeholder="Program"
+                                        validate={validateProgram}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
+                                </div>
+                                <div className="row">
+                                    {errors.program && touched.program && (
+                                        <div className="errMsg offset-4 col-1">
+                                            {errors.program}
+                                        </div>
+                                    )}
+                                </div>
 
-                            <Form.Group
-                                className="col-2 offset-1"
-                                controlId="formIntakeSemesterPreference"
-                            >
-                                <Form.Label>Preferred Semester</Form.Label>
-                            </Form.Group>
-                            <Form.Group className="col-3">
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter your semester preference"
-                                />
-                                {/* <Form.Select>
-                                    <option selected>Choose...</option>
-                                    <option value="Fall">Fall</option>
-                                    <option value="Spring">Spring</option>
-                                </Form.Select> */}
-                            </Form.Group>
-                        </div>
-                    </Form>
+                                <div className="row mt-3 mb-1 mx-5 justify-content-center text-start align-items-center">
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>Preferred Year</Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="preferredYear"
+                                        type="number"
+                                        id="preferredYear"
+                                        placeholder="YYYY"
+                                        min="1980"
+                                        max="2099"
+                                        validate={validatePreferredYear}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
 
-                    <div className="row my-4 mx-3 border-bottom border-1 text-center justify-content-center align-items-center"></div>
+                                    <Form.Group className="col-2 pt-3 text-center">
+                                        <Form.Label>
+                                            Preferred Semester
+                                        </Form.Label>
+                                    </Form.Group>
+                                    <Field
+                                        name="preferredSemester"
+                                        type="text"
+                                        id="preferredSemester"
+                                        placeholder="Semester"
+                                        validate={validatePreferredSemester}
+                                        className="align-items-center profile-settings-page-form-field col-3"
+                                        style={{
+                                            height: "50px",
+                                            // width: "258px",
+                                        }}
+                                    />
+                                </div>
+                                <div className="row">
+                                    {errors.preferredYear &&
+                                        touched.preferredYear && (
+                                            <div className="errMsg offset-4 col-1">
+                                                {errors.preferredYear}
+                                            </div>
+                                        )}
+                                    {errors.preferredSemester &&
+                                        touched.preferredSemester && (
+                                            <div className="errMsg offset-4 col-1">
+                                                {errors.preferredSemester}
+                                            </div>
+                                        )}
+                                </div>
+                            </Form>
+                        )}
+                    </Formik>
+
+                    <div className="row my-4 mx-3 border-bottom border-1"></div>
 
                     <h3 className="text-center mt-3">
                         <strong>Admissions Tests</strong>
