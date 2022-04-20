@@ -7,7 +7,7 @@
 This platform offers following features :
 <ul>
   <li>Explore: Allows user to search for top universities based on course preferences.</li>  
-  <li>Dashboard: Allow user to track and update university applications and add reminder tasks.</li>
+  <li>Dashboard: Allow user to track and update university applications and add reminder tasks. </li>
   <li>Resources: Informational pages about top universities around the world. </li>
   <li>Blog: Allows users to add and read blog posts to get latest news about universities.</li>
 </ul>
@@ -29,6 +29,8 @@ Back-End:
   <li>SQLite</li>
 </ul>
 
+//////-----------Explain the flow of the application through a flowchart of Screenshots-----------//////
+
 # Demo video functionality 
  3min max
 
@@ -45,7 +47,7 @@ https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 https://github.com/Niche-538/UniGenie/projects
 
 # Link to Sprint4 deliverables
-https://github.com/Niche-538/UniGenie/projects/4
+https://github.com/Niche-538/UniGenie/projects/5
 
 # Frontend Team Members
 <ul>
