@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Formik } from "formik";
+import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import {
     Button,
@@ -61,15 +61,41 @@ const StudentHomePage = () => {
         getData();
     }, []);
 
-    const validSchema = Yup.object().shape({
-        post_title: Yup.string()
-            .matches(
-                /^([a-zA-Z0-9-_ &]+)$/,
-                "Post title cannot contain special characters besides space and &."
-            )
-            .required("Please enter a valid post title."),
-        content: Yup.string().required("Please write something here."),
-    });
+    function validatePostTitle(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z0-9%_ ]+)$/i.test(value)) {
+            error =
+                "Post title can only contain alphabets, numbers and some special characters";
+        }
+
+        return error;
+    }
+
+    function validatePostContent(value) {
+        let error;
+
+        if (!value) {
+            error = "Required";
+        } else if (!/^([a-zA-Z0-9%_ ]+)$/i.test(value)) {
+            error =
+                "Post content can only contain alphabets, numbers and some special characters";
+        }
+
+        return error;
+    }
+
+    // const validSchema = Yup.object().shape({
+    //     post_title: Yup.string()
+    //         .matches(
+    //             /^([a-zA-Z0-9-_ &]+)$/,
+    //             "Post title cannot contain special characters besides space and &."
+    //         )
+    //         .required("Please enter a valid post title."),
+    //     content: Yup.string().required("Please write something here."),
+    // });
 
     return (
         <div>
@@ -107,16 +133,91 @@ const StudentHomePage = () => {
                     </Modal.Header>
                     <Modal.Body>
                         <Formik
-                            validationSchema={validSchema}
-                            onSubmit={console.log}
+                            initialValues={{
+                                username: "",
+                                email: "",
+                            }}
+                            onSubmit={(values) => {
+                                console.log(values);
+                            }}
+                        >
+                            {({ errors, touched, isValidating }) => (
+                                <Form>
+                                    <Field
+                                        name="post_title"
+                                        type="text"
+                                        as="textarea"
+                                        placeholder="Title"
+                                        validate={validatePostTitle}
+                                        className="mb-2"
+                                        // style={{
+                                        //     borderRadius: "20px",
+                                        // }}
+                                    />
+                                    {errors.post_title &&
+                                        touched.post_title && (
+                                            <div>{errors.post_title}</div>
+                                        )}
+                                    <Field
+                                        name="content"
+                                        type="text"
+                                        as="textarea"
+                                        placeholder="What's on your mind...?"
+                                        validate={validatePostContent}
+                                        className="mb-2"
+                                        // style={{
+                                        //     borderRadius: "20px",
+                                        // }}
+                                    />
+                                    {errors.content && touched.content && (
+                                        <div>{errors.content}</div>
+                                    )}
+                                </Form>
+                            )}
+                        </Formik>
+                        <Button
+                            className="mx-2 mt-2"
+                            style={{
+                                width: "8rem",
+                                borderRadius: "25px",
+                            }}
+                            variant="secondary"
+                            onClick={handleClose}
+                        >
+                            Cancel
+                        </Button>
+                        <Button
+                            className="mx-2 mt-2"
+                            style={{
+                                width: "8rem",
+                                background: "#6C63FF",
+                                borderRadius: "25px",
+                            }}
+                            type="submit"
+                            variant="success"
+                            //href="/ProfileSettingsPage"
+                            // onClick={handleSubmitt}
+                        >
+                            Post
+                        </Button>
+                        {/* <Formik
+                            // validationSchema={validSchema}
+                            onSubmit={(values) => {
+                                console.log(values);
+                            }}
                             initialValues={{
                                 post_title: "",
                                 content: "",
                             }}
                         >
-                            {({ errors, touched }) => (
+                            {({
+                                errors,
+                                touched,
+                                validateField,
+                                validateForm,
+                            }) => (
                                 <Form
-                                    noValidate
+                                    // noValidate
                                     className="my-3 bg-body rounded"
                                     onSubmit={handleSubmitt}
                                 >
@@ -126,6 +227,9 @@ const StudentHomePage = () => {
                                                 <FormGroup>
                                                     <Form.Control
                                                         name="post_title"
+                                                        validate={{
+                                                            validatePostTitle,
+                                                        }}
                                                         style={{
                                                             borderRadius:
                                                                 "20px",
@@ -139,8 +243,22 @@ const StudentHomePage = () => {
                                                             )
                                                         }
                                                     />
+                                                    {errors.post_title &&
+                                                    touched.post_title && (
+                                                    <div>
+                                                        {errors.post_title}
+                                                    </div>
+                                                    )}
                                                     <Form.Control.Feedback type="invalid">
                                                         {errors.post_title}
+                                                        {errors.post_title &&
+                                                            touched.post_title && (
+                                                                <div>
+                                                                    {
+                                                                        errors.post_title
+                                                                    }
+                                                                </div>
+                                                            )}
                                                     </Form.Control.Feedback>
                                                 </FormGroup>
                                             </FloatingLabel>
@@ -152,8 +270,11 @@ const StudentHomePage = () => {
                                             <FormGroup>
                                                 <FloatingLabel controlId="floatingInput3">
                                                     <FormGroup>
-                                                        <Form.Control
+                                                        <Field
                                                             name="content"
+                                                            validate={{
+                                                                validatePostContent,
+                                                            }}
                                                             type="text"
                                                             placeholder="What's on your mind...?"
                                                             as="textarea"
@@ -169,6 +290,14 @@ const StudentHomePage = () => {
                                                                     "20px",
                                                             }}
                                                         />
+                                                        {errors.content &&
+                                                            touched.content && (
+                                                                <div>
+                                                                    {
+                                                                        errors.content
+                                                                    }
+                                                                </div>
+                                                            )}
                                                         <Form.Control.Feedback type="invalid">
                                                             {errors.content}
                                                         </Form.Control.Feedback>
@@ -198,14 +327,14 @@ const StudentHomePage = () => {
                                             type="submit"
                                             variant="success"
                                             //href="/ProfileSettingsPage"
-                                            //onClick={handleSubmitt}
+                                            // onClick={handleSubmitt}
                                         >
                                             Post
                                         </Button>
                                     </Form.Group>
                                 </Form>
                             )}
-                        </Formik>
+                        </Formik> */}
                     </Modal.Body>
                 </Modal>
 
