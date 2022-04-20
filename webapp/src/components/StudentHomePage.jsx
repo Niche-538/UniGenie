@@ -63,8 +63,7 @@ const StudentHomePage = () => {
   }, []);
 
   const validSchema = Yup.object().shape({
-    post_title: Yup
-      .string()
+    post_title: Yup.string()
       .matches(
         /^([a-zA-Z0-9-_ &]+)$/,
         "Post title cannot contain numbers or special characters besides space and &."
@@ -94,6 +93,7 @@ const StudentHomePage = () => {
             </div>
           </div>
         </div>
+
         <Modal
           show={show}
           onHide={handleClose}
@@ -106,6 +106,7 @@ const StudentHomePage = () => {
           <Modal.Header closeButton>
             <Modal.Title>Create a post.</Modal.Title>
           </Modal.Header>
+
           <Modal.Body>
             <Formik
               validationSchema={validSchema}
@@ -115,11 +116,11 @@ const StudentHomePage = () => {
                 content: "",
               }}
             >
-              {({ errors,touched }) => (
+              {({ handleSubmit, handleChange, values, errors }) => (
                 <Form
                   noValidate
                   className="my-3 bg-body rounded"
-                  onSubmit={handleSubmitt}
+                  onSubmit={handleSubmit}
                 >
                   <Col className="mb-3 mx-2 g-3">
                     <Row>
@@ -130,8 +131,12 @@ const StudentHomePage = () => {
                             style={{ borderRadius: "20px" }}
                             type="text"
                             placeholder="Title"
+                            //value={values.post_title}
                             as="textarea"
-                            onChange={(e) => setPTitle(e.target.value)}
+                            onChange={(e) => {
+                              setPTitle(e.target.value);
+                              handleChange();
+                            }}
                           />
                           <Form.Control.Feedback type="invalid">
                             {errors.post_title}
@@ -149,9 +154,13 @@ const StudentHomePage = () => {
                             <Form.Control
                               name="content"
                               type="text"
+                              //value={values.content}
                               placeholder="What's on your mind...?"
                               as="textarea"
-                              onChange={(e) => setContent(e.target.value)}
+                              onChange={(e) => {
+                                setContent(e.target.value);
+                                handleChange();
+                              }}
                               style={{ height: "100px", borderRadius: "20px" }}
                             />
                             <Form.Control.Feedback type="invalid">
