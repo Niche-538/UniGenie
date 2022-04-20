@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./landing.css";
+import "./landing.css";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 const ProfilePage = () => {
