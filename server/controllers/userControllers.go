@@ -25,6 +25,15 @@ func Signup(c *gin.Context) {
 		panic("failed to connect database")
 	}
 
+	existingUser := models.User{}
+	result := db.Where("email = ?", newUser.Email).First(&existingUser)
+	if result.RowsAffected == 1 {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "user with email already exists",
+		})
+		return
+	}
+
 	hashedPwd, err := newUser.HashPassword(newUser.Password)
 	if err != nil {
 		panic("failed to create a hash")
@@ -33,7 +42,7 @@ func Signup(c *gin.Context) {
 	user := models.User{FirstName: newUser.FirstName, LastName: newUser.LastName, Email: newUser.Email, Password: hashedPwd}
 	db.Create(&user)
 
-	c.JSON(http.StatusOK, gin.H{"data": user})
+	c.JSON(http.StatusCreated, gin.H{"data": user})
 }
 
 type LoginPayload struct {
@@ -81,7 +90,7 @@ func Login(c *gin.Context) {
 	}
 
 	jwtWrapper := auth.JwtWrapper{
-		SecretKey:       "verysecretkey",
+		SecretKey:       "Secretkey",
 		Issuer:          "AuthService",
 		ExpirationHours: 24,
 	}
@@ -101,4 +110,9 @@ func Login(c *gin.Context) {
 	}
 
 	c.JSON(200, tokenResponse)
+}
+
+func TempSetDB() {
+	DB := database.ReturnDatabase()
+	DB.AutoMigrate(&models.Blogs{})
 }

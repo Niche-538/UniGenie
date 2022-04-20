@@ -379,21 +379,38 @@ VALUES (18, 'University of British Columbia','public', 'www.ubc.ca', 'Vancouver'
 /* Populating the table - Added by Anurag on April 18 2022*/ 
 -- Creating a table to store blogposts
 
-create table blogs (
-    blog_id int PRIMARY_KEY AUTO_INCREMENT,
-    blog_head varchar(300),
-    blog_content varchar(1000000),
-    upvotes INTEGER DEFAULT 0,
-    downvotes INTEGER DEFAULT 0,
-    user_id INTEGER,
-    updated_at datetime DEFAULT CURRENT_TIMESTAMP,
-    created_at datetime DEFAULT CURRENT_TIMESTAMP,
-    deleted_at datetime DEFAULT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(id)
-);
+-- create table blogs (
+--     blog_id int PRIMARY_KEY AUTO_INCREMENT,
+--     blog_head varchar(300),
+--     blog_content varchar(1000000),
+--     upvotes INTEGER DEFAULT 0,
+--     downvotes INTEGER DEFAULT 0,
+--     user_id INTEGER,
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL,
+--     FOREIGN KEY(user_id) REFERENCES users(id)
+-- );
 
--- INSERT INTO blogs (blog_id, blog_head, blog_content, upvotes, user_id)
--- VALUES (1, 'How to do Siiiiiuuuuu','Run on the field, take one legged hop, arms up while hopping, turn around, throw your arms down, and... "SSSIIIIIIIIIUUUUUUUUU" ', 77777, 3);
+-- drop table blogs;
+
+-- create table blogs (
+--     blog_id int PRIMARY_KEY AUTO_INCREMENT,
+--     blog_head varchar(300),
+--     blog_content varchar(1000000),
+--     user_id INTEGER,
+--     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     created_at datetime DEFAULT CURRENT_TIMESTAMP,
+--     deleted_at datetime DEFAULT NULL,
+--     FOREIGN KEY(user_id) REFERENCES users(id)
+-- );
+
+-- INSERT INTO blogs (id, blog_head, blog_content, user_id)
+-- VALUES (1, 'How to do Siiiiiuuuuu?','Run on the field, take one legged hop, arms up while hopping, turn around, throw your arms down, and... "SSSIIIIIIIIIUUUUUUUUU" ', 3);
+
+ALTER TABLE DROP CONSTRAINT
+
+ALTER TABLE blogs DROP COLUMN "upvotes";
 
 -------------------------------------------------------------------------------------------
 /* Creating Task Table - Added by Pratik on April 18 2022*/ 

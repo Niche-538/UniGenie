@@ -2,7 +2,9 @@ package auth
 
 import (
 	"errors"
+	"fmt"
 	"time"
+	"unigenie/models"
 
 	jwt "github.com/dgrijalva/jwt-go"
 )
@@ -67,4 +69,49 @@ func (j *JwtWrapper) ValidateToken(signedToken string) (claims *JwtClaim, err er
 
 	return
 
+}
+
+///// New Auth Functions
+
+var secretKey []byte
+
+type AuthClaim struct {
+	Email string
+	jwt.StandardClaims
+}
+
+func TokenGeneration(user *models.User) (string, error) {
+	userEmail := user.Email
+	claim := AuthClaim{
+		Email: userEmail,
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(24 * time.Hour).Unix(),
+			// Issuer:    j.Issuer, // can be commented remove the pointer reference (j *JwtWrapper)
+		},
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodES512, claim)
+	tokenString, err := token.SignedString(secretKey)
+	if err != nil {
+		return "", err
+	}
+	return tokenString, nil
+}
+
+func TokenValidation(tokenString string) (string, error) {
+	var claims AuthClaim
+	token, err := jwt.ParseWithClaims(tokenString, &claims, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+		}
+		return secretKey, nil
+	})
+	if err != nil {
+		return "", err
+	}
+	if !token.Valid {
+		return "", errors.New("invalid token")
+	}
+	email := claims.Email
+	return email, nil
 }
