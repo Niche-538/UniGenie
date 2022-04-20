@@ -21,6 +21,7 @@ func main() {
 
 	//For Auto-Migration of structs in the form of tables in DB
 	// models.SetDatabase()
+	// controllers.TempSetDB()
 
 	// setting up the router
 	router := gin.New()
@@ -52,7 +53,9 @@ func main() {
 	router.POST("/addUserPreference", api.PostUserPreferences)
 	router.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
 	router.GET("/blogs", api.GetBlogs)
+	router.POST("/addBlogs", api.PostBlogs)
 	router.GET("/getTasks", api.GetTasks)
+
 	// University APIs
 
 	router.GET("/getUniversities", api.GetUniversities)

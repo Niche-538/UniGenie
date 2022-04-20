@@ -10,6 +10,8 @@ import (
 	"gorm.io/gorm"
 )
 
+//////////////////// Basic User APIs ////////////////////
+
 func GetUsers(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
@@ -45,6 +47,8 @@ func PostUsers(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": user})
 
 }
+
+//////////////////// Student Details ////////////////////
 
 func GetStudentDetails(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
@@ -106,6 +110,8 @@ func PostStudentDetails(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": detailsStudent})
 }
 
+//////////////////// User Preferences ////////////////////
+
 func GetUserPreferences(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
@@ -139,6 +145,8 @@ func PostUserPreferences(c *gin.Context) {
 	db.Create(&userPreferences)
 	c.JSON(http.StatusOK, gin.H{"data": userPreferences})
 }
+
+//////////////////// User University Application ////////////////////
 
 func GetUserUniversityApplication(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
@@ -177,6 +185,8 @@ func PostUserUniversityApplication(c *gin.Context) {
 	c.JSON(http.StatusOK, &userUniversityApplication)
 }
 
+//////////////////// Blogs ////////////////////
+
 func GetBlogs(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if err != nil {
@@ -188,6 +198,18 @@ func GetBlogs(c *gin.Context) {
 	db.Find(&allBlogs)
 	c.JSON(http.StatusOK, &allBlogs)
 }
+
+func PostBlogs(c *gin.Context) {
+	var newBlog models.Blogs
+
+	if err := c.ShouldBindJSON(&newBlog); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+}
+
+//////////////////// Tasks ////////////////////
 
 func GetTasks(c *gin.Context) {
 	db, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
