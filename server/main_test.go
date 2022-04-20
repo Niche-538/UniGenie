@@ -409,3 +409,75 @@ func TestPostTasks(t *testing.T) {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
 }
+
+func TestGetCSUniversities(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	r := gin.Default()
+	r.GET("/getCSUniversities/US", api.GetCSUniversity)
+
+	req, err := http.NewRequest(http.MethodGet, "/getCSUniversities/US", nil)
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+	fmt.Println(w.Body)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
+
+func TestGetMechUniversities(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	r := gin.Default()
+	r.GET("/getMechUniversities/UK", api.GetCSUniversity)
+
+	req, err := http.NewRequest(http.MethodGet, "/getMechUniversities/UK", nil)
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+	fmt.Println(w.Body)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
+
+func TestGetMbaUniversities(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	r := gin.Default()
+	r.GET("/getMbaUniversities/Can", api.GetCSUniversity)
+
+	req, err := http.NewRequest(http.MethodGet, "/getMbaUniversities/Can", nil)
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+	fmt.Println(w.Body)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
