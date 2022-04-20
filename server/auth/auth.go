@@ -3,6 +3,7 @@ package auth
 import (
 	"errors"
 	"time"
+	"unigenie/models"
 
 	jwt "github.com/dgrijalva/jwt-go"
 )
@@ -67,4 +68,31 @@ func (j *JwtWrapper) ValidateToken(signedToken string) (claims *JwtClaim, err er
 
 	return
 
+}
+
+///// New Auth Functions
+
+var secretKey []byte
+
+type AuthClaim struct {
+	Email string
+	jwt.StandardClaims
+}
+
+func TokenGeneration(user *models.User) (string, error) {
+	userEmail := user.Email
+	claim := AuthClaim{
+		Email: userEmail,
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(24 * time.Hour).Unix(),
+			// Issuer:    j.Issuer, // can be commented remove the pointer reference (j *JwtWrapper)
+		},
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodES512, claim)
+	tokenString, err := token.SignedString(secretKey)
+	if err != nil {
+		return "", err
+	}
+	return tokenString, nil
 }
