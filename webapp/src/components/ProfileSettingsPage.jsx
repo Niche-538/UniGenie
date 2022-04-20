@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./landing.css";
+import "./landing.css";
 import { Button, Container, Form } from "react-bootstrap";
 
 const ProfileSettingsPage = () => {
