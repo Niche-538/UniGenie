@@ -349,25 +349,29 @@ const StudentHomePage = () => {
           <strong>Recent Posts</strong>
         </h3>
         {data.map((post) => (
-          <div className="mx-3 mb-4 border rounded border-dark">
-            <div className="row g-3 mb-3 mx-5 py-3 align-items-center justify-content-center text-center">
+          <div className=" mb-4 border rounded border-dark">
+            <div className="col-2 ms-5">
               <h4>{post.blog_head}</h4>
             </div>
-            <div className="row g-3 mb-3 mx-5 align-items-center justify-content-center text-center">
-              <div className="col ms-5 text-center">
+
+            <div className="row g-3 mb-3 mx-5 my-2">
+              {post.blog_content}
+            </div>
+            <div className="row mb-3 my-2">
+              <div className="col-2 ms-5 ">
                 <p>
-                  <strong>Authored by:</strong> Mikasa Ackerman
+                  <strong>Authored by:</strong> Pratik K
                 </p>
               </div>
-              <div className="col me-5 text-center">
+
+              <div className="col ms-5">
                 <p>
                   <strong>Created on:</strong> {post.CreatedAt}
                 </p>
               </div>
+      
             </div>
-            <div className="row g-3 mb-3 mx-5 align-items-center justify-content-center text-center">
-              {post.blog_content}
-            </div>
+            
           </div>
         ))}
       </Container>
