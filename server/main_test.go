@@ -348,3 +348,64 @@ func TestUserUniversityApplication(t *testing.T) {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
 }
+
+
+func TestGetTasks(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	r := gin.Default()
+	r.GET("/getTasks", api.GetUniversities)
+
+	req, err := http.NewRequest(http.MethodGet, "/getTasks", nil)
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+	fmt.Println(w.Body)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
+
+func TestPostTasks(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	_, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	r := gin.Default()
+
+	r.POST("/addTasks", api.PostTasks)
+
+	tasks := &models.Tasks{
+		UserID:                    1,
+		Task: "Mail Advisor for i20",
+	}
+
+	body, _ := json.Marshal(tasks)
+
+	req, err := http.NewRequest(http.MethodPost, "/addTasks", bytes.NewBuffer(body))
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
