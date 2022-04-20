@@ -29,8 +29,6 @@ Back-End:
   <li>SQLite</li>
 </ul>
 
-//////-----------Explain the flow of the application through a flowchart of Screenshots-----------//////
-
 # Demo video functionality 
  3min max
 
@@ -47,7 +45,34 @@ https://github.com/Niche-538/UniGenie/wiki/API-Documentation
 https://github.com/Niche-538/UniGenie/projects
 
 # Link to Sprint4 deliverables
+
 https://github.com/Niche-538/UniGenie/projects/5
+
+<ul>
+  <li>Update the theme on frontend with the discussed design</li>
+  <li>Add Additional api's for University Application and User Preferences</li>
+  <li>Implement Password Hashing</li>
+  <li>Implement Jwt Tokenisation</li>
+  <li>Have documentation for the backend API developed.</li>
+  <li>Add Unit Test for the newly added code.</li>
+</ul>
+
+### Back-End
+<ul>
+  <li>Added api's for the user university application feature and user preferences</li>
+  <li>Implemented Password Hashing and Jwt Tokenisation</li>
+  <li>Added Test Cases for newly added api's</li>
+  <li>Documentation added for api</li>
+</ul>
+
+### Front-End
+<ul>
+  <li>Added api's for the user university application feature and user preferences</li>
+  <li>Implemented Password Hashing and Jwt Tokenisation</li>
+  <li>Added Test Cases for newly added api's</li>
+  <li>Documentation added for api</li>
+</ul>
+
 
 # Frontend Team Members
 <ul>
@@ -60,7 +85,3 @@ https://github.com/Niche-538/UniGenie/projects/5
   <li>Anurag Patil</li>
   <li>Pratik Kamble</li>
 </ul>
-
-# Web URL 
-Bonus points if you can deploy and provide the web URL (not mandatory)
- 
