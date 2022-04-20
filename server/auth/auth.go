@@ -2,6 +2,7 @@ package auth
 
 import (
 	"errors"
+	"fmt"
 	"time"
 	"unigenie/models"
 
@@ -95,4 +96,22 @@ func TokenGeneration(user *models.User) (string, error) {
 		return "", err
 	}
 	return tokenString, nil
+}
+
+func TokenValidation(tokenString string) (string, error) {
+	var claims AuthClaim
+	token, err := jwt.ParseWithClaims(tokenString, &claims, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+		}
+		return secretKey, nil
+	})
+	if err != nil {
+		return "", err
+	}
+	if !token.Valid {
+		return "", errors.New("invalid token")
+	}
+	email := claims.Email
+	return email, nil
 }
