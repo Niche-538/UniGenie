@@ -81,7 +81,7 @@ func Login(c *gin.Context) {
 	}
 
 	jwtWrapper := auth.JwtWrapper{
-		SecretKey:       "verysecretkey",
+		SecretKey:       "Secretkey",
 		Issuer:          "AuthService",
 		ExpirationHours: 24,
 	}
@@ -101,4 +101,9 @@ func Login(c *gin.Context) {
 	}
 
 	c.JSON(200, tokenResponse)
+}
+
+func TempSetDB() {
+	DB := database.ReturnDatabase()
+	DB.AutoMigrate(&models.Blogs{})
 }
