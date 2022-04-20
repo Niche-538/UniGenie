@@ -401,12 +401,13 @@ create table blogs (
 create table tasks (
     task_id int PRIMARY_KEY AUTO_INCREMENT,
     task varchar(1000000),
-    user_id INTEGER,
+    user_id int,
     updated_at datetime DEFAULT CURRENT_TIMESTAMP,
     created_at datetime DEFAULT CURRENT_TIMESTAMP,
-    deleted_at datetime DEFAULT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(id)
+    deleted_at datetime DEFAULT NULL
 );
 
 INSERT INTO tasks (task_id, task, user_id)
  VALUES (1, 'Mail Kristina at UF for i20', 1);
+
+-------------------------------------------------------------------------------------------

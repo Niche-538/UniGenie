@@ -200,3 +200,24 @@ func GetTasks(c *gin.Context) {
 	db.Find(&tasks)
 	c.JSON(http.StatusOK, &tasks)
 }
+
+func PostTasks(c *gin.Context) {
+	var _tasks models.Tasks
+	if err := c.ShouldBindJSON(&_tasks); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if sht != nil {
+		panic("failed to connect database")
+	}
+
+	tasks := models.Tasks{
+		UserID: _tasks.UserID,
+		Task:   _tasks.Task,
+	}
+
+	db.Create(&tasks)
+	c.JSON(http.StatusOK, gin.H{"data": tasks})
+}
