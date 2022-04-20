@@ -46,7 +46,7 @@ func TestGetUsers(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getUsers", api.GetUniversities)
+	r.GET("/getUsers", api.GetUsers)
 
 	req, err := http.NewRequest(http.MethodGet, "/getUsers", nil)
 
@@ -282,7 +282,7 @@ func TestAddUserPreference(t *testing.T) {
 
 	r := gin.Default()
 
-	r.POST("/addUserPreference", api.PostUsers)
+	r.POST("/addUserPreference", api.PostUserPreferences)
 
 	userPreferences := &models.UserPreferences{
 		UserID:            1,
@@ -319,7 +319,7 @@ func TestUserUniversityApplication(t *testing.T) {
 
 	r := gin.Default()
 
-	r.POST("/addUserUniversityApplication", api.PostUsers)
+	r.POST("/addUserUniversityApplication", api.PostUserUniversityApplication)
 
 	userUniversityApplication := &models.UserUniversityApplication{
 		UserID:                    1,
@@ -354,7 +354,7 @@ func TestGetTasks(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getTasks", api.GetUniversities)
+	r.GET("/getTasks", api.GetTasks)
 
 	req, err := http.NewRequest(http.MethodGet, "/getTasks", nil)
 
@@ -438,7 +438,7 @@ func TestGetMechUniversities(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getMechUniversities/UK", api.GetCSUniversity)
+	r.GET("/getMechUniversities/UK", api.GetMechUniversity)
 
 	req, err := http.NewRequest(http.MethodGet, "/getMechUniversities/UK", nil)
 
@@ -462,7 +462,7 @@ func TestGetMbaUniversities(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.Default()
-	r.GET("/getMbaUniversities/Can", api.GetCSUniversity)
+	r.GET("/getMbaUniversities/Can", api.GetMBAUniversity)
 
 	req, err := http.NewRequest(http.MethodGet, "/getMbaUniversities/Can", nil)
 
