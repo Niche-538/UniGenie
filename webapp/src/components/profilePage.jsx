@@ -72,19 +72,19 @@ const ProfilePage = () => {
             style={{ backgroundColor: "white" }}
         >
             <div className="row g-3 my-3 mx-auto align-items-top">
-                <div className="col-xl-12 justify-content-center">
+                <div className="col-12 justify-content-center">
                     <h3 className="text-center">
                         <strong>Educational Details</strong>
                     </h3>
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formSchoolName"
                             >
                                 <Form.Label>School Name</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-8">
+                            <Form.Group className="col-8">
                                 <Form.Control
                                     type="text"
                                     placeholder="Enter the name of the last school you attended"
@@ -94,13 +94,17 @@ const ProfilePage = () => {
 
                         <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formDegree"
                             >
                                 <Form.Label>Degree</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
-                                <Form.Select>
+                            <Form.Group className="col-3">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter the last degree earned"
+                                />
+                                {/* <Form.Select>
                                     <option selected>Choose...</option>
                                     <option value="HS Diploma">
                                         High School Diploma
@@ -112,16 +116,13 @@ const ProfilePage = () => {
                                         Master's Degree
                                     </option>
                                     <option value="PhD">Ph.D.</option>
-                                </Form.Select>
+                                </Form.Select> */}
                             </Form.Group>
 
-                            <Form.Group
-                                className="col-xl-2"
-                                controlId="formMajor"
-                            >
+                            <Form.Group className="col-2" controlId="formMajor">
                                 <Form.Label>Major</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
+                            <Form.Group className="col-3">
                                 <Form.Control
                                     type="text"
                                     placeholder="Enter your major"
@@ -131,12 +132,12 @@ const ProfilePage = () => {
 
                         <div className="row g-3 mb-3 mx-5 justify-content-start text-start align-items-center">
                             <Form.Group
-                                className="col-xl-2 offset-xl-1"
+                                className="col-2 offset-1"
                                 controlId="formSchoolStartYear"
                             >
                                 <Form.Label>Start Year</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
+                            <Form.Group className="col-3">
                                 <Form.Control
                                     type="number"
                                     placeholder="YYYY"
@@ -146,12 +147,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formSchoolEndYear"
                             >
                                 <Form.Label>End Year</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
+                            <Form.Group className="col-3">
                                 <Form.Control
                                     type="number"
                                     placeholder="YYYY"
@@ -162,30 +163,28 @@ const ProfilePage = () => {
                         </div>
 
                         <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
-                            <Form.Group
-                                className="col-xl-2"
-                                controlId="formCGPA"
-                            >
+                            <Form.Group className="col-2" controlId="formCGPA">
                                 <Form.Label>CGPA</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
+                            <Form.Group className="col-3">
                                 <Form.Control type="text" placeholder="3.00" />
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formCGPAScale"
                             >
                                 <Form.Label>CGPA Scale</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
-                                <Form.Select>
+                            <Form.Group className="col-3">
+                                <Form.Control type="text" placeholder="4.00" />
+                                {/* <Form.Select>
                                     <option selected>Choose...</option>
                                     <option value="4">4</option>
                                     <option value="10">10</option>
                                     <option value="20">20</option>
                                     <option value="100">100</option>
-                                </Form.Select>
+                                </Form.Select> */}
                             </Form.Group>
                         </div>
                     </Form>
@@ -198,13 +197,17 @@ const ProfilePage = () => {
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formCountryPreference"
                             >
                                 <Form.Label>Country</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
-                                <Form.Select>
+                            <Form.Group className="col-3">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter your country preference"
+                                />
+                                {/* <Form.Select>
                                     <option selected>Choose...</option>
                                     <option value="USA">United States</option>
                                     <option value="GBR">United Kingdom</option>
@@ -216,17 +219,21 @@ const ProfilePage = () => {
                                     <option value="AUS">Australia</option>
                                     <option value="SWE">Sweden</option>
                                     <option value="NLD">Netherlands</option>
-                                </Form.Select>
+                                </Form.Select> */}
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formDegreePreference"
                             >
                                 <Form.Label>Degree</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
-                                <Form.Select>
+                            <Form.Group className="col-3">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter your degree preference"
+                                />
+                                {/* <Form.Select>
                                     <option selected>Choose...</option>
                                     <option value="Bachelor">
                                         Bachelor's Degree
@@ -235,33 +242,33 @@ const ProfilePage = () => {
                                         Master's Degree
                                     </option>
                                     <option value="PhD">Ph.D.</option>
-                                </Form.Select>
+                                </Form.Select> */}
                             </Form.Group>
                         </div>
 
                         <div className="row g-3 mb-3 mx-5 justify-content-start text-start align-items-center">
                             <Form.Group
-                                className="col-xl-2 offset-xl-1"
+                                className="col-2 offset-1"
                                 controlId="formProgramPreference"
                             >
                                 <Form.Label>Program</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-5">
+                            <Form.Group className="col-3">
                                 <Form.Control
                                     type="text"
-                                    placeholder="Enter program preference"
+                                    placeholder="Enter your program preference"
                                 />
                             </Form.Group>
                         </div>
 
                         <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formIntakeYearPreference"
                             >
                                 <Form.Label>Preferred Year</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="YYYY"
@@ -271,17 +278,21 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2 offset-xl-1"
+                                className="col-2 offset-1"
                                 controlId="formIntakeSemesterPreference"
                             >
                                 <Form.Label>Preferred Semester</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-3">
-                                <Form.Select>
+                            <Form.Group className="col-3">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter your semester preference"
+                                />
+                                {/* <Form.Select>
                                     <option selected>Choose...</option>
                                     <option value="Fall">Fall</option>
                                     <option value="Spring">Spring</option>
-                                </Form.Select>
+                                </Form.Select> */}
                             </Form.Group>
                         </div>
                     </Form>
@@ -294,12 +305,12 @@ const ProfilePage = () => {
                     <Form>
                         <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formGREAttempted"
                             >
                                 <Form.Label>GRE Attempted?</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Check
                                     inline
                                     label="Yes"
@@ -319,12 +330,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formTotalGREScore"
                             >
                                 <Form.Label>Total GRE Score</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="340"
@@ -335,12 +346,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formGREVerbalScore"
                             >
                                 <Form.Label>Verbal</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="170"
@@ -353,12 +364,12 @@ const ProfilePage = () => {
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2 offset-xl-4"
+                                className="col-2 offset-4"
                                 controlId="formGREQuantScore"
                             >
                                 <Form.Label>Quant</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="170"
@@ -369,12 +380,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formGREAWMScore"
                             >
                                 <Form.Label>AWM</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="text"
                                     placeholder="6"
@@ -384,17 +395,17 @@ const ProfilePage = () => {
                         </div>
 
                         <div className="row">
-                            <div className="col-xl-11 mb-3 mx-5 border-bottom border-1 text-center justify-content-center align-items-center"></div>
+                            <div className="col-11 mb-3 mx-5 border-bottom border-1 text-center justify-content-center align-items-center"></div>
                         </div>
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formTOEFLAttempted"
                             >
                                 <Form.Label>TOEFL Attempted?</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Check
                                     inline
                                     label="Yes"
@@ -414,12 +425,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formTotalTOEFLScore"
                             >
                                 <Form.Label>Total TOEFL Score</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="120"
@@ -430,12 +441,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formTOEFLReadingScore"
                             >
                                 <Form.Label>Reading</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="30"
@@ -448,12 +459,12 @@ const ProfilePage = () => {
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2 offset-xl-4"
+                                className="col-2 offset-4"
                                 controlId="formTOEFLListeningScore"
                             >
                                 <Form.Label>Listening</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="30"
@@ -464,12 +475,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formTOEFLSpeakingScore"
                             >
                                 <Form.Label>Speaking</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="30"
@@ -482,12 +493,12 @@ const ProfilePage = () => {
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2 offset-xl-4"
+                                className="col-2 offset-4"
                                 controlId="formTOEFLWritingScore"
                             >
                                 <Form.Label>Writing</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="30"
@@ -499,17 +510,17 @@ const ProfilePage = () => {
                         </div>
 
                         <div className="row">
-                            <div className="col-xl-11 mb-3 mx-5 border-bottom border-1 text-center justify-content-center align-items-center"></div>
+                            <div className="col-11 mb-3 mx-5 border-bottom border-1 text-center justify-content-center align-items-center"></div>
                         </div>
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formIELTSAttempted"
                             >
                                 <Form.Label>IELTS Attempted?</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Check
                                     inline
                                     label="Yes"
@@ -529,12 +540,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formOverallBandScore"
                             >
                                 <Form.Label>Overall Band Score</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="9"
@@ -545,12 +556,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formIELTSListeningScore"
                             >
                                 <Form.Label>Listening</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="9"
@@ -563,12 +574,12 @@ const ProfilePage = () => {
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2 offset-xl-4"
+                                className="col-2 offset-4"
                                 controlId="formIELTSReadingScore"
                             >
                                 <Form.Label>Reading</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="9"
@@ -579,12 +590,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formIELTSWritingScore"
                             >
                                 <Form.Label>Writing</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="9"
@@ -597,12 +608,12 @@ const ProfilePage = () => {
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2 offset-xl-4"
+                                className="col-2 offset-4"
                                 controlId="formIELTSSpeakingScore"
                             >
                                 <Form.Label>Speaking</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="9"
@@ -614,17 +625,17 @@ const ProfilePage = () => {
                         </div>
 
                         <div className="row">
-                            <div className="col-xl-11 mb-3 mx-5 border-bottom border-1 text-center justify-content-center align-items-center"></div>
+                            <div className="col-11 mb-3 mx-5 border-bottom border-1 text-center justify-content-center align-items-center"></div>
                         </div>
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formSATAttempted"
                             >
                                 <Form.Label>SAT Attempted?</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Check
                                     inline
                                     label="Yes"
@@ -644,12 +655,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formTotalSATScore"
                             >
                                 <Form.Label>Total SAT Score</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="1600"
@@ -660,12 +671,12 @@ const ProfilePage = () => {
                             </Form.Group>
 
                             <Form.Group
-                                className="col-xl-2"
+                                className="col-2"
                                 controlId="formSATEnglishScore"
                             >
                                 <Form.Label>English</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="800"
@@ -678,12 +689,12 @@ const ProfilePage = () => {
 
                         <div className="row g-3 mb-3 mx-5 align-items-center justify-content-left text-start">
                             <Form.Group
-                                className="col-xl-2 offset-xl-4"
+                                className="col-2 offset-4"
                                 controlId="formSATMathScore"
                             >
                                 <Form.Label>Math</Form.Label>
                             </Form.Group>
-                            <Form.Group className="col-xl-2">
+                            <Form.Group className="col-2">
                                 <Form.Control
                                     type="number"
                                     placeholder="800"
@@ -705,12 +716,12 @@ const ProfilePage = () => {
                             <div key={index}>
                                 <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
                                     <Form.Group
-                                        className="col-xl-2"
+                                        className="col-2"
                                         controlId="formCompanyName"
                                     >
                                         <Form.Label>Company Name</Form.Label>
                                     </Form.Group>
-                                    <Form.Group className="col-xl-8">
+                                    <Form.Group className="col-8">
                                         <Form.Control
                                             type="text"
                                             placeholder="Enter company name"
@@ -720,12 +731,12 @@ const ProfilePage = () => {
 
                                 <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
                                     <Form.Group
-                                        className="col-xl-2"
+                                        className="col-2"
                                         controlId="formJobPosition"
                                     >
                                         <Form.Label>Job Position</Form.Label>
                                     </Form.Group>
-                                    <Form.Group className="col-xl-8">
+                                    <Form.Group className="col-8">
                                         <Form.Control
                                             type="text"
                                             placeholder="Enter job position"
@@ -735,12 +746,12 @@ const ProfilePage = () => {
 
                                 <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
                                     <Form.Group
-                                        className="col-xl-2"
+                                        className="col-2"
                                         controlId="formJobDescription"
                                     >
                                         <Form.Label>Description</Form.Label>
                                     </Form.Group>
-                                    <Form.Group className="col-xl-8">
+                                    <Form.Group className="col-8">
                                         <Form.Control
                                             type="text"
                                             placeholder="Enter description"
@@ -752,12 +763,12 @@ const ProfilePage = () => {
 
                                 <div className="row g-3 mb-3 mx-5 justify-content-start text-start align-items-center">
                                     <Form.Group
-                                        className="col-xl-2 offset-xl-1"
+                                        className="col-2 offset-1"
                                         controlId="formJobStartYear"
                                     >
                                         <Form.Label>Start Year</Form.Label>
                                     </Form.Group>
-                                    <Form.Group className="col-xl-3">
+                                    <Form.Group className="col-3">
                                         <Form.Control
                                             type="number"
                                             placeholder="YYYY"
@@ -767,12 +778,12 @@ const ProfilePage = () => {
                                     </Form.Group>
 
                                     <Form.Group
-                                        className="col-xl-2"
+                                        className="col-2"
                                         controlId="formJobEndYear"
                                     >
                                         <Form.Label>End Year</Form.Label>
                                     </Form.Group>
-                                    <Form.Group className="col-xl-3">
+                                    <Form.Group className="col-3">
                                         <Form.Control
                                             type="number"
                                             placeholder="YYYY"
@@ -783,7 +794,7 @@ const ProfilePage = () => {
                                 </div>
 
                                 <div className="row g-3 mb-3 mx-5 justify-content-center text-center align-items-center">
-                                    <div className="col-xl-2">
+                                    <div className="col-2">
                                         {workExperienceList.length - 1 ===
                                             index && (
                                             <Form.Group className="text-center">
@@ -796,7 +807,7 @@ const ProfilePage = () => {
                                             </Form.Group>
                                         )}
                                     </div>
-                                    <div className="col-xl-2">
+                                    <div className="col-2">
                                         {workExperienceList.length !== 1 && (
                                             <Button
                                                 variant="danger"
@@ -823,14 +834,14 @@ const ProfilePage = () => {
                             <div key={index}>
                                 <div className="row g-3 my-3 mx-5 justify-content-center text-start align-items-center">
                                     <Form.Group
-                                        className="col-xl-2"
+                                        className="col-2"
                                         controlId="formPublicationName"
                                     >
                                         <Form.Label>
                                             Publication Name
                                         </Form.Label>
                                     </Form.Group>
-                                    <Form.Group className="col-xl-8">
+                                    <Form.Group className="col-8">
                                         <Form.Control
                                             type="text"
                                             placeholder="Enter research paper name"
@@ -840,12 +851,12 @@ const ProfilePage = () => {
 
                                 <div className="row g-3 mb-3 mx-5 justify-content-center text-start align-items-center">
                                     <Form.Group
-                                        className="col-xl-2"
+                                        className="col-2"
                                         controlId="formPublicationURL"
                                     >
                                         <Form.Label>Publication URL</Form.Label>
                                     </Form.Group>
-                                    <Form.Group className="col-xl-8">
+                                    <Form.Group className="col-8">
                                         <Form.Control
                                             type="url"
                                             placeholder="www.myresearchpaper.com"
@@ -854,7 +865,7 @@ const ProfilePage = () => {
                                 </div>
 
                                 <div className="row g-3 mb-3 mx-5 justify-content-center text-center align-items-center">
-                                    <div className="col-xl-2">
+                                    <div className="col-2">
                                         {publicationsList.length - 1 ===
                                             index && (
                                             <Form.Group className="text-center">
@@ -869,7 +880,7 @@ const ProfilePage = () => {
                                             </Form.Group>
                                         )}
                                     </div>
-                                    <div className="col-xl-2">
+                                    <div className="col-2">
                                         {publicationsList.length !== 1 && (
                                             <Button
                                                 variant="danger"
