@@ -1,4 +1,4 @@
-# Description of our application
+# UNIGENIE
 "Unigenie" is a web platform for international students to find universities, track applications and get latest information about admissions. Users can interact with each other through blog posts, thus getting latest news in real time.
 
 <img width="500" alt="Screen Shot 2022-04-20 at 7 53 38 PM" src="https://user-images.githubusercontent.com/63544356/164346202-660897e3-a1d7-49ea-9634-662b5b773a3d.png">
