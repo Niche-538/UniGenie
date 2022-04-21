@@ -34,4 +34,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 )
 
-require github.com/gin-contrib/cors v1.3.1
+require (
+	github.com/gin-contrib/cors v1.3.1
+	github.com/joho/godotenv v1.4.0
+)

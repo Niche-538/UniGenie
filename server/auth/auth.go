@@ -3,10 +3,13 @@ package auth
 import (
 	"errors"
 	"fmt"
+	"log"
+	"os"
 	"time"
 	"unigenie/models"
 
 	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/joho/godotenv"
 )
 
 // JwtWrapper wraps the signing key and the issuer
@@ -82,6 +85,7 @@ type AuthClaim struct {
 
 func TokenGeneration(user *models.User) (string, error) {
 	userEmail := user.Email
+	// fmt.Print("\n\n In token generation function: ", userEmail, "\n\n\n")
 	claim := AuthClaim{
 		Email: userEmail,
 		StandardClaims: jwt.StandardClaims{
@@ -90,8 +94,28 @@ func TokenGeneration(user *models.User) (string, error) {
 		},
 	}
 
-	token := jwt.NewWithClaims(jwt.SigningMethodES512, claim)
+	// fmt.Print("\n\n In token generation: claim variable: ", claim, "\n\n\n")
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claim)
+
+	fmt.Print("\n\n In token generation function: token: ", token, "\n\n\n")
+
+	// Get secret key
+	godotenv.Load(".env")
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
+	secretKey := []byte(os.Getenv("SECRET_KEY"))
+	fmt.Print("\n\n In token generation function: secretKey: ", secretKey, "\n\n\n")
+	//////////////
+
 	tokenString, err := token.SignedString(secretKey)
+
+	fmt.Print("\n\n In token generation function: tokenstring: ", tokenString, "\n\n\n")
+
 	if err != nil {
 		return "", err
 	}
