@@ -2,8 +2,11 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"os"
+	"strings"
 	api "unigenie/api"
+	"unigenie/auth"
 	"unigenie/controllers"
 
 	"github.com/gin-contrib/cors"
@@ -12,6 +15,42 @@ import (
 	// routes "unigenie/routes"
 	"github.com/gin-gonic/gin"
 )
+
+func getToken(c *gin.Context) (string, bool) {
+	authValue := c.GetHeader("Authorization")
+	arr := strings.Split(authValue, " ")
+	if len(arr) != 2 {
+		return "", false
+	}
+	authType := strings.Trim(arr[0], "\n\r\t")
+	// if strings.ToLower(authType) != strings.ToLower("Bearer") {
+	// 	return "", false
+	// }
+
+	if !strings.EqualFold(strings.ToLower(authType), strings.ToLower("Bearer")) {
+		return "", false
+	}
+
+	return strings.Trim(arr[1], "\n\t\r"), true
+}
+
+func verifyToken(c *gin.Context) {
+	token, ok := getToken(c)
+	if !ok {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
+			"error": "token not found",
+		})
+		return
+	}
+	email, err := auth.TokenValidation(token)
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
+			"error": "user unauthorized",
+		})
+	}
+	c.Set("email", email)
+	c.Next()
+}
 
 func main() {
 
@@ -37,9 +76,10 @@ func main() {
 
 	// Setting CORS headers
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:3000"},
+		// AllowOrigins:     []string{"http://localhost:3000"},
+		AllowOrigins:     []string{"*"},
 		AllowMethods:     []string{"GET", "POST", "PATCH", "PUT", "DELETE"},
-		AllowHeaders:     []string{"Content-Type"},
+		AllowHeaders:     []string{"Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization", "accept", "origin", "Cache-Control", "X-Requested-With"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 		AllowOriginFunc: func(origin string) bool {
@@ -62,7 +102,7 @@ func main() {
 	router.GET("/getStudentDetails", api.GetStudentDetails)
 	router.POST("/addStudentDetails", api.PostStudentDetails)
 
-	router.GET("/getUserPreferences", api.GetUserPreferences)
+	router.GET("/getUserPreferences", verifyToken, api.GetUserPreferences)
 	router.POST("/addUserPreference", api.PostUserPreferences)
 
 	router.GET("/blogs", api.GetBlogs)
