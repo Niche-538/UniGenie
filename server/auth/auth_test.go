@@ -1,23 +1,36 @@
 package auth
 
 import (
+	"log"
 	"os"
 	"testing"
+	"unigenie/models"
 
+	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestGenerateToken(t *testing.T) {
-	jwtWrapper := JwtWrapper{
-		SecretKey:       "Secretkey",
-		Issuer:          "AuthService",
-		ExpirationHours: 24,
+	var testuser models.User
+
+	err := godotenv.Load("../.env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
 	}
 
-	generatedToken, err := jwtWrapper.GenerateToken("jwt@email.com")
+	testuser.Email = "jwt@email.com"
+	// jwtWrapper := JwtWrapper{
+	// 	SecretKey:       "Secretkey",
+	// 	Issuer:          "AuthService",
+	// 	ExpirationHours: 24,
+	// }
+
+	// generatedToken, err := jwtWrapper.GenerateToken("jwt@email.com")
+	testToken, err := TokenGeneration(&testuser)
 	assert.NoError(t, err)
 
-	os.Setenv("testToken", generatedToken)
+	os.Setenv("TestToken", testToken)
 }
 
 func TestValidateToken(t *testing.T) {

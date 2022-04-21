@@ -98,7 +98,7 @@ func TokenGeneration(user *models.User) (string, error) {
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claim)
 
-	fmt.Print("\n\n In token generation function: token: ", token, "\n\n\n")
+	// fmt.Print("\n\n In token generation function: token: ", token, "\n\n\n")
 
 	// Get secret key
 	godotenv.Load(".env")
@@ -109,12 +109,12 @@ func TokenGeneration(user *models.User) (string, error) {
 	}
 
 	secretKey := []byte(os.Getenv("SECRET_KEY"))
-	fmt.Print("\n\n In token generation function: secretKey: ", secretKey, "\n\n\n")
-	//////////////
+	// fmt.Print("\n\n In token generation function: secretKey: ", secretKey, "\n\n\n")
+	// //////////////
 
 	tokenString, err := token.SignedString(secretKey)
 
-	fmt.Print("\n\n In token generation function: tokenstring: ", tokenString, "\n\n\n")
+	// fmt.Print("\n\n In token generation function: tokenstring: ", tokenString, "\n\n\n")
 
 	if err != nil {
 		return "", err

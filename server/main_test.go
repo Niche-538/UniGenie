@@ -4,15 +4,18 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
 	api "unigenie/api"
+	"unigenie/auth"
 	database "unigenie/database"
 	models "unigenie/models"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -349,7 +352,6 @@ func TestUserUniversityApplication(t *testing.T) {
 	}
 }
 
-
 func TestGetTasks(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
@@ -387,8 +389,8 @@ func TestPostTasks(t *testing.T) {
 	r.POST("/addTasks", api.PostTasks)
 
 	tasks := &models.Tasks{
-		UserID:                    1,
-		Task: "Mail Advisor for i20",
+		UserID: 1,
+		Task:   "Mail Advisor for i20",
 	}
 
 	body, _ := json.Marshal(tasks)
@@ -479,5 +481,83 @@ func TestGetMbaUniversities(t *testing.T) {
 		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
 	} else {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
+
+func TestGenerateToken(t *testing.T) {
+	var testuser models.User
+
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
+	testuser.Email = "jwt@email.com"
+	testToken, err := auth.TokenGeneration(&testuser)
+	assert.NoError(t, err)
+
+	os.Setenv("TestToken", testToken)
+}
+
+func TestGetBlogs(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	r := gin.Default()
+	r.GET("/blogs", api.GetBlogs)
+
+	req, err := http.NewRequest(http.MethodGet, "/blogs", nil)
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+	fmt.Println(w.Body)
+
+	if w.Code == http.StatusOK {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	}
+}
+
+func TestPostBlogs(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	_, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	r := gin.Default()
+
+	r.POST("/addBlogs", api.PostBlogs)
+
+	blogs := &models.Blogs{
+		UserID:       10,
+		ID:           100,
+		Blog_head:    "Test Blog Title",
+		Blog_content: "Lorem Ipsum Dolor Sit Amet",
+	}
+
+	body, _ := json.Marshal(blogs)
+
+	req, err := http.NewRequest(http.MethodPost, "/addBlogs", bytes.NewBuffer(body))
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+
+	if w.Code == http.StatusCreated {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusCreated, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusCreated, w.Code)
 	}
 }
