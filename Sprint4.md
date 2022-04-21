@@ -58,7 +58,8 @@ Allows users to add and read blog posts to get latest news about universities
 </ol>
 
 # Demo video functionality 
- 3min max
+ <a href="https://player.vimeo.com/video/701506799?h=2d4664d1cb&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"> ![image](https://user-images.githubusercontent.com/41022671/164363902-59481254-6010-48b4-8da1-449f87fccbcb.png) </a>
+
 
 # Cypress test video
  90sec max
