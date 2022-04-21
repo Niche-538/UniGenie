@@ -66,7 +66,7 @@ Allows users to add and read blog posts to get latest news about universities
 
 
 # Backend unit test video
-<a href="https://player.vimeo.com/video/701509534?h=e87c810747&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"> ![image](https://user-images.githubusercontent.com/41022671/164365254-833f4b58-4b16-40ca-84d8-c7b13b5b0c6a.png) </a>
+<a href="https://player.vimeo.com/video/701708164?h=5166cea28a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"> ![image](https://user-images.githubusercontent.com/41022671/164365254-833f4b58-4b16-40ca-84d8-c7b13b5b0c6a.png) </a>
 
 # Link to API Documentation
 https://github.com/Niche-538/UniGenie/wiki/API-Documentation
