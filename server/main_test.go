@@ -523,3 +523,41 @@ func TestGetBlogs(t *testing.T) {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
 }
+
+func TestPostBlogs(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+
+	_, err := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	r := gin.Default()
+
+	r.POST("/addBlogs", api.PostBlogs)
+
+	blogs := &models.Blogs{
+		UserID:       10,
+		ID:           100,
+		Blog_head:    "Test Blog Title",
+		Blog_content: "Lorem Ipsum Dolor Sit Amet",
+	}
+
+	body, _ := json.Marshal(blogs)
+
+	req, err := http.NewRequest(http.MethodPost, "/addBlogs", bytes.NewBuffer(body))
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+
+	if w.Code == http.StatusCreated {
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusCreated, w.Code)
+	} else {
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusCreated, w.Code)
+	}
+}
