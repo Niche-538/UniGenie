@@ -1,17 +1,25 @@
 package main
 
 import (
+	"log"
 	"os"
 	api "unigenie/api"
 	"unigenie/controllers"
 
 	"github.com/gin-contrib/cors"
+	"github.com/joho/godotenv"
 
 	// routes "unigenie/routes"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
 
 	port := os.Getenv("PORT")
 
