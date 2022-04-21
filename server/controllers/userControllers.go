@@ -47,8 +47,8 @@ func Signup(c *gin.Context) {
 }
 
 type LoginPayload struct {
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	Email    string `json:"email" binding:"required,email"`
+	Password string `json:"password" binding:"required,min=6,max=20"`
 }
 
 // LoginResponse token response
@@ -122,18 +122,27 @@ func TokenLogin(c *gin.Context) {
 	var payload LoginPayload
 	var userLogin models.User
 
-	if err := c.ShouldBindJSON(&payload); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	err := c.ShouldBindJSON(&payload)
+	if err != nil {
+		c.JSON(400, gin.H{
+			"msg": "invalid json",
+		})
+		c.Abort()
 		return
 	}
+
+	// fmt.Print("\n\n\n After JSON Binding:", payload.Email, "\t", payload.Password, "\n\n\n")
 
 	db, sht := gorm.Open(sqlite.Open("unigenie.db"), &gorm.Config{})
 	if sht != nil {
 		panic("failed to connect database")
 	}
 
+	// fmt.Print("\n\n\n After DB\n\n\n")
+
 	// check if user exists in DB
-	result := db.Where("email = ?", payload.Email).First(userLogin)
+	result := db.Where("email = ?", payload.Email).First(&userLogin)
+	// fmt.Print("\n\n\n After Result\n\n\n")
 	if result.Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{
 			"error": "user not found",
@@ -141,8 +150,10 @@ func TokenLogin(c *gin.Context) {
 		return
 	}
 
-	err := userLogin.CheckPassword(payload.Password)
-	if err != nil {
+	// fmt.Print("\n\n\n After User Existence Check\n\n\n")
+
+	errC := userLogin.CheckPassword(payload.Password)
+	if errC != nil {
 		log.Println(err)
 		c.JSON(401, gin.H{
 			"msg": "invalid user credentials",
@@ -151,11 +162,15 @@ func TokenLogin(c *gin.Context) {
 		return
 	}
 
+	// fmt.Print("\n\n\n After Check Password\n\n\n")
+
+	fmt.Print("\n\n\n Check Variable: ", userLogin.Email, "\t", userLogin.Password, "\n\n\n\n\n\n")
+
 	testToken, errorString := auth.TokenGeneration(&userLogin)
 
 	fmt.Print("\n##############\n\n")
 	fmt.Print(testToken)
-	fmt.Print("\n\n##############\n")
+	fmt.Print("\n\n##############\n\n")
 
 	if errorString != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{
