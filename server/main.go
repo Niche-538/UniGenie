@@ -111,10 +111,12 @@ func main() {
 	router.GET("/getTasks", api.GetTasks)
 	router.POST("/addTasks", api.PostTasks)
 
+	router.GET("/getUserUniversityApplications", api.GetUserUniversityApplication)
+	router.GET("/addUserUniversityApplications", api.PostUserUniversityApplication)
+
 	// University APIs
 
 	router.GET("/getUniversities", api.GetUniversities)
-	router.GET("/getUserUniversityApplications", api.GetUserUniversityApplication)
 	router.GET("/getCsUniversityByCountry/:country", api.GetCSUniversity)
 	router.GET("/getMechUniversityByCountry/:country", api.GetMechUniversity)
 	router.GET("/getMbaUniversityByCountry/:country", api.GetMBAUniversity)
