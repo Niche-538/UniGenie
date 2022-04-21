@@ -62,7 +62,8 @@ Allows users to add and read blog posts to get latest news about universities
 
 
 # Cypress test video
- 90sec max
+<a href="https://player.vimeo.com/video/701515847?h=4daf81e83c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"> ![image](https://user-images.githubusercontent.com/41022671/164368563-be8d8c2e-b49e-445e-b48c-71b2e9617251.png) </a>
+
 
 # Backend unit test video
 <a href="https://player.vimeo.com/video/701509534?h=e87c810747&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"> ![image](https://user-images.githubusercontent.com/41022671/164365254-833f4b58-4b16-40ca-84d8-c7b13b5b0c6a.png) </a>
