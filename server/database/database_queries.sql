@@ -395,7 +395,7 @@ VALUES (18, 'University of British Columbia','public', 'www.ubc.ca', 'Vancouver'
 -- drop table blogs;
 
 -- create table blogs (
---     blog_id int PRIMARY_KEY AUTO_INCREMENT,
+--     id int PRIMARY_KEY AUTO_INCREMENT,
 --     blog_head varchar(300),
 --     blog_content varchar(1000000),
 --     user_id INTEGER,

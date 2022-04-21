@@ -97,42 +97,115 @@ const Dashboard = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((user) => (
-                            <tr>
-                                <td>{user.name}</td>
-                                <td>{user.course}</td>
-                                <td>
-                                    {/* {user.actionables} */}
-                                    <Form>
-                                        <Form.Check
-                                            inline
-                                            type="checkbox"
-                                            label="LOR1"
-                                        ></Form.Check>
-                                        <Form.Check
-                                            inline
-                                            type="checkbox"
-                                            label="LOR2"
-                                        ></Form.Check>
-                                        <Form.Check
-                                            inline
-                                            type="checkbox"
-                                            label="LOR3"
-                                        ></Form.Check>
-                                        <Form.Check
-                                            inline
-                                            type="checkbox"
-                                            label="SOP"
-                                        ></Form.Check>
-                                        <Form.Check
-                                            inline
-                                            type="checkbox"
-                                            label="Transcript"
-                                        ></Form.Check>
-                                    </Form>
-                                </td>
-                            </tr>
-                        ))}
+                        <tr>
+                            <td>University of Florida</td>
+                            <td>Computer Science</td>
+                            <td>
+                                <Form>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR1"
+                                        checked
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR2"
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR3"
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="SOP"
+                                        checked
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="Transcript"
+                                        checked
+                                    ></Form.Check>
+                                </Form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>University of Texas at Dallas</td>
+                            <td>Software Engineering</td>
+                            <td>
+                                <Form>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR1"
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR2"
+                                        checked
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR3"
+                                        checked
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="SOP"
+                                        checked
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="Transcript"
+                                    ></Form.Check>
+                                </Form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SUNY Stonybrook</td>
+                            <td>Management in Information Sciences</td>
+                            <td>
+                                <Form>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR1"
+                                        checked
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR2"
+                                        checked
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="LOR3"
+                                        checked
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="SOP"
+                                    ></Form.Check>
+                                    <Form.Check
+                                        inline
+                                        type="checkbox"
+                                        label="Transcript"
+                                        checked
+                                    ></Form.Check>
+                                </Form>
+                            </td>
+                        </tr>
                     </tbody>
                 </Table>
             </div>

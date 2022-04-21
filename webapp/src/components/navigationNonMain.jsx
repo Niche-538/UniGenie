@@ -173,7 +173,7 @@ const Navigation_nonMain = () => {
                             overlay={
                                 <Popover id="popoverPositionedBottom">
                                     <Popover.Header as="h3">
-                                        Signed in as: John Doe
+                                        Signed in as: Kunal Dudhe
                                     </Popover.Header>
                                     <Popover.Body>
                                         <Nav

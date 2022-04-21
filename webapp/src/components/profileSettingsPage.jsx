@@ -84,9 +84,9 @@ const ProfileSettingsPage = () => {
                     </h3>
                     <Formik
                         initialValues={{
-                            firstName: "",
-                            lastName: "",
-                            emailAddress: "",
+                            firstName: "Kunal",
+                            lastName: "Dudhe",
+                            emailAddress: "kdudhe@gmail.com",
                             phoneNumber: "",
                         }}
                         onSubmit={(values) => {
@@ -103,7 +103,7 @@ const ProfileSettingsPage = () => {
                                         name="firstName"
                                         type="text"
                                         id="firstName"
-                                        placeholder="John"
+                                        placeholder="Kunal"
                                         validate={validateFirstName}
                                         className="align-items-center profile-settings-page-form-field col-3 me-2"
                                         style={{
@@ -119,7 +119,7 @@ const ProfileSettingsPage = () => {
                                         name="lastName"
                                         type="text"
                                         id="lastName"
-                                        placeholder="Doe"
+                                        placeholder="Dudhe"
                                         validate={validateLastName}
                                         className="align-items-center profile-settings-page-form-field col-3 me-2"
                                         style={{
@@ -149,7 +149,7 @@ const ProfileSettingsPage = () => {
                                         name="emailAddress"
                                         type="email"
                                         id="emailAddress"
-                                        placeholder="john.doe@email.com"
+                                        placeholder="kunaldudhe@gmail.com"
                                         validate={validateEmailAddress}
                                         className="align-items-center profile-settings-page-form-field col-3 me-2"
                                         style={{

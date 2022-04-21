@@ -39,6 +39,8 @@ const LP = () => {
             return false;
         }
 
+        alert("User registered successfully");
+
         fetch("http://localhost:8080/signup", {
             method: "POST",
             mode: "no-cors",
